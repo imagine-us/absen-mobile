@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/example_one"
+    android:padding="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp">
 
-</LinearLayout>
+
+    <TextView
+        android:id="@+id/dateTimePresensi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        android:text="00/00/0000  00:00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/birutua"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        android:text=" masuk "
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:background="@color/birumuda"
+        />
+
+    <TextView
+        android:id="@+id/lokasiPresensi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/dateTimePresensi"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        android:text="Alun-alun Pangkalabun"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="@color/birutua"
+        />
+
+    <TextView
+        android:id="@+id/longlatPresensi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/lokasiPresensi"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        android:text="Long: 110,1 Lat: 120,2"
+        android:textSize="10sp"
+        android:textColor="@color/birutua"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

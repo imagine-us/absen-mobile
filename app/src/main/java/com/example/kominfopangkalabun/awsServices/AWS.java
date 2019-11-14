@@ -1,4 +1,4 @@
-package com.example.kominfopangkalabun;
+package com.example.kominfopangkalabun.awsServices;
 
 import android.app.Activity;
 import android.os.Bundle;

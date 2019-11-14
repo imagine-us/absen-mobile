@@ -4,6 +4,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PekerjaanActivity">
+    tools:context=".PekerjaanActivity"
+    android:background="#fff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bluebackgroundgradient"
+            android:paddingBottom="10dp"
+            >
+            <ImageView
+                android:id="@+id/imageProfilPekerjaan"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@mipmap/ic_launcher_round"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.08"
+                android:layout_marginTop="20dp"
+                />
+
+            <TextView
+                android:id="@+id/judulPekerjaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DAFTAR PEKERJAAN"
+                android:textColor="@color/abuabu"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@id/imageProfilPekerjaan"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imageProfilPekerjaan"
+                app:layout_constraintHorizontal_bias="0.08"
+                />
+
+            <TextView
+                android:id="@+id/namaProfilPekerjaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rudiantara"
+                android:textColor="@color/abuabu"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="7dp"
+                app:layout_constraintLeft_toRightOf="@id/imageProfilPekerjaan"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/judulPekerjaan"
+                app:layout_constraintHorizontal_bias="0.08"
+                />
+
+            <TextView
+                android:id="@+id/nipProfilPekerjaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="119112114"
+                android:textColor="@color/abuabu"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toRightOf="@id/imageProfilPekerjaan"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/namaProfilPekerjaan"
+                app:layout_constraintHorizontal_bias="0.08"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            >
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
+        </ScrollView>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/iconTambahPekerjaan"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/plusplus"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.98"
+        android:padding="20dp"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="37.5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/abumenu"
+        />
+
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/home"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
