@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".PekerjaanActivity"></activity>
+        <activity android:name=".FormAbsensiActivity"></activity>
+        <activity android:name=".PekerjaanActivity" />
         <activity android:name=".PresensiActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SplashScreen">
