@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PekerjaanActivity"
+    android:background="#fff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bluebackgroundgradient"
+            android:paddingBottom="10dp"
+            >
+
+            <TextView
+                android:id="@+id/judulPekerjaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Form Lembar Kerja Harian"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginVertical="15dp"
+                android:textColor="@color/abuabu"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_editor_absoluteY="20dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical">
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Uraian Tugas : "
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="10dp"
+                 android:textColor="@color/black"/>
+
+             <Spinner
+                 android:id="@+id/sprUraianTugas"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="10dp"
+                 android:background="@color/black"
+                 />
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Analisas Tugas : "
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="10dp"
+                 android:textColor="@color/black"/>
+
+             <RadioGroup
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:background="@color/black"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="10dp">
+
+                 <RadioButton
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Item 1"
+                     />
+
+                 <RadioButton
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="Item 2"
+                     />
+             </RadioGroup>
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Waktu Mulai / Durasi : "
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="10dp"
+                 android:textColor="@color/black"/>
+
+             <LinearLayout
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal">
+
+
+                 <EditText
+                     android:id="@+id/edtTanggalKerja"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="10dp"
+                     android:layout_marginLeft="10dp"
+                     android:inputType="text"
+                     android:background="@color/black" />
+
+                 <EditText
+                     android:id="@+id/edtJamKerja"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="10dp"
+                     android:layout_marginLeft="10dp"
+                     android:inputType="text"
+                     android:background="@color/black" />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text=" / "
+                     android:layout_marginTop="10dp"
+                     android:layout_marginLeft="10dp"
+                     android:textColor="@color/black"/>
+
+                 <EditText
+                     android:id="@+id/edtDurasiKerja"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="10dp"
+                     android:layout_marginLeft="10dp"
+                     android:inputType="text"
+                     android:background="@color/black" />
+             </LinearLayout>
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Nama Pekerjaan : "
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="10dp"
+                 android:textColor="@color/black"/>
+
+             <EditText
+                 android:id="@+id/edtNamaPekerjaan"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="10dp"
+                 android:layout_marginRight="10dp"
+                 android:inputType="textMultiLine"
+                 android:lines="5"
+                 android:background="@color/black" />
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Hasil Pekerjaan : "
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="10dp"
+                 android:textColor="@color/black"/>
+
+             <EditText
+                 android:id="@+id/edtHasilPekerjaan"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="10dp"
+                 android:layout_marginRight="10dp"
+                 android:inputType="textMultiLine"
+                 android:lines="5"
+                 android:background="@color/black" />
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:orientation="horizontal">
+
+                 <Button
+                     android:id="@+id/btnSimpanPekerjaan"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:layout_marginTop="10dp"
+                     android:layout_marginLeft="30dp"
+                     android:text="Simpan" />
+
+                 <Button
+                     android:id="@+id/btnKembaliPekerjaan"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1"
+                     android:layout_marginTop="10dp"
+                     android:layout_marginLeft="10dp"
+                     android:text="Kembali" />
+             </LinearLayout>
+
+
+         </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="37.5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/abumenu"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
