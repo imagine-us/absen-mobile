@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="DAFTAR PRESENSI"
-                android:textColor="@color/abuabu"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toRightOf="@id/imageProfilPresensi"
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rudiantara"
-                android:textColor="@color/abuabu"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:layout_marginTop="7dp"
@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="119112114"
-                android:textColor="@color/abuabu"
+                android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toRightOf="@id/imageProfilPresensi"
                 app:layout_constraintRight_toRightOf="parent"
@@ -99,6 +99,7 @@
         app:layout_constraintVertical_bias="0.95"
         app:layout_constraintHorizontal_bias="0.98"
         android:padding="20dp"
+
         />
     <FrameLayout
         android:layout_width="match_parent"

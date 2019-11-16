@@ -20,7 +20,7 @@
         android:text="00/00/0000  00:00"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/birutua"
+        android:textColor="@color/black"
         />
 
     <TextView
@@ -47,7 +47,7 @@
         android:text="Alun-alun Pangkalabun"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:textColor="@color/birutua"
+        android:textColor="@color/black"
         />
 
     <TextView
@@ -60,7 +60,7 @@
         app:layout_constraintHorizontal_bias="0.1"
         android:text="Long: 110,1 Lat: 120,2"
         android:textSize="10sp"
-        android:textColor="@color/birutua"
+        android:textColor="@color/black"
         />
 
 

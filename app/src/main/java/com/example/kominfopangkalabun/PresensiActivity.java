@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.example.kominfopangkalabun.adapter.AbsensiAdapter;
@@ -20,14 +22,22 @@ public class PresensiActivity extends AppCompatActivity {
     Absensi absensi;
     List<Absensi> absensiList = new ArrayList<>();
     LinearLayoutManager layoutManager;
-    ImageView profil;
+    ImageView profil, tambahPresensi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_presensi);
 
-        profil = findViewById(R.id.imageProfilPresensi);
+        tambahPresensi = findViewById(R.id.iconTambahPresensi);
+        tambahPresensi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new Intent(PresensiActivity.this, FormAbsensiActivity.class);
+            }
+        });
+
+        profil = findViewById(R.id.imageProfilAbsensi);
         Picasso.with(this).load(R.drawable.rudiantara).transform(new PicassoCircleTransformation()).into(profil);
 
 
