@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 public class MainActivity extends AppCompatActivity {
 
     Button btnTambahTugas;
-    ImageView profil, presensi, pekerjaan;
+    ImageView profil, presensi, pekerjaan, pengaduan;
 
 
     @Override
@@ -39,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this,PekerjaanActivity.class));
+            }
+        });
+
+        pengaduan = findViewById(R.id.iconPengaduan);
+        pengaduan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,PengaduanActivity.class));
             }
         });
 
