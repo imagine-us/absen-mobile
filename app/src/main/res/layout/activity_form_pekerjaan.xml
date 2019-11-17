@@ -105,7 +105,8 @@
                      android:layout_marginTop="10dp"
                      android:layout_marginLeft="10dp"
                      android:inputType="text"
-                     android:background="@color/black" />
+                     android:background="@color/black"
+                     android:focusable="false"/>
 
                  <EditText
                      android:id="@+id/edtJamKerja"
@@ -114,7 +115,8 @@
                      android:layout_marginTop="10dp"
                      android:layout_marginLeft="10dp"
                      android:inputType="text"
-                     android:background="@color/black" />
+                     android:background="@color/black"
+                     android:focusable="false"/>
 
                  <TextView
                      android:layout_width="wrap_content"
@@ -131,7 +133,17 @@
                      android:layout_marginTop="10dp"
                      android:layout_marginLeft="10dp"
                      android:inputType="text"
-                     android:background="@color/black" />
+                     android:background="@color/black"
+                     android:text="0"
+                     />
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text=" Menit."
+                     android:layout_marginTop="10dp"
+                     android:layout_marginLeft="10dp"
+                     android:textColor="@color/black"/>
              </LinearLayout>
 
              <TextView
