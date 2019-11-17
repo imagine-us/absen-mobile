@@ -52,10 +52,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //loading = ProgressDialog.show(mContext, null, "Please Wait...", true, false);
-                //requestLogin();
+                requestLogin();
                 //Intent intent = new Intent(mContext, AbsensiActivity.class);
-                Intent intent = new Intent(mContext, MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(mContext, MainActivity.class);
+//                startActivity(intent);
             }
         });
 
