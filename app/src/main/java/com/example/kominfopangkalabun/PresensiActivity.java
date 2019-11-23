@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.kominfopangkalabun.adapter.AbsensiAdapter;
 import com.example.kominfopangkalabun.model.Absensi;
@@ -33,11 +34,12 @@ public class PresensiActivity extends AppCompatActivity {
         tambahPresensi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new Intent(PresensiActivity.this, FormAbsensiActivity.class);
+               // Toast.makeText(PresensiActivity.this,"tes",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(PresensiActivity.this, FormAbsensiActivity.class));
             }
         });
 
-        profil = findViewById(R.id.imageProfilAbsensi);
+        profil = findViewById(R.id.imageProfilPresensi);
         Picasso.with(this).load(R.drawable.rudiantara).transform(new PicassoCircleTransformation()).into(profil);
 
 

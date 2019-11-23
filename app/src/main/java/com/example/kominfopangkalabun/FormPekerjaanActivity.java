@@ -64,8 +64,20 @@ public class FormPekerjaanActivity extends AppCompatActivity {
         //generate spinner uraian tugas
         Spinner spinnerUraianTugas = findViewById(R.id.sprUraianTugas);
 
-        //pakai rest server seharusnya
-        String[] items = new String[] { "Perumusan kebijakan di bidang pengelolaan data statistik dan integrasi sistem informasi.", "Green Tea", "Black Tea" };
+        //pakai rest server seharusnya - hardcode saja
+        String[] items = new String[] {
+                "Melaksanakan monitoring kegiatan pengelolaan data statistik (sektoral) & Integrasi System",
+                "Melaksanakan koordinasi terkait sub bidang pengelolaan data statistik (sektoral) & Integrasi System",
+                "Perumusan kebijakan di bidang pengelolaan data statistik dan integrasi sistem informasi",
+                "Melaksanakan tugas administrasi Sub Bidang Integrasi System dan Pengelolaan data statistik",
+                "Melakukan Konsultasi dengan Atasan",
+                "Melaksanakan penyusunan program kerja Integrasi Sistem Informasi; & penyusunan program kerja Pengelolaan Data Statistik",
+                "Melaksanakan tugas lain yang diberikan oleh Kepala Bidang dalam rangka kelancaran pelaksanaan tugas Bidang Pengelolaan Data Statistik dan Layanan E-Government",
+                "Melaksanakan pelaporan dan evaluasi kegiatan",
+                "Memberikan arahan staf Integrasi system & pengelolaan data statistik",
+                "Melaksanakan penyusunan bahan telaahan staf sebagai bahan pertimbangan pengambilan kebijakan",
+                "Melaksanakan pengelolaan data melalui aplikasi perangkat lunak dan sistem informasi yang terintegrasi di bidang data statistik",
+                "Melaksanakan Implementasi teknis integrasi sistem informasi dan perangkat pendukung dengan lembaga /daerah /instansi lain"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, items);
