@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.kominfopangkalabun.model.Login.Login;
 import com.example.kominfopangkalabun.retrofit.BaseApiService;
 import com.example.kominfopangkalabun.retrofit.UtilsApi;
 
@@ -19,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -52,16 +54,16 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //loading = ProgressDialog.show(mContext, null, "Please Wait...", true, false);
-//                requestLogin();
+                requestLogin();
                 //Intent intent = new Intent(mContext, AbsensiActivity.class);
-                Intent intent = new Intent(mContext, MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(mContext, MainActivity.class);
+//                startActivity(intent);
             }
         });
 
     }
 
-    private void requestLogin(){
+    private void requestLoginLama(){
         mApiService.loginRequest(edtUsnm.getText().toString(), edtPwd.getText().toString())
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
@@ -101,5 +103,35 @@ public class LoginActivity extends AppCompatActivity {
 //                        loading.dismiss();
                     }
                 });
+    }
+
+    private void requestLogin(){
+        Call<Login> call =mApiService.tryLogin(edtUsnm.getText().toString(), edtPwd.getText().toString());
+        call.enqueue(new Callback<Login>() {
+            @Override
+            public void onResponse(Call<Login> call, Response<Login> response) {
+                    int codeResponse = response.code();
+                    if(codeResponse == 200){
+                        //shared preferences disini
+                        Login login = response.body();
+                        Intent intent = new Intent(mContext, MainActivity.class);
+                        intent.putExtra("nip", login.getNip());
+                        startActivity(intent);
+                    }
+                    else if(codeResponse == 404){
+                        Toast.makeText(mContext,"User tidak ditemukan",Toast.LENGTH_SHORT).show();
+                    }
+                    else if(codeResponse == 400){
+                        Toast.makeText(mContext,"Password Salah",Toast.LENGTH_SHORT).show();
+                    }
+
+            }
+
+            @Override
+            public void onFailure(Call<Login> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+//                        loading.dismiss();
+            }
+        });
     }
 }

@@ -1,11 +1,16 @@
 package com.example.kominfopangkalabun.retrofit;
 
+import com.example.kominfopangkalabun.model.Login.Login;
+
+import java.util.List;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface BaseApiService {
 
@@ -33,11 +38,11 @@ public interface BaseApiService {
                                    @Field("latitude") String latitude,
                                    @Field("longitude") String longitude);
 
-    // Fungsi ini untuk memanggil API
-    @FormUrlEncoded
-    @POST("insert_task.php")
-    Call<ResponseBody> insertTask(@Field("judul") String judul,
-                                  @Field("detail") String detail);
+
+    // Fungsi ini untuk memanggil
+    @GET("login")
+    Call<Login> tryLogin(@Query("nip") String nip,
+                                 @Query("password") String password);
 
 
 
