@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kominfopangkalabun.R;
-import com.example.kominfopangkalabun.model.Absensi;
+import com.example.kominfopangkalabun.model.Absensi.Absensi;
 
 import java.util.List;
 
@@ -40,7 +40,7 @@ public class AbsensiAdapter extends RecyclerView.Adapter<AbsensiAdapter.MyViewHo
         Absensi absensi = absensiList.get(position);
 
         holder.dateTime.setText(absensi.getTanggal()+"  "+absensi.getJam());
-        holder.lokasi.setText(absensi.getLokasi());
+//        holder.lokasi.setText(absensi.getLokasi());
         holder.longLat.setText("Long:"+absensi.getLongitude()+" Lat:"+absensi.getLatitude());
     }
 

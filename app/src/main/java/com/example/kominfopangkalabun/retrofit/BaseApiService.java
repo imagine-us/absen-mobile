@@ -1,5 +1,6 @@
 package com.example.kominfopangkalabun.retrofit;
 
+import com.example.kominfopangkalabun.model.Absensi.AbsensiModel;
 import com.example.kominfopangkalabun.model.Login.Login;
 
 import java.util.List;
@@ -39,11 +40,13 @@ public interface BaseApiService {
                                    @Field("longitude") String longitude);
 
 
-    // Fungsi ini untuk memanggil
+    // Fungsi login
     @GET("login")
     Call<Login> tryLogin(@Query("nip") String nip,
                                  @Query("password") String password);
 
-
+     //Fungsi ambil absensi
+     @GET("absensihist")
+     Call<AbsensiModel> requestAbsensiHistori(@Query("id") String id);
 
 }
