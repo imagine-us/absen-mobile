@@ -13,7 +13,7 @@ public class Absensi {
     @SerializedName("al_long")
     private String longitude;
 
-    @SerializedName("latitude")
+    @SerializedName("al_lat")
     private String latitude;
 
     //yang dimaksud lokasi ini data yang mana

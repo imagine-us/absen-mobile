@@ -63,6 +63,7 @@ public class PresensiActivity extends AppCompatActivity {
                 AbsensiAdapter menuAdapter = new AbsensiAdapter(absensiList);
                 recyclerView.setAdapter(menuAdapter);
                 recyclerView.setLayoutManager(layoutManager);
+//                Log.e("debug", "Ini berhasil");
             }
 
             @Override
@@ -103,7 +104,5 @@ public class PresensiActivity extends AppCompatActivity {
 //        AbsensiAdapter menuAdapter = new AbsensiAdapter(absensiList);
 //        recyclerView.setAdapter(menuAdapter);
 //        recyclerView.setLayoutManager(layoutManager);
-
-
     }
 }

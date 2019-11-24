@@ -44,7 +44,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
-        android:text="Alun-alun Pangkalabun"
+        android:text="Lokasi"
         android:textSize="12sp"
         android:textStyle="bold"
         android:textColor="@color/black"
@@ -58,7 +58,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
-        android:text="Long: 110,1 Lat: 120,2"
+        android:text="Long : Lat : "
         android:textSize="10sp"
         android:textColor="@color/black"
         />

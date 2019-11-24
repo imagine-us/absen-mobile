@@ -12,7 +12,7 @@ public class AbsensiModel {
     @SerializedName("data")
     private List<Absensi> listAbsensi;
 
-    public AbsensiModel(String status, List<com.example.kominfopangkalabun.model.Absensi.Absensi> listAbsensi) {
+    public AbsensiModel(String status, List<Absensi> listAbsensi) {
         this.status = status;
         this.listAbsensi = listAbsensi;
     }
