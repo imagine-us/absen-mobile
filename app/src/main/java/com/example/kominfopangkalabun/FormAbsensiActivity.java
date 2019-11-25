@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import android.hardware.Camera.CameraInfo;
 
+import com.example.kominfopangkalabun.retrofit.BaseApiService;
+import com.example.kominfopangkalabun.retrofit.UtilsApi;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,13 +31,20 @@ import com.squareup.picasso.Picasso;
 import java.util.Calendar;
 import java.util.Date;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class FormAbsensiActivity extends AppCompatActivity {
 
     TextView tanggalHariIni, lokasiHariIni;
     Calendar currentTime;
     ImageView profil, absensi;
-    String tanggal, longitude, latitude;
+    String tanggal, longitude, latitude, pnsid;
     Bitmap imageAbsen;
+
+    BaseApiService mApiService;
 
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -60,7 +69,8 @@ public class FormAbsensiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_absensi);
 
-
+        pnsid="123";
+        mApiService = UtilsApi.getAPIService();
 //
         currentTime = Calendar.getInstance();
         tanggalHariIni = findViewById(R.id.detailAbsensiHariIni);
@@ -97,8 +107,19 @@ public class FormAbsensiActivity extends AppCompatActivity {
                  dispatchTakePictureIntent();
 
                 if(checkAWS(imageAbsen)){
-                    Toast.makeText(FormAbsensiActivity.this, "" + tanggal + " - " + longitude + " - " + latitude, Toast.LENGTH_LONG).show();
+                    mApiService.insertAbsen("true",pnsid,latitude,longitude).enqueue(new Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            Toast.makeText(FormAbsensiActivity.this, "Absen Sukses:" + tanggal + " - " + longitude + " - " + latitude, Toast.LENGTH_LONG).show();
 
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            Toast.makeText(FormAbsensiActivity.this, "Absen Gagal", Toast.LENGTH_LONG).show();
+
+                        }
+                    });
                 }
 
             }
