@@ -5,7 +5,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FormPekerjaanActivity"
-    android:background="#fff">
+    android:background="@color/putihtulang">
+
+<!--    <TextView-->
+<!--        android:id="@+id/textJudulPekerjaan"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Form Lembar Kerja Harian"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="24sp"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.05"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        />-->
+
+
+<!--                 <Spinner-->
+<!--                     android:id="@+id/sprUraianTugas"-->
+<!--                     android:layout_width="match_parent"-->
+<!--                     android:layout_height="wrap_content"-->
+<!--                     android:layout_marginTop="10dp"-->
+<!--                     android:layout_marginLeft="15dp"-->
+<!--                     android:layout_marginRight="15dp"-->
+<!--                     android:background="@drawable/borderabu"-->
+<!--                     app:layout_constraintTop_toBottomOf="@+id/textJudulPekerjaan"-->
+<!--                     app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                     app:layout_constraintRight_toRightOf="parent"-->
+<!--                     android:padding="10dp"-->
+<!--                     />-->
+
+
+<!--                 <RadioGroup-->
+<!--                     android:layout_width="wrap_content"-->
+<!--                     android:layout_height="wrap_content"-->
+<!--                     android:background="@color/black"-->
+<!--                     android:layout_marginTop="10dp"-->
+<!--                     android:layout_marginLeft="10dp">-->
+
+<!--                     <RadioButton-->
+<!--                         android:layout_width="wrap_content"-->
+<!--                         android:layout_height="wrap_content"-->
+<!--                         android:text="Item 1"-->
+<!--                         />-->
+
+<!--                     <RadioButton-->
+<!--                         android:layout_width="wrap_content"-->
+<!--                         android:layout_height="wrap_content"-->
+<!--                         android:text="Item 2"-->
+<!--                         />-->
+<!--                 </RadioGroup>-->
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,7 +69,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bluebackgroundgradient"
+            android:background="@color/birutua"
             android:paddingBottom="10dp"
             >
 
@@ -27,7 +81,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginVertical="15dp"
-                android:textColor="@color/abuabu"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintRight_toRightOf="parent"
@@ -53,7 +107,7 @@
                  android:layout_height="wrap_content"
                  android:layout_marginTop="10dp"
                  android:layout_marginLeft="10dp"
-                 android:background="@color/black"
+                 android:background="@drawable/borderabu"
                  />
 
              <TextView

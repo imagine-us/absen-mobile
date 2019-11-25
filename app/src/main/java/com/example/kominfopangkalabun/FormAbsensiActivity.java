@@ -5,15 +5,21 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.hardware.Camera;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import android.hardware.Camera.CameraInfo;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -28,7 +34,27 @@ public class FormAbsensiActivity extends AppCompatActivity {
     TextView tanggalHariIni, lokasiHariIni;
     Calendar currentTime;
     ImageView profil, absensi;
-    String tanggal,longitude,latitude;
+    String tanggal, longitude, latitude;
+    Bitmap imageAbsen;
+
+
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imageAbsen=imageBitmap;
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,25 +64,24 @@ public class FormAbsensiActivity extends AppCompatActivity {
 //
         currentTime = Calendar.getInstance();
         tanggalHariIni = findViewById(R.id.detailAbsensiHariIni);
-        tanggalHariIni.setText(""+currentTime.getTime());
-        tanggal=""+currentTime.getTime();
+        tanggalHariIni.setText("" + currentTime.getTime());
+        tanggal = "" + currentTime.getTime();
 
 //        // GET CURRENT LOCATION
-        lokasiHariIni= findViewById(R.id.lokasiAbsensiHariIni);
+        lokasiHariIni = findViewById(R.id.lokasiAbsensiHariIni);
         FusedLocationProviderClient mFusedLocation = LocationServices.getFusedLocationProviderClient(this);
         mFusedLocation.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                if (location != null){
+                if (location != null) {
                     // Do it all with location
                     Log.d("My Current location", "Lat : " + location.getLatitude() + " Long : " + location.getLongitude());
                     // Display in Toast
-                   lokasiHariIni.setText("Lat : " + location.getLatitude() + " Long : " + location.getLongitude());
-//                  //  Toast.makeText(FormAbsensiActivity.this,
-//                            "Lat : " + location.getLatitude() + " Long : " + location.getLongitude(),
-//                            Toast.LENGTH_LONG).show();
-                    latitude=""+location.getLatitude();
-                    longitude=""+location.getLongitude();
+                    lokasiHariIni.setText("Lat : " + location.getLatitude() + " Long : " + location.getLongitude());
+                    latitude = "" + location.getLatitude();
+                    longitude = "" + location.getLongitude();
+
+
                 }
             }
         });
@@ -69,14 +94,22 @@ public class FormAbsensiActivity extends AppCompatActivity {
         absensi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Toast.makeText(FormAbsensiActivity.this,""+tanggal+" - "+longitude+" - "+latitude,Toast.LENGTH_LONG).show();
+                 dispatchTakePictureIntent();
 
+                if(checkAWS(imageAbsen)){
+                    Toast.makeText(FormAbsensiActivity.this, "" + tanggal + " - " + longitude + " - " + latitude, Toast.LENGTH_LONG).show();
+
+                }
 
             }
         });
 
     }
 
+    public boolean checkAWS(Bitmap image){
+        // cek aws
+        return true;
+    }
 
 
 }

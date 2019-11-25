@@ -113,6 +113,7 @@ public class LoginActivity extends AppCompatActivity {
                     int codeResponse = response.code();
                     if(codeResponse == 200){
                         //shared preferences disini
+                        Toast.makeText(mContext,"Login Berhasil",Toast.LENGTH_SHORT).show();
                         Login login = response.body();
                         Intent intent = new Intent(mContext, MainActivity.class);
                         intent.putExtra("nip", login.getNip());
