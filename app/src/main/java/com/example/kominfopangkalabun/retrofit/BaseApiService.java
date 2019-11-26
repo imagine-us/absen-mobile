@@ -21,6 +21,7 @@ public interface BaseApiService {
     Call<ResponseBody> loginRequest(@Field("nip") String nip,
                                     @Field("password") String password);
 
+
     // mengambil histori absen luar
     @FormUrlEncoded
     @GET("absensihist")

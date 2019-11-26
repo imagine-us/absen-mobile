@@ -34,17 +34,22 @@ public class PresensiActivity extends AppCompatActivity {
     BaseApiService mApiService;
     LinearLayoutManager layoutManager;
     ImageView profil, tambahPresensi;
-    String nip;
-    TextView txtNip;
+    String nip,id,nama;
+    TextView txtNip,txtNama;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_presensi);
 
-        txtNip=findViewById(R.id.nipProfilPresensi);
+        txtNip = findViewById(R.id.nipProfilPresensi);
+        txtNama = findViewById(R.id.namaProfilPresensi);
         nip = getIntent().getExtras().getString("nip");
+        id = getIntent().getExtras().getString("id");
+        nama = getIntent().getExtras().getString("nama");
+
         txtNip.setText(nip);
+        txtNama.setText(nama);
 
 
         mApiService = UtilsApi.getAPIService();
@@ -73,7 +78,7 @@ public class PresensiActivity extends AppCompatActivity {
         profil = findViewById(R.id.imageProfilPresensi);
         Picasso.with(this).load(R.drawable.rudiantara).transform(new PicassoCircleTransformation()).into(profil);
 
-        Call<AbsensiModel> call = mApiService.requestAbsensiHistori(nip);
+        Call<AbsensiModel> call = mApiService.requestAbsensiHistori(id);
         call.enqueue(new Callback<AbsensiModel>() {
             @Override
             public void onResponse(Call<AbsensiModel> call, Response<AbsensiModel> response) {

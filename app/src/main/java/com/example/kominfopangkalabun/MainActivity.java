@@ -15,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnTambahTugas;
     ImageView profil, presensi, pekerjaan, pengaduan, tpp;
-    TextView txtNip;
-    String nip;
+    TextView txtNip, txtNama;
+    String nip,id,nama;
 
 
 
@@ -28,8 +28,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.menu_layout);
 
         txtNip = findViewById(R.id.nipProfil);
+        txtNama = findViewById(R.id.namaProfil);
         nip = getIntent().getExtras().getString("nip");
+        id = getIntent().getExtras().getString("id");
+        nama = getIntent().getExtras().getString("nama");
         txtNip.setText(nip);
+        txtNama.setText(nama);
+
 
         profil = findViewById(R.id.imageProfil);
         Picasso.with(this).load(R.drawable.rudiantara).transform(new PicassoCircleTransformation()).into(profil);
@@ -40,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this,PresensiActivity.class);
                 i.putExtra("nip",nip);
+                i.putExtra("id",id);
+                i.putExtra("nama",nama);
                 startActivity(i);
             }
         });
