@@ -29,8 +29,6 @@ import retrofit2.Response;
 public class PresensiActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-//    Absensi absensi;
-//    List<Absensi> absensiList = new ArrayList<>();
     BaseApiService mApiService;
     LinearLayoutManager layoutManager;
     ImageView profil, tambahPresensi;
@@ -45,7 +43,6 @@ public class PresensiActivity extends AppCompatActivity {
         tambahPresensi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Toast.makeText(PresensiActivity.this,"tes",Toast.LENGTH_LONG).show();
                 startActivity(new Intent(PresensiActivity.this, FormAbsensiActivity.class));
             }
         });
@@ -63,7 +60,6 @@ public class PresensiActivity extends AppCompatActivity {
                 AbsensiAdapter menuAdapter = new AbsensiAdapter(absensiList);
                 recyclerView.setAdapter(menuAdapter);
                 recyclerView.setLayoutManager(layoutManager);
-//                Log.e("debug", "Ini berhasil");
             }
 
             @Override
@@ -71,38 +67,5 @@ public class PresensiActivity extends AppCompatActivity {
                 Log.e("debug", "onFailure: ERROR > " + t.toString());
             }
         });
-
-//        absensi = new Absensi("12/12/2019","07:00","112","110","Alun-alun, Pangkalabun","1101101");
-//        absensiList.add(absensi);
-//
-//        absensi = new Absensi("12/12/2019","07:00","112","110","Alun-alun, Pangkalabun","1101101");
-//        absensiList.add(absensi);
-//
-//        absensi = new Absensi("12/12/2019","07:00","112","110","Alun-alun, Pangkalabun","1101101");
-//        absensiList.add(absensi);
-//
-//        absensi = new Absensi("12/12/2019","07:00","112","110","Alun-alun, Pangkalabun","1101101");
-//        absensiList.add(absensi);
-//
-//        absensi = new Absensi("12/12/2019","07:00","112","110","Alun-alun, Pangkalabun","1101101");
-//        absensiList.add(absensi);
-//
-//        absensi = new Absensi("12/12/2019","07:00","112","110","Alun-alun, Pangkalabun","1101101");
-//        absensiList.add(absensi);
-//
-//        absensi = new Absensi("12/12/2019","07:00","112","110","Alun-alun, Pangkalabun","1101101");
-//        absensiList.add(absensi);
-//
-//        absensi = new Absensi("12/12/2019","07:00","112","110","Alun-alun, Pangkalabun","1101101");
-//        absensiList.add(absensi);
-//
-//        absensi = new Absensi("12/12/2019","07:00","112","110","Alun-alun, Pangkalabun","1101101");
-//        absensiList.add(absensi);
-
-//        recyclerView= findViewById(R.id.rv);
-//        layoutManager = new LinearLayoutManager(this);
-//        AbsensiAdapter menuAdapter = new AbsensiAdapter(absensiList);
-//        recyclerView.setAdapter(menuAdapter);
-//        recyclerView.setLayoutManager(layoutManager);
     }
 }
