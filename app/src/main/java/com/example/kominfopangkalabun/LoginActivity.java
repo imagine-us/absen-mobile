@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                                    // String username = jsonRESULTS.getJSONObject("user").getString("username");
                                     String username = edtUsnm.getText().toString();
                                     Intent intent = new Intent(mContext, MainActivity.class);
-                                    intent.putExtra("username", username);
+                                    intent.putExtra("nip", username);
                                     startActivity(intent);
                                 } else {
                                     // Jika login gagal
