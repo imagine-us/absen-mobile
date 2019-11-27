@@ -55,4 +55,9 @@ public interface BaseApiService {
      @GET("pengaduan")
      Call<PengaduanModel> requestPengaduan(@Query("pnsid") String id);
 
+    @FormUrlEncoded
+    @POST("inputpengaduan")
+    Call<PengaduanModel> insertPengaduan(@Field("pnsid") String pnsid,
+                                   @Field("pengaduan") String pengaduan);
+
 }

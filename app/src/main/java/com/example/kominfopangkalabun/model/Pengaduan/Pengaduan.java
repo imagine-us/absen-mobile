@@ -25,17 +25,17 @@ public class Pengaduan {
     @SerializedName("tanggal_pengaduan")
     private String pengaduanTanggalPengaduan;
 
-    @SerializedName("tanggal_tanggapan")
-    private String getPengaduanTanggalTanggapan;
+//    @SerializedName("tanggal_tanggapan")
+//    private String getPengaduanTanggalTanggapan;
 
-    public Pengaduan(String pengaduanId, String pengaduanPnsId, String pengaduanIsi, String pengaduanStatus, String pengaduanFile, String pengaduanTanggalPengaduan, String getPengaduanTanggalTanggapan) {
+    public Pengaduan(String pengaduanId, String pengaduanPnsId, String pengaduanIsi, String pengaduanStatus, String pengaduanFile, String pengaduanTanggalPengaduan) {
         this.pengaduanId = pengaduanId;
         this.pengaduanPnsId = pengaduanPnsId;
         this.pengaduanIsi = pengaduanIsi;
         this.pengaduanStatus = pengaduanStatus;
         this.pengaduanFile = pengaduanFile;
         this.pengaduanTanggalPengaduan = pengaduanTanggalPengaduan;
-        this.getPengaduanTanggalTanggapan = getPengaduanTanggalTanggapan;
+//        this.getPengaduanTanggalTanggapan = getPengaduanTanggalTanggapan;
     }
 
     public Pengaduan(String pengaduanStatus, String pengaduanTanggalPengaduan) {
@@ -91,11 +91,11 @@ public class Pengaduan {
         this.pengaduanTanggalPengaduan = pengaduanTanggalPengaduan;
     }
 
-    public String getGetPengaduanTanggalTanggapan() {
-        return getPengaduanTanggalTanggapan;
-    }
-
-    public void setGetPengaduanTanggalTanggapan(String getPengaduanTanggalTanggapan) {
-        this.getPengaduanTanggalTanggapan = getPengaduanTanggalTanggapan;
-    }
+//    public String getGetPengaduanTanggalTanggapan() {
+//        return getPengaduanTanggalTanggapan;
+//    }
+//
+//    public void setGetPengaduanTanggalTanggapan(String getPengaduanTanggalTanggapan) {
+//        this.getPengaduanTanggalTanggapan = getPengaduanTanggalTanggapan;
+//    }
 }

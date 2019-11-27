@@ -43,6 +43,7 @@ public class PengaduanActivity extends AppCompatActivity {
         tambahPengaduan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 Intent intent = new Intent(getApplicationContext(), FormPengaduanActivity.class);
                 startActivity(intent);
             }

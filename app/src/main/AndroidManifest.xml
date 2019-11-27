@@ -25,7 +25,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".TppActivity"></activity>
+        <activity android:name=".PengaduanTanggapan"></activity>
+        <activity android:name=".retrofit.PengaduanTanggapan" />
+        <activity android:name=".TppActivity" />
         <activity android:name=".FormPengaduanActivity" />
         <activity android:name=".FormAbsensiActivity" />
         <activity android:name=".PengaduanActivity" />
