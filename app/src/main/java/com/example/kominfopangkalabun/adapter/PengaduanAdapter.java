@@ -44,7 +44,8 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
 
         holder.subjek.setText("Subjek");
 
-        if(nomorstatus == "0"){
+        //kurang warna tiap status
+        if(nomorstatus.equals("0")){
             holder.status.setText("Belum Proses");
         }
         else if(nomorstatus == "1"){

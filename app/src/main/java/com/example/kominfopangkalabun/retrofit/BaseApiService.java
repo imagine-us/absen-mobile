@@ -2,6 +2,7 @@ package com.example.kominfopangkalabun.retrofit;
 
 import com.example.kominfopangkalabun.model.Absensi.AbsensiModel;
 import com.example.kominfopangkalabun.model.Login.Login;
+import com.example.kominfopangkalabun.model.Pengaduan.PengaduanModel;
 
 import java.util.List;
 
@@ -49,5 +50,9 @@ public interface BaseApiService {
      //Fungsi ambil absensi
      @GET("absensihist")
      Call<AbsensiModel> requestAbsensiHistori(@Query("id") String id);
+
+     //Fungsi ambil data pengaduan untuk recycle view
+     @GET("pengaduan")
+     Call<PengaduanModel> requestPengaduan(@Query("pnsid") String id);
 
 }

@@ -13,11 +13,16 @@ import android.widget.ImageView;
 import com.example.kominfopangkalabun.adapter.AbsensiAdapter;
 import com.example.kominfopangkalabun.adapter.PengaduanAdapter;
 import com.example.kominfopangkalabun.model.Pengaduan.Pengaduan;
+import com.example.kominfopangkalabun.model.Pengaduan.PengaduanModel;
 import com.example.kominfopangkalabun.retrofit.BaseApiService;
 import com.example.kominfopangkalabun.retrofit.UtilsApi;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PengaduanActivity extends AppCompatActivity {
 
@@ -43,15 +48,25 @@ public class PengaduanActivity extends AppCompatActivity {
             }
         });
 
-//        Pengaduan pengaduan = new Pengaduan("0","17-09-2019");
-        List<Pengaduan> pengaduanList = new ArrayList<>();
-        pengaduanList.add(new Pengaduan("1","17-09-2019"));
-        Log.e("Tes","" + pengaduanList.get(0).getPengaduanStatus());
 
-        recyclerView= findViewById(R.id.rv);
-        layoutManager = new LinearLayoutManager(getApplicationContext());
-        PengaduanAdapter menuAdapter = new PengaduanAdapter(pengaduanList);
-        recyclerView.setAdapter(menuAdapter);
-        recyclerView.setLayoutManager(layoutManager);
+        Call<PengaduanModel> call = mApiService.requestPengaduan("2");
+        call.enqueue(new Callback<PengaduanModel>() {
+            @Override
+            public void onResponse(Call<PengaduanModel> call, Response<PengaduanModel> response) {
+                List<Pengaduan> pengaduanList = response.body().getListPengaduan();
+                recyclerView= findViewById(R.id.rv);
+                layoutManager = new LinearLayoutManager(getApplicationContext());
+                PengaduanAdapter menuAdapter = new PengaduanAdapter(pengaduanList);
+                recyclerView.setAdapter(menuAdapter);
+                recyclerView.setLayoutManager(layoutManager);
+            }
+
+            @Override
+            public void onFailure(Call<PengaduanModel> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.toString());
+            }
+        });
+
+
     }
 }
