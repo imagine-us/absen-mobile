@@ -75,7 +75,7 @@ public class PresensiActivity extends AppCompatActivity {
                             i.putExtra("st_id",statusid);
                             startActivity(i);
                         }
-                        else{
+                        else if(status.equals("false")){
                             Toast.makeText(PresensiActivity.this,"Anda tidak dapat absen untuk hari ini",Toast.LENGTH_LONG).show();
                         }
                     }
