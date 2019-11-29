@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,17 +38,19 @@ public class PresensiActivity extends AppCompatActivity {
     ImageView profil, tambahPresensi;
     String nip,id,nama;
     TextView txtNip,txtNama;
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_presensi);
 
+        this.sp = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
         txtNip = findViewById(R.id.nipProfilPresensi);
         txtNama = findViewById(R.id.namaProfilPresensi);
-        nip = getIntent().getExtras().getString("nip");
-        id = getIntent().getExtras().getString("id");
-        nama = getIntent().getExtras().getString("nama");
+        nip = this.sp.getString("key_nip",null);
+        id = this.sp.getString("key_id",null);
+        nama = this.sp.getString("key_nama",null);
 
         txtNip.setText(nip);
         txtNama.setText(nama);
@@ -60,9 +64,13 @@ public class PresensiActivity extends AppCompatActivity {
                 mApiService.cekAbsen(nip).enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        Intent i =new Intent(PresensiActivity.this, FormAbsensiActivity.class);
-                        i.putExtra("nip",nip);
-                        startActivity(i);
+                        if(response.isSuccessful()) {
+                            Intent i = new Intent(PresensiActivity.this, FormAbsensiActivity.class);
+                            startActivity(i);
+                        }
+                        else{
+                            Toast.makeText(PresensiActivity.this,"Anda tidak dapat absen untuk hari ini",Toast.LENGTH_LONG).show();
+                        }
                     }
 
                     @Override
@@ -76,7 +84,7 @@ public class PresensiActivity extends AppCompatActivity {
         });
 
         profil = findViewById(R.id.imageProfilPresensi);
-        Picasso.with(this).load(R.drawable.rudiantara).transform(new PicassoCircleTransformation()).into(profil);
+        Picasso.with(this).load(this.sp.getString("key_foto",null)).transform(new PicassoCircleTransformation()).into(profil);
 
         Call<AbsensiModel> call = mApiService.requestAbsensiHistori(id);
         call.enqueue(new Callback<AbsensiModel>() {

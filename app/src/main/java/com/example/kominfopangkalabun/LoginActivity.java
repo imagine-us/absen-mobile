@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String NIP_KEY = "key_nip";
     private static final String ID_KEY = "key_id";
     private static final String NAMA_KEY = "key_nama";
+    private static final String FOTO_KEY = "key_foto";
     private static final String KEEP_LOGIN_KEY = "key_keep_login";
 
     @Override
@@ -154,10 +155,11 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(mContext,"Login Berhasil",Toast.LENGTH_SHORT).show();
                         Login login = response.body();
                         Intent intent = new Intent(mContext, MainActivity.class);
-                        intent.putExtra("nip", login.getNip());
-                        intent.putExtra("nama", login.getNama());
-                        intent.putExtra("id",login.getId());
-                        saveUsername(login.getNip(),login.getId(), login.getNama(),true);
+//                        intent.putExtra("nip", login.getNip());
+//                        intent.putExtra("nama", login.getNama());
+//                        intent.putExtra("id",login.getId());
+
+                        saveUsername(login.getNip(),login.getId(), login.getNama(),login.getFoto(),true);
                         startActivity(intent);
                     }
                     else if(codeResponse == 404){
@@ -177,7 +179,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void saveUsername(String key,String id, String nama, Boolean save)
+    private void saveUsername(String key,String id, String nama, String foto, Boolean save)
     {
 
         SharedPreferences.Editor editor = this.sharedPrefs.edit();
@@ -186,11 +188,13 @@ public class LoginActivity extends AppCompatActivity {
             editor.putString(NIP_KEY, key);
             editor.putString(ID_KEY,id);
             editor.putString(NAMA_KEY, nama);
+            editor.putString(FOTO_KEY, foto);
         }
         else {
             editor.remove(NIP_KEY);
             editor.remove(ID_KEY);
             editor.remove(NAMA_KEY);
+            editor.remove(FOTO_KEY);
         }
         editor.apply();
     }
