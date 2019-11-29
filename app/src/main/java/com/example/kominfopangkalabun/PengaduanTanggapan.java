@@ -9,8 +9,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kominfopangkalabun.model.Pengaduan.PengaduanTanggapanClass;
 import com.example.kominfopangkalabun.model.Pengaduan.PengaduanTanggapanModel;
 import com.example.kominfopangkalabun.retrofit.BaseApiService;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,19 +38,8 @@ public class PengaduanTanggapan extends AppCompatActivity {
         Intent intent = getIntent();
         String idkeluhan = intent.getStringExtra("Id");
 
-       tvTanggalTanggapan.setText(idkeluhan);
+        tvTanggalTanggapan.setText(idkeluhan);
 
-       Call<PengaduanTanggapanModel> call = mApiService.requestPengaduanDetail("5");
-       call.enqueue(new Callback<PengaduanTanggapanModel>() {
-           @Override
-           public void onResponse(Call<PengaduanTanggapanModel> call, Response<PengaduanTanggapanModel> response) {
-               Toast.makeText(getApplicationContext(),"Halo",Toast.LENGTH_SHORT).show();
-           }
 
-           @Override
-           public void onFailure(Call<PengaduanTanggapanModel> call, Throwable t) {
-
-           }
-       });
     }
 }
