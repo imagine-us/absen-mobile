@@ -38,5 +38,16 @@ public class PengaduanTanggapan extends AppCompatActivity {
        tvTanggalTanggapan.setText(idkeluhan);
 
        Call<PengaduanTanggapanModel> call = mApiService.requestPengaduanDetail("5");
+       call.enqueue(new Callback<PengaduanTanggapanModel>() {
+           @Override
+           public void onResponse(Call<PengaduanTanggapanModel> call, Response<PengaduanTanggapanModel> response) {
+               Toast.makeText(getApplicationContext(),"Halo",Toast.LENGTH_SHORT).show();
+           }
+
+           @Override
+           public void onFailure(Call<PengaduanTanggapanModel> call, Throwable t) {
+
+           }
+       });
     }
 }

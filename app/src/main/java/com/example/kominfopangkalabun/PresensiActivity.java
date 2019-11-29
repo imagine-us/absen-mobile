@@ -19,6 +19,7 @@ import com.example.kominfopangkalabun.adapter.AbsensiAdapter;
 import com.example.kominfopangkalabun.model.Absensi.Absensi;
 import com.example.kominfopangkalabun.model.Absensi.AbsensiModel;
 import com.example.kominfopangkalabun.model.Absensi.CekAbsensi;
+import com.example.kominfopangkalabun.model.Absensi.CekAbsensiModel;
 import com.example.kominfopangkalabun.retrofit.BaseApiService;
 import com.example.kominfopangkalabun.retrofit.UtilsApi;
 import com.squareup.picasso.Picasso;
@@ -61,14 +62,17 @@ public class PresensiActivity extends AppCompatActivity {
         tambahPresensi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mApiService2.requestCekAbsensi(id).enqueue(new Callback<CekAbsensi>() {
+                mApiService2.requestCekAbsensi(id).enqueue(new Callback<CekAbsensiModel>() {
                     @Override
-                    public void onResponse(Call<CekAbsensi> call, Response<CekAbsensi> response) {
+                    public void onResponse(Call<CekAbsensiModel> call, Response<CekAbsensiModel> response) {
 //
-                        String status = response.body().getCekAbsensiStatus();
+                         List<CekAbsensi> listcekabsensi = response.body().getListCekAbsensi();
+                         String status = response.body().getStatusCekAbsensi();
 
                         if(status.equals("true")){
                             Intent i = new Intent(PresensiActivity.this, FormAbsensiActivity.class);
+                            String statusid  = listcekabsensi.get(0).getStatusId();
+                            i.putExtra("st_id",statusid);
                             startActivity(i);
                         }
                         else{
@@ -77,7 +81,7 @@ public class PresensiActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<CekAbsensi> call, Throwable t) {
+                    public void onFailure(Call<CekAbsensiModel> call, Throwable t) {
                         Toast.makeText(PresensiActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
                     }
                 });

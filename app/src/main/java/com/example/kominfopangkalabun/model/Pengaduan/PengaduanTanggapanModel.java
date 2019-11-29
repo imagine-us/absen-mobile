@@ -2,15 +2,17 @@ package com.example.kominfopangkalabun.model.Pengaduan;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class PengaduanTanggapanModel {
 
     @SerializedName("status")
     private String status;
 
     @SerializedName("data")
-    private PengaduanTanggapanClass pengaduanTanggapanClass;
+    private List<PengaduanTanggapanClass> pengaduanTanggapanClass;
 
-    public PengaduanTanggapanModel(String status, PengaduanTanggapanClass pengaduanTanggapanClass) {
+    public PengaduanTanggapanModel(String status, List<PengaduanTanggapanClass> pengaduanTanggapanClass) {
         this.status = status;
         this.pengaduanTanggapanClass = pengaduanTanggapanClass;
     }
@@ -23,11 +25,11 @@ public class PengaduanTanggapanModel {
         this.status = status;
     }
 
-    public PengaduanTanggapanClass getPengaduanTanggapanClass() {
+    public List<PengaduanTanggapanClass> getPengaduanTanggapanClass() {
         return pengaduanTanggapanClass;
     }
 
-    public void setPengaduanTanggapanClass(PengaduanTanggapanClass pengaduanTanggapanClass) {
+    public void setPengaduanTanggapanClass(List<PengaduanTanggapanClass> pengaduanTanggapanClass) {
         this.pengaduanTanggapanClass = pengaduanTanggapanClass;
     }
 }

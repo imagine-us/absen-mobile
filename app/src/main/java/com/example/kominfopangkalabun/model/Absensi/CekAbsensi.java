@@ -4,18 +4,18 @@ import com.google.gson.annotations.SerializedName;
 
 public class CekAbsensi {
 
-    @SerializedName("status")
-    private String cekAbsensiStatus;
+    @SerializedName("st_id")
+    private String statusId;
 
-    public CekAbsensi(String cekAbsensiStatus) {
-        this.cekAbsensiStatus = cekAbsensiStatus;
+    public CekAbsensi(String statusId) {
+        this.statusId = statusId;
     }
 
-    public String getCekAbsensiStatus() {
-        return cekAbsensiStatus;
+    public String getStatusId() {
+        return statusId;
     }
 
-    public void setCekAbsensiStatus(String cekAbsensiStatus) {
-        this.cekAbsensiStatus = cekAbsensiStatus;
+    public void setStatusId(String statusId) {
+        this.statusId = statusId;
     }
 }
