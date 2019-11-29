@@ -18,14 +18,13 @@ import com.example.kominfopangkalabun.adapter.AbsensiAdapter;
 //import com.example.kominfopangkalabun.model.Absensi;
 import com.example.kominfopangkalabun.model.Absensi.Absensi;
 import com.example.kominfopangkalabun.model.Absensi.AbsensiModel;
+import com.example.kominfopangkalabun.model.Absensi.CekAbsensi;
 import com.example.kominfopangkalabun.retrofit.BaseApiService;
 import com.example.kominfopangkalabun.retrofit.UtilsApi;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -62,10 +61,13 @@ public class PresensiActivity extends AppCompatActivity {
         tambahPresensi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mApiService2.cekAbsen(id).enqueue(new Callback<ResponseBody>() {
+                mApiService2.requestCekAbsensi(id).enqueue(new Callback<CekAbsensi>() {
                     @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        if(response.isSuccessful()) {
+                    public void onResponse(Call<CekAbsensi> call, Response<CekAbsensi> response) {
+//
+                        String status = response.body().getCekAbsensiStatus();
+
+                        if(status.equals("true")){
                             Intent i = new Intent(PresensiActivity.this, FormAbsensiActivity.class);
                             startActivity(i);
                         }
@@ -75,7 +77,7 @@ public class PresensiActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    public void onFailure(Call<CekAbsensi> call, Throwable t) {
                         Toast.makeText(PresensiActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
                     }
                 });
