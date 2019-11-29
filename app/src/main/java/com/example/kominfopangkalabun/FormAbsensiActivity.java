@@ -40,7 +40,7 @@ import retrofit2.Response;
 
 public class FormAbsensiActivity extends AppCompatActivity {
 
-    TextView tanggalHariIni, lokasiHariIni;
+    TextView tanggalHariIni, lokasiHariIni, txtnama, txtnip;
     Calendar currentTime;
     ImageView profil, absensi;
     String tanggal, longitude, latitude, pnsid;
@@ -99,6 +99,10 @@ public class FormAbsensiActivity extends AppCompatActivity {
         mApiService = UtilsApi.getAPIService();
 //
         currentTime = Calendar.getInstance();
+        txtnama= findViewById(R.id.namaProfilAbsensi);
+        txtnip= findViewById(R.id.nipProfilAbsensi);
+        txtnama.setText(nama);
+        txtnip.setText(nip);
         tanggalHariIni = findViewById(R.id.detailAbsensiHariIni);
         tanggalHariIni.setText("" + currentTime.getTime());
         tanggal = "" + currentTime.getTime();
