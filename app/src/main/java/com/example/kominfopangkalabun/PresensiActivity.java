@@ -33,7 +33,7 @@ import retrofit2.Response;
 public class PresensiActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    BaseApiService mApiService;
+    BaseApiService mApiService, mApiService2;
     LinearLayoutManager layoutManager;
     ImageView profil, tambahPresensi;
     String nip,id,nama;
@@ -57,11 +57,12 @@ public class PresensiActivity extends AppCompatActivity {
 
 
         mApiService = UtilsApi.getAPIService();
+        mApiService2 = UtilsApi.getAPIService();
         tambahPresensi = findViewById(R.id.iconTambahPresensi);
         tambahPresensi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mApiService.cekAbsen(nip).enqueue(new Callback<ResponseBody>() {
+                mApiService2.cekAbsen(id).enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if(response.isSuccessful()) {
@@ -90,12 +91,17 @@ public class PresensiActivity extends AppCompatActivity {
         call.enqueue(new Callback<AbsensiModel>() {
             @Override
             public void onResponse(Call<AbsensiModel> call, Response<AbsensiModel> response) {
+                if(response.isSuccessful()){
                 List<Absensi> absensiList = response.body().getListAbsensi();
                 recyclerView= findViewById(R.id.rv);
                 layoutManager = new LinearLayoutManager(getApplicationContext());
                 AbsensiAdapter menuAdapter = new AbsensiAdapter(absensiList);
                 recyclerView.setAdapter(menuAdapter);
                 recyclerView.setLayoutManager(layoutManager);
+                }
+                else{
+                    Toast.makeText(PresensiActivity.this, "Data Kosong", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
