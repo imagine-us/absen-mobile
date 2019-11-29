@@ -1,0 +1,18 @@
+[1mdiff --git a/app/src/main/java/com/example/kominfopangkalabun/PresensiActivity.java b/app/src/main/java/com/example/kominfopangkalabun/PresensiActivity.java[m
+[1mindex 8dbf156..5367cda 100644[m
+[1m--- a/app/src/main/java/com/example/kominfopangkalabun/PresensiActivity.java[m
+[1m+++ b/app/src/main/java/com/example/kominfopangkalabun/PresensiActivity.java[m
+[36m@@ -33,11 +33,11 @@[m [mpublic class PresensiActivity extends AppCompatActivity {[m
+         tambahPresensi.setOnClickListener(new View.OnClickListener() {[m
+             @Override[m
+             public void onClick(View view) {[m
+[31m-                new Intent(PresensiActivity.this, FormAbsensiActivity.class);[m
+[32m+[m[32m                startActivity(new Intent(PresensiActivity.this, FormAbsensiActivity.class));[m
+             }[m
+         });[m
+ [m
+[31m-        profil = findViewById(R.id.imageProfilAbsensi);[m
+[32m+[m[32m        profil = findViewById(R.id.imageProfilPresensi);[m
+         Picasso.with(this).load(R.drawable.rudiantara).transform(new PicassoCircleTransformation()).into(profil);[m
+ [m
+ [m

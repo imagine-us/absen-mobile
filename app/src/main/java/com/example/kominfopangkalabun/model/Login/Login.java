@@ -18,6 +18,10 @@ public class Login {
     @SerializedName("nama")
     private String nama;
 
+
+    @SerializedName("foto")
+    private String foto;
+
     public Login(String status, String message, String id, String nip, String nama) {
         this.status = status;
         this.message = message;

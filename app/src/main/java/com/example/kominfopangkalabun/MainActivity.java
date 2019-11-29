@@ -2,7 +2,9 @@ package com.example.kominfopangkalabun;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,9 +19,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView profil, presensi, pekerjaan, pengaduan, tpp;
     TextView txtNip, txtNama;
     String nip,id,nama;
-
-
-
+    private SharedPreferences sp;
 
 
     @Override
@@ -27,11 +27,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_layout);
 
+        this.sp = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
         txtNip = findViewById(R.id.nipProfil);
         txtNama = findViewById(R.id.namaProfil);
-        nip = getIntent().getExtras().getString("nip");
-        id = getIntent().getExtras().getString("id");
-        nama = getIntent().getExtras().getString("nama");
+        //nip = getIntent().getExtras().getString("nip");
+        //id = getIntent().getExtras().getString("id");
+        //nama = getIntent().getExtras().getString("nama");
+        nip = this.sp.getString("key_nip",null);
+        id = this.sp.getString("key_id",null);
+        nama = this.sp.getString("key_nama",null);
+
         txtNip.setText(nip);
         txtNama.setText(nama);
 

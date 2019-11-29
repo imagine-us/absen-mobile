@@ -58,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mContext = this;
         mApiService = UtilsApi.getAPIService();
+        this.sharedPrefs = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,6 +157,7 @@ public class LoginActivity extends AppCompatActivity {
                         intent.putExtra("nip", login.getNip());
                         intent.putExtra("nama", login.getNama());
                         intent.putExtra("id",login.getId());
+                        saveUsername(login.getNip(),login.getId(), login.getNama(),true);
                         startActivity(intent);
                     }
                     else if(codeResponse == 404){
@@ -174,4 +176,23 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void saveUsername(String key,String id, String nama, Boolean save)
+    {
+
+        SharedPreferences.Editor editor = this.sharedPrefs.edit();
+
+        if(save){
+            editor.putString(NIP_KEY, key);
+            editor.putString(ID_KEY,id);
+            editor.putString(NAMA_KEY, nama);
+        }
+        else {
+            editor.remove(NIP_KEY);
+            editor.remove(ID_KEY);
+            editor.remove(NAMA_KEY);
+        }
+        editor.apply();
+    }
+
 }
