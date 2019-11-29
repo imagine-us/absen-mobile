@@ -67,7 +67,7 @@ public class FormAbsensiActivity extends AppCompatActivity {
             imageAbsen=imageBitmap;
 
             if(checkAWS(imageAbsen)){
-                mApiService.insertAbsen("false",pnsid,latitude,longitude).enqueue(new Callback<ResponseBody>() {
+                mApiService.insertAbsen(getIntent().getExtras().getString("st_id"),pnsid,latitude,longitude).enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         Toast.makeText(FormAbsensiActivity.this, "Absen Sukses:" + tanggal + " - " + longitude + " - " + latitude, Toast.LENGTH_LONG).show();
