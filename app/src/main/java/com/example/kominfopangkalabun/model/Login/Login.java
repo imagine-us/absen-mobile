@@ -22,12 +22,13 @@ public class Login {
     @SerializedName("foto")
     private String foto;
 
-    public Login(String status, String message, String id, String nip, String nama) {
+    public Login(String status, String message, String id, String nip, String nama, String foto) {
         this.status = status;
         this.message = message;
         this.id = id;
         this.nip = nip;
         this.nama = nama;
+        this.foto = foto;
     }
 
     public String getStatus() {
@@ -68,5 +69,13 @@ public class Login {
 
     public void setNama(String nama) {
         this.nama = nama;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }

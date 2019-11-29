@@ -2,6 +2,7 @@ package com.example.kominfopangkalabun.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,9 +54,11 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
         }
         else if(nomorstatus.equals("1")){
             holder.status.setText("Sudah Diproses");
+            holder.status.setBackgroundColor(Color.GREEN);
         }
         else if(nomorstatus.equals("2")){
             holder.status.setText("Masih Diproses");
+            holder.status.setBackgroundColor(Color.YELLOW);
         }
         else{
             holder.status.setText("Error");
