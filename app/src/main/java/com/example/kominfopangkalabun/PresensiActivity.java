@@ -66,17 +66,21 @@ public class PresensiActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<CekAbsensiModel> call, Response<CekAbsensiModel> response) {
 //
-                         List<CekAbsensi> listcekabsensi = response.body().getListCekAbsensi();
-                         String status = response.body().getStatusCekAbsensi();
+                        if (response.isSuccessful()) {
+                            List<CekAbsensi> listcekabsensi = response.body().getListCekAbsensi();
+                            String status = response.body().getStatusCekAbsensi();
 
-                        if(status.equals("true")){
-                            Intent i = new Intent(PresensiActivity.this, FormAbsensiActivity.class);
-                            String statusid  = listcekabsensi.get(0).getStatusId();
-                            i.putExtra("st_id",statusid);
-                            startActivity(i);
+                            if (status.equals("true")) {
+                                Intent i = new Intent(PresensiActivity.this, FormAbsensiActivity.class);
+                                String statusid = listcekabsensi.get(0).getStatusId();
+                                i.putExtra("st_id", statusid);
+                                startActivity(i);
+                            } else{
+                                Toast.makeText(PresensiActivity.this, "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
+                            }
                         }
-                        else if(status.equals("false")){
-                            Toast.makeText(PresensiActivity.this,"Anda tidak dapat absen untuk hari ini",Toast.LENGTH_LONG).show();
+                        else{
+                            Toast.makeText(PresensiActivity.this, "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
                         }
                     }
 
