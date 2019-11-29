@@ -16,9 +16,9 @@ import com.squareup.picasso.Picasso;
 public class MainActivity extends AppCompatActivity {
 
     Button btnTambahTugas;
-    ImageView profil, presensi, pekerjaan, pengaduan, tpp;
+    ImageView profil, presensi, pekerjaan, pengaduan, tpp, fotoprofil;
     TextView txtNip, txtNama;
-    String nip,id,nama;
+    String nip,id,nama, foto;
     private SharedPreferences sp;
 
 
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         this.sp = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
         txtNip = findViewById(R.id.nipProfil);
         txtNama = findViewById(R.id.namaProfil);
+
         //nip = getIntent().getExtras().getString("nip");
         //id = getIntent().getExtras().getString("id");
         //nama = getIntent().getExtras().getString("nama");
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         profil = findViewById(R.id.imageProfil);
-        Picasso.with(this).load(R.drawable.rudiantara).transform(new PicassoCircleTransformation()).into(profil);
+        Picasso.with(this).load(this.sp.getString("key_foto",null)).transform(new PicassoCircleTransformation()).into(profil);
 
         presensi = findViewById(R.id.iconPresensi);
         presensi.setOnClickListener(new View.OnClickListener() {
