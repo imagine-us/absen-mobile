@@ -7,273 +7,357 @@
     tools:context=".FormPekerjaanActivity"
     android:background="@color/putihtulang">
 
-<!--    <TextView-->
-<!--        android:id="@+id/textJudulPekerjaan"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Form Lembar Kerja Harian"-->
-<!--        android:textStyle="bold"-->
-<!--        android:textSize="24sp"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.05"-->
-<!--        android:layout_marginTop="15dp"-->
-<!--        android:textColor="@color/black"-->
-<!--        />-->
+    <TextView
+        android:id="@+id/textJudulPekerjaan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Form Lembar Kerja Harian"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        />
 
 
-<!--                 <Spinner-->
-<!--                     android:id="@+id/sprUraianTugas"-->
+    <TextView
+        android:id="@+id/txtUraian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Uraian Tugas"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/textJudulPekerjaan"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        />
+
+
+    <Spinner
+                     android:id="@+id/sprUraianTugas"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="10dp"
+                     android:layout_marginLeft="15dp"
+                     android:layout_marginRight="15dp"
+                     android:background="@drawable/borderabu"
+                     app:layout_constraintTop_toBottomOf="@+id/txtUraian"
+                     app:layout_constraintLeft_toLeftOf="parent"
+                     app:layout_constraintRight_toRightOf="parent"
+                     android:padding="10dp"
+        android:textSize="12sp"
+
+                     />
+
+    <TextView
+        android:id="@+id/txtSubUraian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sub Uraian Tugas"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/sprUraianTugas"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        />
+
+    <Spinner
+        android:id="@+id/sprSubUraianTugas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/borderabu"
+        app:layout_constraintTop_toBottomOf="@+id/txtSubUraian"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:padding="10dp"
+        android:textSize="12sp"
+        />
+
+    <TextView
+        android:id="@+id/txtTanggalKerja"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tanggal"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/sprSubUraianTugas"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        />
+
+    <EditText
+        android:id="@+id/edtTanggal"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:hint="dd/mm/yyyy"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTanggalKerja"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/txtJamKerja"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jam"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/edtTanggal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        />
+
+    <EditText
+        android:id="@+id/edtJam"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:hint="hh:mm"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtJamKerja"
+        android:textSize="12sp"/>
+
+
+
+
+
+
+
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/birutua"-->
+<!--            android:paddingBottom="10dp"-->
+<!--            >-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/judulPekerjaan"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Form Lembar Kerja Harian"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                android:layout_marginVertical="15dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                tools:layout_editor_absoluteY="20dp" />-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--         <LinearLayout-->
+<!--             android:layout_width="match_parent"-->
+<!--             android:layout_height="match_parent"-->
+<!--             android:orientation="vertical">-->
+
+<!--             <TextView-->
+<!--                 android:layout_width="wrap_content"-->
+<!--                 android:layout_height="wrap_content"-->
+<!--                 android:text="Uraian Tugas : "-->
+<!--                 android:layout_marginTop="10dp"-->
+<!--                 android:layout_marginLeft="10dp"-->
+<!--                 android:textColor="@color/black"/>-->
+
+<!--             <Spinner-->
+<!--                 android:id="@+id/sprUraianTugas"-->
+<!--                 android:layout_width="wrap_content"-->
+<!--                 android:layout_height="wrap_content"-->
+<!--                 android:layout_marginTop="10dp"-->
+<!--                 android:layout_marginLeft="10dp"-->
+<!--                 android:background="@drawable/borderabu"-->
+<!--                 />-->
+
+<!--             <TextView-->
+<!--                 android:layout_width="wrap_content"-->
+<!--                 android:layout_height="wrap_content"-->
+<!--                 android:text="Analisas Tugas : "-->
+<!--                 android:layout_marginTop="10dp"-->
+<!--                 android:layout_marginLeft="10dp"-->
+<!--                 android:textColor="@color/black"/>-->
+
+<!--             <RadioGroup-->
+<!--                 android:layout_width="wrap_content"-->
+<!--                 android:layout_height="wrap_content"-->
+<!--                 android:background="@color/black"-->
+<!--                 android:layout_marginTop="10dp"-->
+<!--                 android:layout_marginLeft="10dp">-->
+
+<!--                 <RadioButton-->
+<!--                     android:layout_width="wrap_content"-->
+<!--                     android:layout_height="wrap_content"-->
+<!--                     android:text="Item 1"-->
+<!--                     />-->
+
+<!--                 <RadioButton-->
+<!--                     android:layout_width="wrap_content"-->
+<!--                     android:layout_height="wrap_content"-->
+<!--                     android:text="Item 2"-->
+<!--                     />-->
+<!--             </RadioGroup>-->
+
+<!--             <TextView-->
+<!--                 android:layout_width="wrap_content"-->
+<!--                 android:layout_height="wrap_content"-->
+<!--                 android:text="Waktu Mulai / Durasi : "-->
+<!--                 android:layout_marginTop="10dp"-->
+<!--                 android:layout_marginLeft="10dp"-->
+<!--                 android:textColor="@color/black"/>-->
+
+<!--             <LinearLayout-->
+<!--                 android:layout_width="wrap_content"-->
+<!--                 android:layout_height="wrap_content"-->
+<!--                 android:orientation="horizontal">-->
+
+
+<!--                 <EditText-->
+<!--                     android:id="@+id/edtTanggalKerja"-->
 <!--                     android:layout_width="match_parent"-->
 <!--                     android:layout_height="wrap_content"-->
 <!--                     android:layout_marginTop="10dp"-->
-<!--                     android:layout_marginLeft="15dp"-->
-<!--                     android:layout_marginRight="15dp"-->
-<!--                     android:background="@drawable/borderabu"-->
-<!--                     app:layout_constraintTop_toBottomOf="@+id/textJudulPekerjaan"-->
-<!--                     app:layout_constraintLeft_toLeftOf="parent"-->
-<!--                     app:layout_constraintRight_toRightOf="parent"-->
-<!--                     android:padding="10dp"-->
-<!--                     />-->
+<!--                     android:layout_marginLeft="10dp"-->
+<!--                     android:inputType="text"-->
+<!--                     android:background="@color/black"-->
+<!--                     android:focusable="false"/>-->
 
+<!--                 <EditText-->
+<!--                     android:id="@+id/edtJamKerja"-->
+<!--                     android:layout_width="match_parent"-->
+<!--                     android:layout_height="wrap_content"-->
+<!--                     android:layout_marginTop="10dp"-->
+<!--                     android:layout_marginLeft="10dp"-->
+<!--                     android:inputType="text"-->
+<!--                     android:background="@color/black"-->
+<!--                     android:focusable="false"/>-->
 
-<!--                 <RadioGroup-->
+<!--                 <TextView-->
 <!--                     android:layout_width="wrap_content"-->
 <!--                     android:layout_height="wrap_content"-->
-<!--                     android:background="@color/black"-->
+<!--                     android:text=" / "-->
 <!--                     android:layout_marginTop="10dp"-->
-<!--                     android:layout_marginLeft="10dp">-->
+<!--                     android:layout_marginLeft="10dp"-->
+<!--                     android:textColor="@color/black"/>-->
 
-<!--                     <RadioButton-->
-<!--                         android:layout_width="wrap_content"-->
-<!--                         android:layout_height="wrap_content"-->
-<!--                         android:text="Item 1"-->
-<!--                         />-->
+<!--                 <EditText-->
+<!--                     android:id="@+id/edtDurasiKerja"-->
+<!--                     android:layout_width="match_parent"-->
+<!--                     android:layout_height="wrap_content"-->
+<!--                     android:layout_marginTop="10dp"-->
+<!--                     android:layout_marginLeft="10dp"-->
+<!--                     android:inputType="text"-->
+<!--                     android:background="@color/black"-->
+<!--                     android:text="0"-->
+<!--                     />-->
 
-<!--                     <RadioButton-->
-<!--                         android:layout_width="wrap_content"-->
-<!--                         android:layout_height="wrap_content"-->
-<!--                         android:text="Item 2"-->
-<!--                         />-->
-<!--                 </RadioGroup>-->
+<!--                 <TextView-->
+<!--                     android:layout_width="wrap_content"-->
+<!--                     android:layout_height="wrap_content"-->
+<!--                     android:text=" Menit."-->
+<!--                     android:layout_marginTop="10dp"-->
+<!--                     android:layout_marginLeft="10dp"-->
+<!--                     android:textColor="@color/black"/>-->
+<!--             </LinearLayout>-->
 
+<!--             <TextView-->
+<!--                 android:layout_width="wrap_content"-->
+<!--                 android:layout_height="wrap_content"-->
+<!--                 android:text="Nama Pekerjaan : "-->
+<!--                 android:layout_marginTop="10dp"-->
+<!--                 android:layout_marginLeft="10dp"-->
+<!--                 android:textColor="@color/black"/>-->
 
+<!--             <EditText-->
+<!--                 android:id="@+id/edtNamaPekerjaan"-->
+<!--                 android:layout_width="match_parent"-->
+<!--                 android:layout_height="wrap_content"-->
+<!--                 android:layout_marginTop="10dp"-->
+<!--                 android:layout_marginLeft="10dp"-->
+<!--                 android:layout_marginRight="10dp"-->
+<!--                 android:inputType="textMultiLine"-->
+<!--                 android:lines="5"-->
+<!--                 android:background="@color/black" />-->
 
+<!--             <TextView-->
+<!--                 android:layout_width="wrap_content"-->
+<!--                 android:layout_height="wrap_content"-->
+<!--                 android:text="Hasil Pekerjaan : "-->
+<!--                 android:layout_marginTop="10dp"-->
+<!--                 android:layout_marginLeft="10dp"-->
+<!--                 android:textColor="@color/black"/>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+<!--             <EditText-->
+<!--                 android:id="@+id/edtHasilPekerjaan"-->
+<!--                 android:layout_width="match_parent"-->
+<!--                 android:layout_height="wrap_content"-->
+<!--                 android:layout_marginTop="10dp"-->
+<!--                 android:layout_marginLeft="10dp"-->
+<!--                 android:layout_marginRight="10dp"-->
+<!--                 android:inputType="textMultiLine"-->
+<!--                 android:lines="5"-->
+<!--                 android:background="@color/black" />-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/birutua"
-            android:paddingBottom="10dp"
-            >
+<!--             <LinearLayout-->
+<!--                 android:layout_width="match_parent"-->
+<!--                 android:layout_height="match_parent"-->
+<!--                 android:orientation="horizontal">-->
 
-            <TextView
-                android:id="@+id/judulPekerjaan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Form Lembar Kerja Harian"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginVertical="15dp"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintRight_toRightOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+<!--                 <Button-->
+<!--                     android:id="@+id/btnSimpanPekerjaan"-->
+<!--                     android:layout_width="wrap_content"-->
+<!--                     android:layout_height="wrap_content"-->
+<!--                     android:layout_weight="1"-->
+<!--                     android:layout_marginTop="10dp"-->
+<!--                     android:layout_marginLeft="30dp"-->
+<!--                     android:text="Simpan" />-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:orientation="vertical">
-
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Uraian Tugas : "
-                 android:layout_marginTop="10dp"
-                 android:layout_marginLeft="10dp"
-                 android:textColor="@color/black"/>
-
-             <Spinner
-                 android:id="@+id/sprUraianTugas"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="10dp"
-                 android:layout_marginLeft="10dp"
-                 android:background="@drawable/borderabu"
-                 />
-
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Analisas Tugas : "
-                 android:layout_marginTop="10dp"
-                 android:layout_marginLeft="10dp"
-                 android:textColor="@color/black"/>
-
-             <RadioGroup
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:background="@color/black"
-                 android:layout_marginTop="10dp"
-                 android:layout_marginLeft="10dp">
-
-                 <RadioButton
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="Item 1"
-                     />
-
-                 <RadioButton
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="Item 2"
-                     />
-             </RadioGroup>
-
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Waktu Mulai / Durasi : "
-                 android:layout_marginTop="10dp"
-                 android:layout_marginLeft="10dp"
-                 android:textColor="@color/black"/>
-
-             <LinearLayout
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:orientation="horizontal">
+<!--                 <Button-->
+<!--                     android:id="@+id/btnKembaliPekerjaan"-->
+<!--                     android:layout_width="wrap_content"-->
+<!--                     android:layout_height="wrap_content"-->
+<!--                     android:layout_weight="1"-->
+<!--                     android:layout_marginTop="10dp"-->
+<!--                     android:layout_marginLeft="10dp"-->
+<!--                     android:text="Kembali" />-->
+<!--             </LinearLayout>-->
 
 
-                 <EditText
-                     android:id="@+id/edtTanggalKerja"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_marginTop="10dp"
-                     android:layout_marginLeft="10dp"
-                     android:inputType="text"
-                     android:background="@color/black"
-                     android:focusable="false"/>
+<!--         </LinearLayout>-->
+<!--    </LinearLayout>-->
 
-                 <EditText
-                     android:id="@+id/edtJamKerja"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_marginTop="10dp"
-                     android:layout_marginLeft="10dp"
-                     android:inputType="text"
-                     android:background="@color/black"
-                     android:focusable="false"/>
-
-                 <TextView
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text=" / "
-                     android:layout_marginTop="10dp"
-                     android:layout_marginLeft="10dp"
-                     android:textColor="@color/black"/>
-
-                 <EditText
-                     android:id="@+id/edtDurasiKerja"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_marginTop="10dp"
-                     android:layout_marginLeft="10dp"
-                     android:inputType="text"
-                     android:background="@color/black"
-                     android:text="0"
-                     />
-
-                 <TextView
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text=" Menit."
-                     android:layout_marginTop="10dp"
-                     android:layout_marginLeft="10dp"
-                     android:textColor="@color/black"/>
-             </LinearLayout>
-
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Nama Pekerjaan : "
-                 android:layout_marginTop="10dp"
-                 android:layout_marginLeft="10dp"
-                 android:textColor="@color/black"/>
-
-             <EditText
-                 android:id="@+id/edtNamaPekerjaan"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="10dp"
-                 android:layout_marginLeft="10dp"
-                 android:layout_marginRight="10dp"
-                 android:inputType="textMultiLine"
-                 android:lines="5"
-                 android:background="@color/black" />
-
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Hasil Pekerjaan : "
-                 android:layout_marginTop="10dp"
-                 android:layout_marginLeft="10dp"
-                 android:textColor="@color/black"/>
-
-             <EditText
-                 android:id="@+id/edtHasilPekerjaan"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="10dp"
-                 android:layout_marginLeft="10dp"
-                 android:layout_marginRight="10dp"
-                 android:inputType="textMultiLine"
-                 android:lines="5"
-                 android:background="@color/black" />
-
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent"
-                 android:orientation="horizontal">
-
-                 <Button
-                     android:id="@+id/btnSimpanPekerjaan"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_weight="1"
-                     android:layout_marginTop="10dp"
-                     android:layout_marginLeft="30dp"
-                     android:text="Simpan" />
-
-                 <Button
-                     android:id="@+id/btnKembaliPekerjaan"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_weight="1"
-                     android:layout_marginTop="10dp"
-                     android:layout_marginLeft="10dp"
-                     android:text="Kembali" />
-             </LinearLayout>
-
-
-         </LinearLayout>
-    </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="37.5dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/abumenu"
-        />
+<!--    <FrameLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="37.5dp"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        android:background="@color/abumenu"-->
+<!--        />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

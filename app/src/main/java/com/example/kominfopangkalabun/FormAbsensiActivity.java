@@ -5,7 +5,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.hardware.Camera;
@@ -43,7 +45,9 @@ public class FormAbsensiActivity extends AppCompatActivity {
     ImageView profil, absensi;
     String tanggal, longitude, latitude, pnsid;
     Bitmap imageAbsen;
+    String nip,id,nama;
 
+    private SharedPreferences sp;
     BaseApiService mApiService;
 
 
@@ -61,6 +65,24 @@ public class FormAbsensiActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             imageAbsen=imageBitmap;
+
+            if(checkAWS(imageAbsen)){
+                mApiService.insertAbsen("false",pnsid,latitude,longitude).enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        Toast.makeText(FormAbsensiActivity.this, "Absen Sukses:" + tanggal + " - " + longitude + " - " + latitude, Toast.LENGTH_LONG).show();
+
+                        startActivity(new Intent(FormAbsensiActivity.this,PresensiActivity.class));
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Toast.makeText(FormAbsensiActivity.this, "Absen Gagal", Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                });
+            }
+
         }
     }
 
@@ -68,15 +90,19 @@ public class FormAbsensiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_absensi);
+        this.sp = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
+        nip = this.sp.getString("key_nip",null);
+        id = this.sp.getString("key_id",null);
+        nama = this.sp.getString("key_nama",null);
 
-        pnsid="123";
+        pnsid=id;
         mApiService = UtilsApi.getAPIService();
 //
         currentTime = Calendar.getInstance();
         tanggalHariIni = findViewById(R.id.detailAbsensiHariIni);
         tanggalHariIni.setText("" + currentTime.getTime());
         tanggal = "" + currentTime.getTime();
-
+        imageAbsen=null;
 //        // GET CURRENT LOCATION
         lokasiHariIni = findViewById(R.id.lokasiAbsensiHariIni);
         FusedLocationProviderClient mFusedLocation = LocationServices.getFusedLocationProviderClient(this);
@@ -98,7 +124,7 @@ public class FormAbsensiActivity extends AppCompatActivity {
 
 
         profil = findViewById(R.id.imageProfilAbsensi);
-        Picasso.with(this).load(R.drawable.rudiantara).transform(new PicassoCircleTransformation()).into(profil);
+        Picasso.with(this).load(this.sp.getString("key_foto",null)).transform(new PicassoCircleTransformation()).into(profil);
 
         absensi = findViewById(R.id.iconAmbilPresensi);
         absensi.setOnClickListener(new View.OnClickListener() {
@@ -106,21 +132,7 @@ public class FormAbsensiActivity extends AppCompatActivity {
             public void onClick(View view) {
                  dispatchTakePictureIntent();
 
-                if(checkAWS(imageAbsen)){
-                    mApiService.insertAbsen("true",pnsid,latitude,longitude).enqueue(new Callback<ResponseBody>() {
-                        @Override
-                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                            Toast.makeText(FormAbsensiActivity.this, "Absen Sukses:" + tanggal + " - " + longitude + " - " + latitude, Toast.LENGTH_LONG).show();
 
-                        }
-
-                        @Override
-                        public void onFailure(Call<ResponseBody> call, Throwable t) {
-                            Toast.makeText(FormAbsensiActivity.this, "Absen Gagal", Toast.LENGTH_LONG).show();
-
-                        }
-                    });
-                }
 
             }
         });
@@ -129,7 +141,10 @@ public class FormAbsensiActivity extends AppCompatActivity {
 
     public boolean checkAWS(Bitmap image){
         // cek aws
-        return true;
+        if(image!=null) {
+            return true;
+        }
+        return false;
     }
 
 
