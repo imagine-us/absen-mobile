@@ -1,8 +1,10 @@
 package com.example.kominfopangkalabun.retrofit;
 
+import com.example.kominfopangkalabun.PengaduanTanggapan;
 import com.example.kominfopangkalabun.model.Absensi.AbsensiModel;
 import com.example.kominfopangkalabun.model.Login.Login;
 import com.example.kominfopangkalabun.model.Pengaduan.PengaduanModel;
+import com.example.kominfopangkalabun.model.Pengaduan.PengaduanTanggapanModel;
 
 import java.util.List;
 
@@ -54,6 +56,9 @@ public interface BaseApiService {
      //Fungsi ambil data pengaduan untuk recycle view
      @GET("pengaduan")
      Call<PengaduanModel> requestPengaduan(@Query("pnsid") String id);
+
+    @GET("pengaduandetail")
+    Call<PengaduanTanggapanModel> requestPengaduanDetail(@Query("aduanid") String id);
 
     @FormUrlEncoded
     @POST("inputpengaduan")
