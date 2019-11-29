@@ -55,7 +55,7 @@ public class AbsensiAdapter extends RecyclerView.Adapter<AbsensiAdapter.MyViewHo
             super(itemView);
 
             dateTime = itemView.findViewById(R.id.dateTimePresensi);
-            lokasi = itemView.findViewById(R.id.lokasiPresensi);
+            //lokasi = itemView.findViewById(R.id.lokasiPresensi);
             longLat = itemView.findViewById(R.id.longlatPresensi);
         }
     }

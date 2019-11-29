@@ -50,9 +50,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this,PresensiActivity.class);
-                i.putExtra("nip",nip);
-                i.putExtra("id",id);
-                i.putExtra("nama",nama);
                 startActivity(i);
             }
         });
