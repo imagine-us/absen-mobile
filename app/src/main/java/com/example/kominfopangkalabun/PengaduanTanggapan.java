@@ -24,6 +24,7 @@ public class PengaduanTanggapan extends AppCompatActivity {
     BaseApiService mApiService;
     TextView tvTanggalPengaduan,tvTanggalTanggapan;
     EditText edtPengaduanTanggapan,edtHasilTanggapan;
+    String idkeluhan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +36,18 @@ public class PengaduanTanggapan extends AppCompatActivity {
         edtPengaduanTanggapan = findViewById(R.id.edtPengaduanTanggapan);
         edtHasilTanggapan = findViewById(R.id.edtHasilTanggapan);
 
-        Intent intent = getIntent();
-        String idkeluhan = intent.getStringExtra("Id");
+        Call<PengaduanTanggapanModel> call = mApiService.requstPengaduanDetail("5");
+        call.enqueue(new Callback<PengaduanTanggapanModel>() {
+            @Override
+            public void onResponse(Call<PengaduanTanggapanModel> call, Response<PengaduanTanggapanModel> response) {
+                Log.e("error",response.errorBody().toString());
+            }
 
-        tvTanggalTanggapan.setText(idkeluhan);
+            @Override
+            public void onFailure(Call<PengaduanTanggapanModel> call, Throwable t) {
 
+            }
+        });
 
     }
 }
