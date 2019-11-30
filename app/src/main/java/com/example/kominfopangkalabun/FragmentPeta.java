@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.location.Criteria;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -18,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
@@ -58,6 +62,11 @@ public class FragmentPeta extends Fragment {
     double longi, lati;
     private SharedPreferences sp;
 
+    LocationManager locationManager;
+    String provider;
+    Location location;
+
+
     View v;
 
     @Nullable
@@ -74,31 +83,48 @@ public class FragmentPeta extends Fragment {
 
         currentTime = Calendar.getInstance();
         tanggal = "" + currentTime.getTime();
-        FusedLocationProviderClient mFusedLocation = LocationServices.getFusedLocationProviderClient(getContext());
-        mFusedLocation.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                if (location != null) {
-                    // Do it all with location
-                    Log.d("My Current location", "Lat : " + location.getLatitude() + " Long : " + location.getLongitude());
-                    // Display in Toast
+//        FusedLocationProviderClient mFusedLocation = LocationServices.getFusedLocationProviderClient(getContext());
+//        mFusedLocation.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
+//            @Override
+//            public void onSuccess(Location location) {
+//                if (location != null) {
+//                    // Do it all with location
+//                    Log.d("My Current location", "Lat : " + location.getLatitude() + " Long : " + location.getLongitude());
+//                    // Display in Toast
+//
+//                    latitude = "" + location.getLatitude();
+//                    lati = location.getLatitude();
+//                    longitude = "" + location.getLongitude();
+//                    longi = location.getLongitude();
+//                }
+//            }
+//        });
+        locationManager =(LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
+        Criteria c=new Criteria();
+        //if we pass false than
+        //it will check first satellite location than Internet and than Sim Network
+        provider=locationManager.getBestProvider(c, false);
+        if ((ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
+            location=locationManager.getLastKnownLocation(provider);
+        }
 
-                    latitude = "" + location.getLatitude();
-                    lati = location.getLatitude();
-                    longitude = "" + location.getLongitude();
-                    longi = location.getLongitude();
-                }
-            }
-        });
+        if(location!=null) {
+            longi = location.getLongitude();
+            lati = location.getLatitude();
+        }
+        else
+        {
+           // textViewLongLat.setText("No Provider");
+        }
 
         if (mapFragment == null) {
             mapFragment = SupportMapFragment.newInstance();
             mapFragment.getMapAsync(new OnMapReadyCallback() {
                 @Override
                 public void onMapReady(GoogleMap googleMap) {
-mapFragment.l
+
                     Toast.makeText(getActivity(),"lat:"+lati+"longi"+longi,Toast.LENGTH_LONG).show();
-                    LatLng latLng = new LatLng(-7.98,112.62);
+                    LatLng latLng = new LatLng(lati,longi);
                     googleMap.addMarker(new MarkerOptions().position(latLng)
                             .title("Posisi Anda Sekarang"));
                     googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
