@@ -14,8 +14,8 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="<"
+            android:layout_weight="2"
+            android:text="back"
             />
         <TextView
             android:layout_width="0dp"
@@ -46,8 +46,27 @@
             android:text="Riwayat"
             />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:visibility="visible"
+            android:layout_height="6dp"
+            android:layout_weight="1"
+            android:background="#a40404"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:visibility="invisible"
+            android:layout_height="6dp"
+            android:background="#a40404"/>
+    </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/frameUtama"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
