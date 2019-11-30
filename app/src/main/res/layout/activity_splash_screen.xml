@@ -10,7 +10,7 @@
         android:id="@+id/splashLogo"
         android:layout_height="100dp"
         android:layout_width="wrap_content"
-        android:src="@drawable/kominfo"
+        android:src="@drawable/ekinerja"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/splashLogo"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:indicatorColor="#242e5a"
+        app:indicatorColor="@color/birutua"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
