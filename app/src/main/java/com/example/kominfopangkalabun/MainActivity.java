@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         pekerjaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,PekerjaanActivity.class));
+                startActivity(new Intent(MainActivity.this,FormPekerjaanActivity.class));
             }
         });
 

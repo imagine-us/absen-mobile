@@ -63,9 +63,6 @@ public interface BaseApiService {
      @GET("pengaduan")
      Call<PengaduanModel> requestPengaduan(@Query("pnsid") String id);
 
-    @GET("pengaduandetail")
-    Call<PengaduanTanggapanModel> requestPengaduanDetail(@Query("aduanid") String id);
-
     @FormUrlEncoded
     @POST("inputpengaduan")
     Call<PengaduanModel> insertPengaduan(@Field("pnsid") String pnsid,
@@ -73,5 +70,8 @@ public interface BaseApiService {
 
     @GET("pekerjaanhist")
     Call<PekerjaanModel> requestPekerjaanHistory(@Query("nip") String id);
+
+    @GET("pengaduandetail")
+    Call<PengaduanTanggapanModel> requstPengaduanDetail(@Query("aduanid") String id);
 
 }
