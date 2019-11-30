@@ -25,7 +25,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ver2.PresensiBaruActivity"></activity>
+        <activity android:name=".PresensiBaruActivity"></activity>
         <activity android:name=".PengaduanTanggapan" />
         <activity android:name=".TppActivity" />
         <activity android:name=".FormPengaduanActivity" />
