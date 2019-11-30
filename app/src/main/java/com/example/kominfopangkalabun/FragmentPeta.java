@@ -74,8 +74,8 @@ public class FragmentPeta extends Fragment {
 
         currentTime = Calendar.getInstance();
         tanggal = "" + currentTime.getTime();
-        FusedLocationProviderClient mFusedLocation = LocationServices.getFusedLocationProviderClient(getActivity());
-        mFusedLocation.getLastLocation().addOnSuccessListener( new OnSuccessListener<Location>() {
+        FusedLocationProviderClient mFusedLocation = LocationServices.getFusedLocationProviderClient(getContext());
+        mFusedLocation.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
                 if (location != null) {
@@ -97,7 +97,8 @@ public class FragmentPeta extends Fragment {
                 @Override
                 public void onMapReady(GoogleMap googleMap) {
 
-                    LatLng latLng = new LatLng(longi,lati);
+                    Toast.makeText(getActivity(),"lat:"+lati+"longi"+longi,Toast.LENGTH_LONG).show();
+                    LatLng latLng = new LatLng(-7.98,112.62);
                     googleMap.addMarker(new MarkerOptions().position(latLng)
                             .title("Posisi Anda Sekarang"));
                     googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
