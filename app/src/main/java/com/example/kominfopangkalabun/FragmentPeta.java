@@ -96,7 +96,7 @@ public class FragmentPeta extends Fragment {
             mapFragment.getMapAsync(new OnMapReadyCallback() {
                 @Override
                 public void onMapReady(GoogleMap googleMap) {
-
+mapFragment.l
                     Toast.makeText(getActivity(),"lat:"+lati+"longi"+longi,Toast.LENGTH_LONG).show();
                     LatLng latLng = new LatLng(-7.98,112.62);
                     googleMap.addMarker(new MarkerOptions().position(latLng)
