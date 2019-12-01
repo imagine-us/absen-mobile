@@ -8,6 +8,7 @@
     <color name="skyblue">#81d4fa</color>
     <color name="black">#000</color>
     <color name="abumenu">#e6e7e8</color>
-    <color name="kuning">#FFEB3B</color>
+    <color name="kuning">#F9E307</color>
     <color name="hijau">#8BC34A</color>
+    <color name="merah">#E61d25</color>
 </resources>

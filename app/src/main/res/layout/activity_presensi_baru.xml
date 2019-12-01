@@ -9,21 +9,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/kuning">
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="<"
+            android:background="@drawable/back"
             />
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="7"
             android:text="Presensi"
+            android:textSize="20sp"
             android:textColor="@color/black"
             android:gravity="center"
+            android:fontFamily="@font/keep"
+
             />
     </LinearLayout>
 
@@ -37,6 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Absensi"
+            android:textColor="@color/black"
+            android:background="@color/putihtulang"
 
             />
         <Button
@@ -46,11 +52,32 @@
             android:text="Riwayat"
             />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="6dp"
+            android:layout_weight="1"
+            android:background="@color/merah"
+            android:visibility="visible"
+            ></View>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="6dp"
+            android:layout_weight="1"
+            android:background="@color/merah"
+            android:visibility="invisible"
+            ></View>
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
 
 
 
