@@ -1,14 +1,17 @@
 package com.example.kominfopangkalabun.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kominfopangkalabun.DetailAbsenActivity;
 import com.example.kominfopangkalabun.R;
 import com.example.kominfopangkalabun.model.Absensi.Absensi;
 
@@ -37,11 +40,20 @@ public class AbsensiAdapter extends RecyclerView.Adapter<AbsensiAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull AbsensiAdapter.MyViewHolder holder, int position) {
-        Absensi absensi = absensiList.get(position);
+        final Absensi absensi = absensiList.get(position);
 
         holder.dateTime.setText(absensi.getTanggal()+"  "+absensi.getJam());
 //        holder.lokasi.setText(absensi.getLokasi());
         holder.longLat.setText("Long:"+absensi.getLongitude()+" Lat:"+absensi.getLatitude());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DetailAbsenActivity.class);
+                String[] detailAbsensiString = new String[] {absensi.getTanggal(), absensi.getJam(),absensi.getLongitude(),absensi.getLatitude()};
+                intent.putExtra("Detail", detailAbsensiString);
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

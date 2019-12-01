@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class Absensi {
 
+    @SerializedName("al_id")
+    private String absenid;
+
     @SerializedName("tanggal")
     private String tanggal;
 
@@ -22,12 +25,21 @@ public class Absensi {
     @SerializedName("pns_id")
     private String pns_id;
 
-    public Absensi(String tanggal, String jam, String longitude, String latitude, String pns_id) {
+    public Absensi(String absenid,String tanggal, String jam, String longitude, String latitude, String pns_id) {
+        this.absenid = absenid;
         this.tanggal = tanggal;
         this.jam = jam;
         this.longitude = longitude;
         this.latitude = latitude;
         this.pns_id = pns_id;
+    }
+
+    public String getAbsenid() {
+        return absenid;
+    }
+
+    public void setAbsenid(String absenid) {
+        this.absenid = absenid;
     }
 
     public String getTanggal() {
