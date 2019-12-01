@@ -15,8 +15,8 @@ import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnTambahTugas;
-    ImageView profil, presensi, pekerjaan, pengaduan, tpp, fotoprofil;
+    Button btnTambahTugas, presensi, pekerjaan, pengaduan, tpp;
+    ImageView fotoprofil,profil;
     TextView txtNip, txtNama;
     String nip,id,nama, foto;
     private SharedPreferences sp;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.menu_layout);
+        setContentView(R.layout.menu_baru_layout);
 
         this.sp = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
         txtNip = findViewById(R.id.nipProfil);
