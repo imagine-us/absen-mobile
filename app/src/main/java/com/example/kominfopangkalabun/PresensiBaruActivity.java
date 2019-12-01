@@ -1,6 +1,7 @@
 package com.example.kominfopangkalabun;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -14,8 +15,7 @@ public class PresensiBaruActivity extends AppCompatActivity {
 
     Button btnAbsensi, btnRiwayat;
     View vAbsensi, vRiwayat;
-    FragmentManager fm;
-    FragmentTransaction ft;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +29,7 @@ public class PresensiBaruActivity extends AppCompatActivity {
         vRiwayat=findViewById(R.id.viewRiwayat);
 
         btnAbsensi.setTextColor(getResources().getColor(R.color.merah));
-        fm = getSupportFragmentManager();
-        ft = fm.beginTransaction();
-        ft.replace(R.id.frameUtama, new FragmentPeta());
-        ft.commit();
+        loadFragment(new FragmentPeta());
 
         btnAbsensi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,9 +39,7 @@ public class PresensiBaruActivity extends AppCompatActivity {
                 btnAbsensi.setTextColor(getResources().getColor(R.color.merah));
                 btnRiwayat.setTextColor(getResources().getColor(R.color.black));
 
-                ft.replace(R.id.frameUtama, new FragmentPeta());
-                ft.addToBackStack(null);
-                ft.commit();
+                loadFragment(new FragmentPeta());
 
             }
         });
@@ -58,13 +53,22 @@ public class PresensiBaruActivity extends AppCompatActivity {
                 btnAbsensi.setTextColor(getResources().getColor(R.color.black));
                 btnRiwayat.setTextColor(getResources().getColor(R.color.merah));
 
-                ft.replace(R.id.frameUtama, new FragmentRiwayatPresensi());
-                ft.addToBackStack(null);
-                ft.commit();
+               loadFragment(new FragmentRiwayatPresensi());
             }
         });
 
 
+
+    }
+
+    private void loadFragment(Fragment fragment){
+        FragmentManager fm;
+        FragmentTransaction ft;
+        fm = getSupportFragmentManager();
+        ft = fm.beginTransaction();
+        ft.replace(R.id.frameUtama, fragment);
+        ft.addToBackStack(null);
+        ft.commit();
 
     }
 }

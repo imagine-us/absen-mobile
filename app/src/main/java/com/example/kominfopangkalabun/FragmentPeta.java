@@ -111,7 +111,8 @@ public class FragmentPeta extends Fragment {
                     LatLng latLng = new LatLng(lati,longi);
                     googleMap.addMarker(new MarkerOptions().position(latLng)
                             .title("Posisi Anda Sekarang"));
-                    googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                    float zoom = (float)16.0;
+                    googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,zoom));
                 }
             });
         }

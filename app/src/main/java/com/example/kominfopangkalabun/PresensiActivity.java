@@ -46,8 +46,8 @@ public class PresensiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_presensi);
 
         this.sp = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
-        txtNip = findViewById(R.id.nipProfilPresensi);
-        txtNama = findViewById(R.id.namaProfilPresensi);
+       // txtNip = findViewById(R.id.nipProfilPresensi);
+       // txtNama = findViewById(R.id.namaProfilPresensi);
         nip = this.sp.getString("key_nip",null);
         id = this.sp.getString("key_id",null);
         nama = this.sp.getString("key_nama",null);
@@ -58,7 +58,7 @@ public class PresensiActivity extends AppCompatActivity {
 
         mApiService = UtilsApi.getAPIService();
         mApiService2 = UtilsApi.getAPIService();
-        tambahPresensi = findViewById(R.id.iconTambahPresensi);
+       // tambahPresensi = findViewById(R.id.iconTambahPresensi);
         tambahPresensi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,7 +94,7 @@ public class PresensiActivity extends AppCompatActivity {
             }
         });
 
-        profil = findViewById(R.id.imageProfilPresensi);
+        //profil = findViewById(R.id.imageProfilPresensi);
         Picasso.with(this).load(this.sp.getString("key_foto",null)).transform(new PicassoCircleTransformation()).into(profil);
 
         Call<AbsensiModel> call = mApiService.requestAbsensiHistori(id);
