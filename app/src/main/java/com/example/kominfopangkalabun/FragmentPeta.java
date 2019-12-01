@@ -100,21 +100,23 @@ public class FragmentPeta extends Fragment {
 //            }
 //        });
         locationManager =(LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
-        Criteria c=new Criteria();
+//        Criteria c=new Criteria();
         //if we pass false than
         //it will check first satellite location than Internet and than Sim Network
-        provider=locationManager.getBestProvider(c, false);
+//        provider=locationManager.getBestProvider(c, false);
         if ((ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
-            location=locationManager.getLastKnownLocation(provider);
+//            location=locationManager.getLastKnownLocation(provider);
+            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         }
 
-        if(location!=null) {
-            longi = location.getLongitude();
-            lati = location.getLatitude();
+        if(location!=null)
+        {
+            longi =location.getLongitude();
+            lati =location.getLatitude();
         }
         else
         {
-           // textViewLongLat.setText("No Provider");
+//            textViewLongLat.setText("No Provider");
         }
 
         if (mapFragment == null) {
