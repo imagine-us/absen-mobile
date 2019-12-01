@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/putihtulang">
+    android:background="@color/kuning">
 
     <ImageView
         android:id="@+id/splashLogo"
         android:layout_height="100dp"
         android:layout_width="wrap_content"
-        android:src="@drawable/ekinerja"
+        android:src="@drawable/logo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/splashLogo"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:indicatorColor="@color/birutua"
+        app:indicatorColor="@color/merah"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -76,35 +76,17 @@ public class FragmentPeta extends Fragment {
         v = inflater.inflate(R.layout.fragment_peta,container,false);
 
 
-//        this.sp = getActivity().getSharedPreferences("sp", Context.MODE_PRIVATE);
-//        nip = this.sp.getString("key_nip",null);
-//        id = this.sp.getString("key_id",null);
-//        nama = this.sp.getString("key_nama",null);
+        this.sp = getActivity().getSharedPreferences("sp", Context.MODE_PRIVATE);
+        nip = this.sp.getString("key_nip",null);
+        id = this.sp.getString("key_id",null);
+        nama = this.sp.getString("key_nama",null);
 
         currentTime = Calendar.getInstance();
         tanggal = "" + currentTime.getTime();
-//        FusedLocationProviderClient mFusedLocation = LocationServices.getFusedLocationProviderClient(getContext());
-//        mFusedLocation.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
-//            @Override
-//            public void onSuccess(Location location) {
-//                if (location != null) {
-//                    // Do it all with location
-//                    Log.d("My Current location", "Lat : " + location.getLatitude() + " Long : " + location.getLongitude());
-//                    // Display in Toast
 //
-//                    latitude = "" + location.getLatitude();
-//                    lati = location.getLatitude();
-//                    longitude = "" + location.getLongitude();
-//                    longi = location.getLongitude();
-//                }
-//            }
-//        });
         locationManager =(LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
-//        Criteria c=new Criteria();
-        //if we pass false than
-        //it will check first satellite location than Internet and than Sim Network
-//        provider=locationManager.getBestProvider(c, false);
-        if ((ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
+
+         if ((ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
 //            location=locationManager.getLastKnownLocation(provider);
             location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         }
@@ -137,40 +119,40 @@ public class FragmentPeta extends Fragment {
         // R.id.map is a FrameLayout, not a Fragment
         getChildFragmentManager().beginTransaction().replace(R.id.mapFrame, mapFragment).commit();
 
-//        mApiService = UtilsApi.getAPIService();
-//        Button b = v.findViewById(R.id.buttonAbsensiCamera);
-//        b.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+        mApiService = UtilsApi.getAPIService();
+       Button b = v.findViewById(R.id.buttonAbsensiCamera);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+           public void onClick(View v) {
 //
-//                mApiService.requestCekAbsensi(id).enqueue(new Callback<CekAbsensiModel>() {
-//                    @Override
-//                    public void onResponse(Call<CekAbsensiModel> call, Response<CekAbsensiModel> response) {
-////
-//                        if (response.isSuccessful()) {
-//                            List<CekAbsensi> listcekabsensi = response.body().getListCekAbsensi();
-//                            String status = response.body().getStatusCekAbsensi();
+                mApiService.requestCekAbsensi(id).enqueue(new Callback<CekAbsensiModel>() {
+                    @Override
+                    public void onResponse(Call<CekAbsensiModel> call, Response<CekAbsensiModel> response) {
 //
-//                            if (status.equals("true")) {
-//
-//                                statusid = listcekabsensi.get(0).getStatusId();
-//                                dispatchTakePictureIntent();
-//                            } else{
-//                                Toast.makeText(getActivity(), "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
-//                            }
-//                        }
-//                        else{
-//                            Toast.makeText(getActivity(), "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<CekAbsensiModel> call, Throwable t) {
-//                        Toast.makeText(getActivity(),t.getMessage(),Toast.LENGTH_LONG).show();
-//                    }
-//                });
-//            }
-//        });
+                        if (response.isSuccessful()) {
+                            List<CekAbsensi> listcekabsensi = response.body().getListCekAbsensi();
+                            String status = response.body().getStatusCekAbsensi();
+
+                            if (status.equals("true")) {
+
+                                statusid = listcekabsensi.get(0).getStatusId();
+                                dispatchTakePictureIntent();
+                          } else{
+                                Toast.makeText(getActivity(), "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                        else{
+                            Toast.makeText(getActivity(), "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<CekAbsensiModel> call, Throwable t) {
+                        Toast.makeText(getActivity(),t.getMessage(),Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
 
         return v;
     }
@@ -195,18 +177,18 @@ public class FragmentPeta extends Fragment {
 
             if(checkAWS(imageAbsen)){
                 mApiService.insertAbsen(statusid,pnsid,latitude,longitude).enqueue(new Callback<ResponseBody>() {
-                    @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        Toast.makeText(getActivity(), "Absen Sukses:" + tanggal + " - " + longitude + " - " + latitude, Toast.LENGTH_LONG).show();
+                  @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        Toast.makeText(getActivity(), "Absen Sukses:" + tanggal + " - " + longi + " - " + lati, Toast.LENGTH_LONG).show();
 
-                    }
+              }
 
-                    @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+              @Override
+              public void onFailure(Call<ResponseBody> call, Throwable t) {
                         Toast.makeText(getActivity(), "Absen Gagal", Toast.LENGTH_LONG).show();
 
-                    }
-                });
+             }
+              });
             }
 
         }
