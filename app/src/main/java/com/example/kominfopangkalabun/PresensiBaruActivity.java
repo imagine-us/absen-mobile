@@ -8,10 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.kominfopangkalabun.retrofit.FragmentRiwayatPresensi;
+
 public class PresensiBaruActivity extends AppCompatActivity {
 
     Button btnAbsensi, btnRiwayat;
     View vAbsensi, vRiwayat;
+    FragmentManager fm;
+    FragmentTransaction ft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,12 @@ public class PresensiBaruActivity extends AppCompatActivity {
         vAbsensi=findViewById(R.id.viewAbsensi);
         vRiwayat=findViewById(R.id.viewRiwayat);
 
+        btnAbsensi.setTextColor(getResources().getColor(R.color.merah));
+        fm = getSupportFragmentManager();
+        ft = fm.beginTransaction();
+        ft.replace(R.id.frameUtama, new FragmentPeta());
+        ft.commit();
+
         btnAbsensi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +41,10 @@ public class PresensiBaruActivity extends AppCompatActivity {
                 vRiwayat.setVisibility(View.INVISIBLE);
                 btnAbsensi.setTextColor(getResources().getColor(R.color.merah));
                 btnRiwayat.setTextColor(getResources().getColor(R.color.black));
+
+                ft.replace(R.id.frameUtama, new FragmentPeta());
+                ft.addToBackStack(null);
+                ft.commit();
 
             }
         });
@@ -43,13 +57,14 @@ public class PresensiBaruActivity extends AppCompatActivity {
                 vRiwayat.setVisibility(View.VISIBLE);
                 btnAbsensi.setTextColor(getResources().getColor(R.color.black));
                 btnRiwayat.setTextColor(getResources().getColor(R.color.merah));
+
+                ft.replace(R.id.frameUtama, new FragmentRiwayatPresensi());
+                ft.addToBackStack(null);
+                ft.commit();
             }
         });
 
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.frameUtama, new FragmentPeta());
-        ft.commit();
+
 
     }
 }
