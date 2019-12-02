@@ -52,7 +52,7 @@ public class MonitoringActivity extends AppCompatActivity {
 
     private String geserBulan(String arah, String posisi){
 
-        String[] bulan = {"Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"};
+        String[] bulan = {"JANUARI","FEBRUARI","MARET","APRIL","MEI","JUNI","JULI","AGUSTUS","SEPTEMBER","OKTOBER","NOVEMBER","DESEMBER"};
 
         int i=0;
         int current=0;
