@@ -31,7 +31,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".MonitoringActivity"></activity>
+        <activity android:name=".DetailPekerjaan"></activity>
+        <activity android:name=".MonitoringActivity" />
         <activity android:name=".PekerjaanBaruActivity" />
         <activity android:name=".DetailAbsenActivity" />
         <!--
@@ -57,7 +58,6 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".PresensiBaruActivity" />
-
         <activity android:name=".BawahanActivity" />
         <activity android:name=".PengaduanTanggapan" />
         <activity android:name=".TppActivity" />
