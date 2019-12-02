@@ -40,7 +40,7 @@ public class FragmentPekerjaanDiterima extends Fragment {
 
         mApiService = UtilsApi.getAPIService();
 
-        Call<PekerjaanModel> call = mApiService.requestPekerjaanHistoryStatus("123","0");
+        Call<PekerjaanModel> call = mApiService.requestPekerjaanHistoryStatus("123","2");
         call.enqueue(new Callback<PekerjaanModel>() {
             @Override
             public void onResponse(Call<PekerjaanModel> call, Response<PekerjaanModel> response) {
