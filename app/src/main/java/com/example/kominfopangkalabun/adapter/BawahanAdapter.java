@@ -48,9 +48,15 @@ public class BawahanAdapter extends RecyclerView.Adapter<BawahanAdapter.MyViewHo
         final Bawahan bawahan = bawahanList.get(position);
 
         holder.nama.setText(bawahan.getNama());
+        holder.nip.setText(bawahan.getNip());
 //        holder.lokasi.setText(absensi.getLokasi());
        // holder.foto.setImageDrawable(R.drawable.ic_launcher_foreground);
-        //Picasso.with(context).load(bawahan.getFoto()).transform(new PicassoCircleTransformation()).into(holder.foto);
+        if((bawahan.getFoto()!=null)&&(!bawahan.getFoto().isEmpty())) {
+            Picasso.with(context).load(bawahan.getFoto()).placeholder(R.drawable.icon_profile).transform(new PicassoCircleTransformation()).into(holder.foto);
+        }
+        else{
+            holder.foto.setImageResource(R.drawable.icon_profile);
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,11 +74,11 @@ public class BawahanAdapter extends RecyclerView.Adapter<BawahanAdapter.MyViewHo
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView nama;
+        TextView nama, nip;
         ImageView foto;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            nip = itemView.findViewById(R.id.nipBawahan);
             nama = itemView.findViewById(R.id.namaBawahan);
             foto = itemView.findViewById(R.id.fotoBawahan);
         }

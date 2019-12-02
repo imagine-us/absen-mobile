@@ -83,32 +83,43 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
+
             android:id="@+id/daftarMonitoringBelumDikoreksi"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_weight="1"
-            android:text="Daftar Pekerjaan Belum Dikoreksi"
+            android:text="belum dikoreksi"
+            android:textSize="8sp"
+            android:gravity="bottom"
+            android:textAlignment="center"
             android:textColor="@color/black"
-            android:background="@color/putihtulang"
+            android:background="@drawable/listtanya"
+
             />
 
         <Button
             android:id="@+id/daftarMonitoringDiterima"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_weight="1"
-            android:text="Daftar Pekerjaan Diterima"
             android:textColor="@color/black"
-            android:background="@color/putihtulang"
+            android:background="@drawable/listterima_abu"
+            android:text="diterima"
+            android:textSize="8sp"
+            android:gravity="bottom"
+            android:textAlignment="center"
             />
         <Button
             android:id="@+id/daftarMonitoringDitolak"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_weight="1"
-            android:text="Daftar Pekerjaan Ditolak"
             android:textColor="@color/black"
-            android:background="@color/putihtulang"
+            android:background="@drawable/listtolak_abu"
+            android:text="ditolak"
+            android:textSize="8sp"
+            android:gravity="bottom"
+            android:textAlignment="center"
             />
 
     </LinearLayout>
