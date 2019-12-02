@@ -78,6 +78,71 @@
         </LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/daftarMonitoringBelumDikoreksi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Daftar Pekerjaan Belum Dikoreksi"
+            android:textColor="@color/black"
+            android:background="@color/putihtulang"
+            />
+
+        <Button
+            android:id="@+id/daftarMonitoringDiterima"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Daftar Pekerjaan Diterima"
+            android:textColor="@color/black"
+            android:background="@color/putihtulang"
+            />
+        <Button
+            android:id="@+id/daftarMonitoringDitolak"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Daftar Pekerjaan Ditolak"
+            android:textColor="@color/black"
+            android:background="@color/putihtulang"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/viewMonitoringBelumDikoreksi"
+            android:layout_width="0dp"
+            android:layout_height="6dp"
+            android:layout_weight="1"
+            android:background="@color/merah"
+            android:visibility="visible"
+            ></View>
+        <View
+            android:id="@+id/viewMonitoringDiterima"
+            android:layout_width="0dp"
+            android:layout_height="6dp"
+            android:layout_weight="1"
+            android:background="@color/merah"
+            android:visibility="invisible"
+            ></View>
+        <View
+            android:id="@+id/viewMonitoringDitolak"
+            android:layout_width="0dp"
+            android:layout_height="6dp"
+            android:layout_weight="1"
+            android:background="@color/merah"
+            android:visibility="invisible"
+            ></View>
+
+    </LinearLayout>
 
         <FrameLayout
             android:id="@+id/frameFragmentMonitoring"

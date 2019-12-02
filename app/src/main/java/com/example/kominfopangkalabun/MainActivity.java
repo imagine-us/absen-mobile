@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         monitoring.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,MonitoringActivity.class));
+                startActivity(new Intent(MainActivity.this,BawahanActivity.class));
 //                Toast.makeText(MainActivity.this,"Fitur belum tersedia", Toast.LENGTH_LONG).show();
             }
         });
