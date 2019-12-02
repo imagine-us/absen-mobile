@@ -16,11 +16,15 @@ public class Pekerjaan {
     @SerializedName("tanggal")
     private String pekerjaanTanggal;
 
-    public Pekerjaan(String pekerjaanId, String pekerjaanRincian, String pekerjaanNama, String pekerjaanTanggal) {
+    @SerializedName("status")
+    private String pekerjaanStatus;
+
+    public Pekerjaan(String pekerjaanId, String pekerjaanRincian, String pekerjaanNama, String pekerjaanTanggal, String pekerjaanStatus) {
         this.pekerjaanId = pekerjaanId;
         this.pekerjaanRincian = pekerjaanRincian;
         this.pekerjaanNama = pekerjaanNama;
         this.pekerjaanTanggal = pekerjaanTanggal;
+        this.pekerjaanStatus = pekerjaanStatus;
     }
 
     public String getPekerjaanId() {
@@ -53,5 +57,13 @@ public class Pekerjaan {
 
     public void setPekerjaanTanggal(String pekerjaanTanggal) {
         this.pekerjaanTanggal = pekerjaanTanggal;
+    }
+
+    public String getPekerjaanStatus() {
+        return pekerjaanStatus;
+    }
+
+    public void setPekerjaanStatus(String pekerjaanStatus) {
+        this.pekerjaanStatus = pekerjaanStatus;
     }
 }

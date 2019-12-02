@@ -69,7 +69,10 @@ public interface BaseApiService {
                                    @Field("pengaduan") String pengaduan);
 
     @GET("pekerjaanhist")
-    Call<PekerjaanModel> requestPekerjaanHistory(@Query("nip") String id);
+    Call<PekerjaanModel> requestPekerjaanHistory(@Query("nip") String nip);
+
+    @GET("pekerjaanhiststatus")
+    Call<PekerjaanModel> requestPekerjaanHistoryStatus(@Query("nip") String nip,@Query("status") String status);
 
     @GET("pengaduandetail")
     Call<PengaduanTanggapanModel> requstPengaduanDetail(@Query("aduanid") String id);
