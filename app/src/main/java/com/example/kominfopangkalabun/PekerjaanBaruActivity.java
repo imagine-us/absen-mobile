@@ -5,14 +5,17 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class PekerjaanBaruActivity extends AppCompatActivity {
 
     Button btnpekerjaanSemua, btnpekerjaanDiterima, btnpekerjaanDitolak, btnpekerjaanBelumDikoreksi, btnKembali;
     View vwpekerjaanSemua, vwpekerjaanDiterima, vwpekerjaanDitolak, vwpekerjaanBelumDikoreksi;
+    ImageView imgpekerjaantambah;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +32,20 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
         vwpekerjaanDiterima = findViewById(R.id.viewPekerjaanDiterima);
         vwpekerjaanDitolak = findViewById(R.id.viewPekerjaanDitolak);
         vwpekerjaanBelumDikoreksi = findViewById(R.id.viewPekerjaanBelumDikoreksi);
+        imgpekerjaantambah = findViewById(R.id.TambahPekerjaan);
 
         btnKembali.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        imgpekerjaantambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),FormPekerjaanActivity.class);
+                startActivity(intent);
             }
         });
 
