@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MonitoringActivity extends AppCompatActivity {
 
@@ -19,6 +20,10 @@ public class MonitoringActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitoring);
 
+
+        final String[] daftarBulan = {"JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"};
+
+
         back = findViewById(R.id.btnBackMonitoringPekerjaan);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,46 +33,65 @@ public class MonitoringActivity extends AppCompatActivity {
         });
 
         bulan = findViewById(R.id.bulanMonitoring);
-        kanan =findViewById(R.id.monitorKanan);
+        kanan = findViewById(R.id.monitorKanan);
         kiri = findViewById(R.id.monitorKiri);
 
-        bulanSekarang = bulan.getText().toString();
+
 
         kanan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bulanSekarang=geserBulan("kanan",bulanSekarang);
-                bulan.setText(bulanSekarang);
+                bulanSekarang = bulan.getText().toString();
+                int i=indexBulan(bulanSekarang);
+                if(i==11)i=-1;
+                bulan.setText(daftarBulan[i+1]);
             }
         });
         kiri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bulanSekarang=geserBulan("kiri",bulanSekarang);
-                bulan.setText(bulanSekarang);
+                bulanSekarang = bulan.getText().toString();
+                int i=indexBulan(bulanSekarang);
+                if(i==0)i=12;
+                bulan.setText(daftarBulan[i-1]);
             }
         });
 
     }
 
-    private String geserBulan(String arah, String posisi){
+    public int indexBulan(String inputBulan) {
+        switch (inputBulan) {
+            case "JANUARI":
+                return 0;
+            case "FEBRUARI":
+                return 1;
+            case "MARET":
+                return 2;
+            case "APRIL":
+                return 3;
+            case "MEI":
+                return 4;
+            case "JUNI":
+                return 5;
+            case "JULI":
+                return 6;
+            case "AGUSTUS":
+                return 7;
+            case "SEPTEMBER":
+                return 8;
+            case "OKTOBER":
+                return 9;
+            case "NOVEMBER":
+                return 10;
+            case "DESEMBER":
+                return 11;
+            default:
+                return 0;
 
-        String[] bulan = {"JANUARI","FEBRUARI","MARET","APRIL","MEI","JUNI","JULI","AGUSTUS","SEPTEMBER","OKTOBER","NOVEMBER","DESEMBER"};
-
-        int i=0;
-        int current=0;
-        while(bulan[i].equals(posisi)){
-            current=0;
-            i++;
-            break;
         }
 
-        if(current==11)current=-1;
-        else if(current==0)current=12;
-
-        if(arah.equals("kanan")){
-            return bulan[current+1];
-        }else return bulan[current-1];
 
     }
+
+
 }

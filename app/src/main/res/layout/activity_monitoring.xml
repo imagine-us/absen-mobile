@@ -47,18 +47,22 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:background="@color/putihtulang"
+                android:textSize="20sp"
+                android:padding="5dp"
                 />
             <TextView
                 android:id="@+id/bulanMonitoring"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
+                android:textSize="16sp"
                 android:text="JANUARI"
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:background="@color/putihtulang"
                 />
             <TextView
+                android:padding="5dp"
                 android:id="@+id/monitorKanan"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -68,6 +72,7 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:background="@color/putihtulang"
+                android:textSize="20sp"
                 />
 
         </LinearLayout>
