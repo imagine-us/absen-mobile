@@ -42,6 +42,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
+            android:id="@+id/kiriPekerjaan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -49,10 +50,11 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:fontFamily="@font/keep"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:background="@color/putihtulang"
             />
         <TextView
+            android:id="@+id/bulanPekerjaan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
@@ -63,6 +65,7 @@
             android:background="@color/putihtulang"
             />
         <TextView
+            android:id="@+id/kananPekerjaan"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -70,7 +73,7 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:fontFamily="@font/keep"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:background="@color/putihtulang"
             />
 
@@ -87,8 +90,11 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:textColor="@color/black"
-            android:textSize="11sp"
             android:background="@drawable/all_abu"
+            android:text="semua"
+            android:gravity="bottom"
+            android:textAlignment="center"
+            android:textSize="8sp"
 
 
             />
@@ -97,18 +103,24 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:textSize="11sp"
             android:textColor="@color/black"
             android:background="@drawable/listterima_abu"
+            android:text="diterima"
+            android:gravity="bottom"
+            android:textAlignment="center"
+            android:textSize="8sp"
             />
         <Button
             android:id="@+id/daftarPekerjaanDitolak"
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:textSize="11sp"
             android:textColor="@color/black"
             android:background="@drawable/listtolak_abu"
+            android:text="ditolak"
+            android:gravity="bottom"
+            android:textAlignment="center"
+            android:textSize="8sp"
             />
         <Button
             android:id="@+id/daftarPekerjaanBelumDikoreksi"
@@ -116,7 +128,10 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:textColor="@color/black"
-            android:textSize="11sp"
+            android:text="belum dikoreksi"
+            android:gravity="bottom"
+            android:textAlignment="center"
+            android:textSize="8sp"
             android:background="@drawable/tanya_abu"
             />
     </LinearLayout>

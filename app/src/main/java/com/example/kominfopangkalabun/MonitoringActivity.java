@@ -140,7 +140,7 @@ public class MonitoringActivity extends AppCompatActivity {
         vUtang.setVisibility(View.INVISIBLE);
         vDitolak.setVisibility(View.VISIBLE);
         vDiterima.setVisibility(View.INVISIBLE);
-        utang.setBackground(getResources().getDrawable(R.drawable.listtanya));
+        utang.setBackground(getResources().getDrawable(R.drawable.tanya_abu));
         ditolak.setBackground(getResources().getDrawable(R.drawable.listtolak));
         diterima.setBackground(getResources().getDrawable(R.drawable.listterima_abu));
         utang.setTextColor(getResources().getColor(R.color.black));
@@ -153,7 +153,7 @@ public class MonitoringActivity extends AppCompatActivity {
         vUtang.setVisibility(View.INVISIBLE);
         vDitolak.setVisibility(View.INVISIBLE);
         vDiterima.setVisibility(View.VISIBLE);
-        utang.setBackground(getResources().getDrawable(R.drawable.listtanya));
+        utang.setBackground(getResources().getDrawable(R.drawable.tanya_abu));
         ditolak.setBackground(getResources().getDrawable(R.drawable.listtolak_abu));
         diterima.setBackground(getResources().getDrawable(R.drawable.listterima));
         utang.setTextColor(getResources().getColor(R.color.black));
