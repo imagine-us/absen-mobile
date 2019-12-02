@@ -10,12 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnTambahTugas, presensi, pekerjaan, pengaduan, tpp;
+    Button btnTambahTugas, presensi, pekerjaan, pengaduan, tpp, monitoring, agenda;
     ImageView fotoprofil,profil;
     TextView txtNip, txtNama;
     String nip,id,nama, foto;
@@ -58,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
         pekerjaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,FormPekerjaanActivity.class));
+                Toast.makeText(MainActivity.this,"Fitur belum tersedia", Toast.LENGTH_LONG).show();
+                //startActivity(new Intent(MainActivity.this,FormPekerjaanActivity.class));
             }
         });
 
@@ -66,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
         pengaduan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,PengaduanActivity.class));
+                Toast.makeText(MainActivity.this,"Fitur belum tersedia", Toast.LENGTH_LONG).show();
+                //startActivity(new Intent(MainActivity.this,PengaduanActivity.class));
             }
         });
 
@@ -75,7 +78,24 @@ public class MainActivity extends AppCompatActivity {
         tpp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,TppActivity.class));
+                Toast.makeText(MainActivity.this,"Fitur belum tersedia", Toast.LENGTH_LONG).show();
+                //startActivity(new Intent(MainActivity.this,TppActivity.class));
+            }
+        });
+
+        monitoring = findViewById(R.id.iconMonitoring);
+        monitoring.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"Fitur belum tersedia", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        agenda = findViewById(R.id.iconAgenda);
+        agenda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"Fitur belum tersedia", Toast.LENGTH_LONG).show();
             }
         });
 
