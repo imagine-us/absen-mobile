@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this,"Fitur belum tersedia", Toast.LENGTH_LONG).show();
-                //startActivity(new Intent(MainActivity.this,FormPekerjaanActivity.class));
+                startActivity(new Intent(MainActivity.this,PekerjaanBaruActivity.class));
             }
         });
 
