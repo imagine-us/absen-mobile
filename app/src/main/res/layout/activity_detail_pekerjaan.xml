@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormPekerjaanActivity"
     android:background="@color/putihtulang">
 
 
     <LinearLayout
-        android:id="@+id/nav"
+        android:id="@+id/nav3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -44,7 +43,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nav">
+        app:layout_constraintTop_toBottomOf="@+id/nav3">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

@@ -31,7 +31,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".DetailPekerjaan"></activity>
+        <activity android:name=".DetailMonitoringActivity"></activity>
+        <activity android:name=".DetailPekerjaanActivity" />
         <activity android:name=".MonitoringActivity" />
         <activity android:name=".PekerjaanBaruActivity" />
         <activity android:name=".DetailAbsenActivity" />
