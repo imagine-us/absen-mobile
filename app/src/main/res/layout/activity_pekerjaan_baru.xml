@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/putihtulang"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/kuning">
+
+        <Button
+            android:id="@+id/btnBackMonitoring"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/back"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:text="Monitoring Pekerjaan"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:fontFamily="@font/keep"
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="<"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:background="@color/putihtulang"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="JANUARI"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:background="@color/putihtulang"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=">"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:background="@color/putihtulang"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/daftarPekerjaanAll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Daftar Pekerjaan All"
+            android:textColor="@color/black"
+            android:background="@color/putihtulang"
+
+            />
+        <Button
+            android:id="@+id/daftarPekerjaanDiterima"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Daftar Pekerjaan Diterima"
+            android:textColor="@color/black"
+            android:background="@color/putihtulang"
+            />
+        <Button
+            android:id="@+id/daftarPekerjaanDitolak"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Daftar Pekerjaan Ditolak"
+            android:textColor="@color/black"
+            android:background="@color/putihtulang"
+            />
+        <Button
+            android:id="@+id/daftarPekerjaanBelumDikoreksi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Daftar Pekerjaan Belum Dikoreksi"
+            android:textColor="@color/black"
+            android:background="@color/putihtulang"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/viewPekerjaanAll"
+            android:layout_width="0dp"
+            android:layout_height="6dp"
+            android:layout_weight="1"
+            android:background="@color/merah"
+            android:visibility="visible"
+            ></View>
+        <View
+            android:id="@+id/viewPekerjaanDiterima"
+            android:layout_width="0dp"
+            android:layout_height="6dp"
+            android:layout_weight="1"
+            android:background="@color/merah"
+            android:visibility="invisible"
+            ></View>
+        <View
+            android:id="@+id/viewPekerjaanDitolak"
+            android:layout_width="0dp"
+            android:layout_height="6dp"
+            android:layout_weight="1"
+            android:background="@color/merah"
+            android:visibility="invisible"
+            ></View>
+        <View
+            android:id="@+id/viewPekerjaanBelumDikoreksi"
+            android:layout_width="0dp"
+            android:layout_height="6dp"
+            android:layout_weight="1"
+            android:background="@color/merah"
+            android:visibility="invisible"
+            ></View>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frameFragmentPekerjaan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+
+
+</LinearLayout>
+
+    <ImageView
+        android:id="@+id/iconTambahPekerjaan"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/plusplus"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintVertical_bias="0.98"
+        android:padding="20dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
