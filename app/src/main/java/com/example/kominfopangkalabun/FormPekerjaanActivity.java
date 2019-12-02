@@ -45,7 +45,7 @@ public class FormPekerjaanActivity extends AppCompatActivity {
         edtDetailKerja = findViewById(R.id.edtDetailPekerjaan);
         simpan = findViewById(R.id.btnSubmitKerja);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listUraian());
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, listUraian());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         uraian.setAdapter(adapter);
 
