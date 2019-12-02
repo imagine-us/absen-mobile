@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -61,7 +62,7 @@ public class FormPekerjaanActivity extends AppCompatActivity {
         uraian.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(FormPekerjaanActivity.this, android.R.layout.simple_spinner_item, listSubUraian(i));
+                ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(FormPekerjaanActivity.this, R.layout.spinner_item, listSubUraian(i));
                 subUraian.setAdapter(adapter2);
             }
 
@@ -95,8 +96,23 @@ public class FormPekerjaanActivity extends AppCompatActivity {
         simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String nip = "123";
+                String texturaian = uraian.getSelectedItem().toString();
+                String textanalisis = subUraian.getSelectedItem().toString();
+                String tgl = edtTanggalKerja.getText().toString();
+                String waktmulai = edtJamKerja.getText().toString();
+                String durasi = edtDurasiKerja.getText().toString();
+                String pekerjaan = edtJudulKerja.getText().toString();
+                String hasil = edtDetailKerja.getText().toString();
 
-
+                Log.e("NIP",nip);
+                Log.e("Uraian",texturaian);
+                Log.e("Analisis",textanalisis);
+                Log.e("Tanggal",tgl);
+                Log.e("Waktu Mulai",waktmulai);
+                Log.e("Durasi",durasi);
+                Log.e("Pekerjaan",pekerjaan);
+                Log.e("Hasil",hasil);
             }
         });
 
