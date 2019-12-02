@@ -19,7 +19,7 @@
         android:id="@+id/buttonAbsensiCamera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="+"
+        android:text="Absen Hari Ini"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,6 +27,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp"
         android:padding="20dp"
+        android:background="@color/merah"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

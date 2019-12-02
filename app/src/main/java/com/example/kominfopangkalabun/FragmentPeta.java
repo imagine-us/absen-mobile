@@ -1,7 +1,9 @@
 package com.example.kominfopangkalabun;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -107,7 +109,7 @@ public class FragmentPeta extends Fragment {
                 @Override
                 public void onMapReady(GoogleMap googleMap) {
 
-                    Toast.makeText(getActivity(),"lat:"+lati+"longi"+longi,Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(getActivity(),"lat:"+lati+"longi"+longi,Toast.LENGTH_LONG).show();
                     LatLng latLng = new LatLng(lati,longi);
                     googleMap.addMarker(new MarkerOptions().position(latLng)
                             .title("Posisi Anda Sekarang"));
@@ -139,11 +141,13 @@ public class FragmentPeta extends Fragment {
                                 statusid = listcekabsensi.get(0).getStatusId();
                                 dispatchTakePictureIntent();
                           } else{
-                                Toast.makeText(getActivity(), "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
+                                //Toast.makeText(getActivity(), "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
+                                showDialogCannot();
                             }
                         }
                         else{
-                            Toast.makeText(getActivity(), "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
+                            showDialogCannot();
+                            //Toast.makeText(getActivity(), "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
                         }
                     }
 
@@ -180,8 +184,8 @@ public class FragmentPeta extends Fragment {
                 mApiService.insertAbsen(statusid,pnsid,latitude,longitude).enqueue(new Callback<ResponseBody>() {
                   @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        Toast.makeText(getActivity(), "Absen Sukses:" + tanggal + " - " + longi + " - " + lati, Toast.LENGTH_LONG).show();
-
+                       // Toast.makeText(getActivity(), "Absen Sukses:" + tanggal + " - " + longi + " - " + lati, Toast.LENGTH_LONG).show();
+                        showDialogSuccsess();
               }
 
               @Override
@@ -201,6 +205,58 @@ public class FragmentPeta extends Fragment {
             return true;
         }
         return false;
+    }
+
+    private void showDialogCannot(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                getContext());
+
+        // set title dialog
+        alertDialogBuilder.setTitle("Konfirmasi");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+                .setMessage("Anda tidak dapat melakukan absensi pada saat ini.")
+                .setIcon(R.drawable.logo)
+                .setCancelable(false)
+                .setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // jika tombol diklik, maka akan menutup activity ini
+                        dialog.cancel();
+                    }
+                });
+
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
+    }
+
+    private void showDialogSuccsess(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                getContext());
+
+        // set title dialog
+        alertDialogBuilder.setTitle("Konfirmasi");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+                .setMessage("Anda berhasil melakukan absensi pada hari ini.")
+                .setIcon(R.drawable.logo)
+                .setCancelable(false)
+                .setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // jika tombol diklik, maka akan menutup activity ini
+                        dialog.cancel();
+                    }
+                });
+
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
     }
 
 
