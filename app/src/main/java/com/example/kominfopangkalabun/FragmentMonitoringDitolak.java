@@ -19,6 +19,7 @@ import com.example.kominfopangkalabun.model.Pekerjaan.PekerjaanModel;
 import com.example.kominfopangkalabun.retrofit.BaseApiService;
 import com.example.kominfopangkalabun.retrofit.UtilsApi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -38,7 +39,12 @@ public class FragmentMonitoringDitolak extends Fragment {
 
         v = inflater.inflate(R.layout.fragment_monitoring_ditolak,container,false);
 
-
+        List<Pekerjaan> pekerjaanList = new ArrayList<>();
+        recyclerView= v.findViewById(R.id.rvMonitoringDitolak);
+        layoutManager = new LinearLayoutManager(getContext());
+        PekerjaanAdapter menuAdapter = new PekerjaanAdapter(pekerjaanList);
+        recyclerView.setAdapter(menuAdapter);
+        recyclerView.setLayoutManager(layoutManager);
 
         return v;
     }
