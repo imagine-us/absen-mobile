@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ap</string>
+    <string name="app_name">e-kinerja</string>
     <string name="service_not_available">not available</string>
     <string name="invalid_lat_long_used">invalid</string>
     <string name="no_address_found">no address</string>
