@@ -7,251 +7,260 @@
     tools:context=".FormPekerjaanActivity"
     android:background="@color/putihtulang">
 
-    <TextView
-        android:id="@+id/textJudulPekerjaan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Form Lembar Kerja Harian"
-        android:textStyle="bold"
-        android:textSize="24sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
-        />
+    <LinearLayout
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toBottomOf="@id/textJudulPekerjaan"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent"
-    >
-
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
-    <TextView
-        android:id="@+id/txtUraian"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Uraian Tugas"
-        android:textSize="12sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
-        />
-
-
-    <Spinner
-                     android:id="@+id/sprUraianTugas"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_marginTop="10dp"
-                     android:layout_marginLeft="15dp"
-                     android:layout_marginRight="15dp"
-                     android:background="@drawable/borderabu"
-                     app:layout_constraintTop_toBottomOf="@+id/txtUraian"
-                     app:layout_constraintLeft_toLeftOf="parent"
-                     app:layout_constraintRight_toRightOf="parent"
-                     android:padding="10dp"
-                     android:textSize="12sp"
-                     android:textColor="@color/black"
-
-                     />
-
-    <TextView
-        android:id="@+id/txtSubUraian"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sub Uraian Tugas"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@+id/sprUraianTugas"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
-        />
-
-    <Spinner
-        android:id="@+id/sprSubUraianTugas"
+        android:background="@color/putihtulang"
+        android:orientation="vertical">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/borderabu"
-        app:layout_constraintTop_toBottomOf="@+id/txtSubUraian"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:padding="10dp"
-        android:textSize="12sp"
-        android:textColor="@color/black"
-        />
+        android:orientation="horizontal"
+        android:background="@color/kuning">
 
-    <TextView
-        android:id="@+id/txtTanggalKerja"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tanggal"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@+id/sprSubUraianTugas"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
-        />
+        <Button
+            android:id="@+id/btnBackMonitoring"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/back"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:text="Form Pekerjaan"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:fontFamily="@font/keep"
 
-    <EditText
-        android:id="@+id/edtTanggalKerja"
+            />
+    </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
-        android:hint="dd/mm/yyyy"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtTanggalKerja"
-        android:textSize="12sp"
-        android:textColor="@color/black"/>
+        app:layout_constraintTop_toBottomOf="parent">
 
-    <TextView
-        android:id="@+id/txtJamKerja"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Waktu Mulai"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@+id/edtTanggalKerja"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
-        />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/edtJam"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content"
-        android:hint="hh:mm"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtJamKerja"
-        android:textSize="12sp"
-        android:textColor="@color/black"/>
-
-    <TextView
-        android:id="@+id/txtDurasi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Durasi"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@+id/edtJam"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
-        />
-
-    <EditText
-        android:id="@+id/edtDurasi"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content"
-        android:hint="00"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtDurasi"
-        android:inputType="number"
-        android:textSize="12sp"
-        android:textColor="@color/black"/>
-
-    <TextView
-        android:id="@+id/txtNamaPekerjaan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nama Pekerjaan"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@+id/edtDurasi"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
-        />
-
-    <EditText
-        android:id="@+id/edtNamaPekerjaan"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtNamaPekerjaan"
-        android:textSize="12sp"
-        android:textColor="@color/black"/>
-    <TextView
-        android:id="@+id/txtDetailPekerjaan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Detail Pekerjaan"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@+id/edtNamaPekerjaan"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
-        />
-
-    <EditText
-        android:id="@+id/edtDetailPekerjaan"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtDetailPekerjaan"
-        android:textSize="12sp"
-        android:inputType="textMultiLine"
-        android:textColor="@color/black"
-       />
-
-    <Button
-        android:id="@+id/btnSubmitKerja"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
-    android:layout_height="wrap_content"
-    android:text="simpan"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/edtDetailPekerjaan"
-    />
+            <TextView
+                android:id="@+id/txtUraian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Uraian Tugas"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+            <Spinner
+                android:id="@+id/sprUraianTugas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/borderabu"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtUraian"
+
+                />
+
+            <TextView
+                android:id="@+id/txtSubUraian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Sub Uraian Tugas"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sprUraianTugas" />
+
+            <Spinner
+                android:id="@+id/sprSubUraianTugas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/borderabu"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSubUraian" />
+
+            <TextView
+                android:id="@+id/txtTanggalKerja"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Tanggal"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sprSubUraianTugas" />
+
+            <EditText
+                android:id="@+id/edtTanggalKerja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:hint="dd/mm/yyyy"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtTanggalKerja" />
+
+            <TextView
+                android:id="@+id/txtJamKerja"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Waktu Mulai"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtTanggalKerja" />
+
+            <EditText
+                android:id="@+id/edtJam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:hint="hh:mm"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtJamKerja" />
+
+            <TextView
+                android:id="@+id/txtDurasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Durasi"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtJam" />
+
+            <EditText
+                android:id="@+id/edtDurasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:hint="00"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtDurasi" />
+
+            <TextView
+                android:id="@+id/txtNamaPekerjaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Nama Pekerjaan"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtDurasi" />
+
+            <EditText
+                android:id="@+id/edtNamaPekerjaan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtNamaPekerjaan" />
+
+            <TextView
+                android:id="@+id/txtDetailPekerjaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Detail Pekerjaan"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtNamaPekerjaan" />
+
+            <EditText
+                android:id="@+id/edtDetailPekerjaan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:inputType="textMultiLine"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtDetailPekerjaan" />
+
+            <Button
+                android:id="@+id/btnSubmitKerja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:text="simpan"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edtDetailPekerjaan" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

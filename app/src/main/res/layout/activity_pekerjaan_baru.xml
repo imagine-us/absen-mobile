@@ -48,6 +48,8 @@
             android:text="@string/kiri"
             android:gravity="center"
             android:textColor="@color/black"
+            android:fontFamily="@font/keep"
+            android:textSize="15sp"
             android:background="@color/putihtulang"
             />
         <TextView
@@ -57,6 +59,7 @@
             android:text="JANUARI"
             android:gravity="center"
             android:textColor="@color/black"
+            android:fontFamily="@font/keep"
             android:background="@color/putihtulang"
             />
         <TextView
@@ -66,6 +69,8 @@
             android:text="@string/kanan"
             android:gravity="center"
             android:textColor="@color/black"
+            android:fontFamily="@font/keep"
+            android:textSize="15sp"
             android:background="@color/putihtulang"
             />
 
@@ -79,39 +84,40 @@
         <Button
             android:id="@+id/daftarPekerjaanAll"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_weight="1"
-            android:text="Daftar Pekerjaan All"
             android:textColor="@color/black"
-            android:background="@color/putihtulang"
+            android:textSize="11sp"
+            android:background="@drawable/all_abu"
+
 
             />
         <Button
             android:id="@+id/daftarPekerjaanDiterima"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_weight="1"
-            android:text="Daftar Pekerjaan Diterima"
+            android:textSize="11sp"
             android:textColor="@color/black"
-            android:background="@color/putihtulang"
+            android:background="@drawable/listterima_abu"
             />
         <Button
             android:id="@+id/daftarPekerjaanDitolak"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_weight="1"
-            android:text="Daftar Pekerjaan Ditolak"
+            android:textSize="11sp"
             android:textColor="@color/black"
-            android:background="@color/putihtulang"
+            android:background="@drawable/listtolak_abu"
             />
         <Button
             android:id="@+id/daftarPekerjaanBelumDikoreksi"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_weight="1"
-            android:text="Daftar Pekerjaan Belum Dikoreksi"
             android:textColor="@color/black"
-            android:background="@color/putihtulang"
+            android:textSize="11sp"
+            android:background="@drawable/tanya_abu"
             />
     </LinearLayout>
     <LinearLayout
@@ -168,7 +174,7 @@
         android:id="@+id/TambahPekerjaan"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/plusplus"
+        android:src="@drawable/pluspls"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
