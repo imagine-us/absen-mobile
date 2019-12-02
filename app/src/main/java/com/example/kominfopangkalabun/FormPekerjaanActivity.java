@@ -24,7 +24,7 @@ import java.util.Locale;
 public class FormPekerjaanActivity extends AppCompatActivity {
 
     EditText edtTanggalKerja, edtJamKerja, edtDurasiKerja, edtJudulKerja, edtDetailKerja;
-    Button simpan;
+    Button simpan, back;
     Spinner uraian, subUraian;
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
@@ -44,6 +44,7 @@ public class FormPekerjaanActivity extends AppCompatActivity {
         edtJudulKerja = findViewById(R.id.edtNamaPekerjaan);
         edtDetailKerja = findViewById(R.id.edtDetailPekerjaan);
         simpan = findViewById(R.id.btnSubmitKerja);
+        back = findViewById(R.id.btnBackPekerjaan);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, listUraian());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -96,6 +97,13 @@ public class FormPekerjaanActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 
