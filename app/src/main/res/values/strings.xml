@@ -10,4 +10,6 @@
 
     </string-array>
     <string name="title_activity_maps">Map</string>
+    <string name="kiri"><![CDATA[<<]]></string>
+    <string name="kanan"><![CDATA[>>]]></string>
 </resources>
