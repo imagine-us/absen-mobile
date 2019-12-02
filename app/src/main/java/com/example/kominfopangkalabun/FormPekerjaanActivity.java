@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -17,16 +18,26 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.kominfopangkalabun.model.Pekerjaan.Pekerjaan;
+import com.example.kominfopangkalabun.model.Pekerjaan.PekerjaanModel;
+import com.example.kominfopangkalabun.retrofit.BaseApiService;
+import com.example.kominfopangkalabun.retrofit.UtilsApi;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FormPekerjaanActivity extends AppCompatActivity {
 
     EditText edtTanggalKerja, edtJamKerja, edtDurasiKerja, edtJudulKerja, edtDetailKerja;
     Button simpan, back;
     Spinner uraian, subUraian;
+    BaseApiService mApiService;
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
     SimpleDateFormat date = new SimpleDateFormat("dd.MM.yyyy");
@@ -46,6 +57,7 @@ public class FormPekerjaanActivity extends AppCompatActivity {
         edtDetailKerja = findViewById(R.id.edtDetailPekerjaan);
         simpan = findViewById(R.id.btnSubmitKerja);
         back = findViewById(R.id.btnBackPekerjaan);
+        mApiService = UtilsApi.getAPIService();
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, listUraian());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -95,12 +107,18 @@ public class FormPekerjaanActivity extends AppCompatActivity {
 
         simpan.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 String nip = "123";
                 String texturaian = uraian.getSelectedItem().toString();
                 String textanalisis = subUraian.getSelectedItem().toString();
+
                 String tgl = edtTanggalKerja.getText().toString();
+                String[] separated = tgl.split("\\.");
+                String newtgl = separated[2] + "-" +separated[1] + "-" + separated[0];
+
                 String waktmulai = edtJamKerja.getText().toString();
+                String newwaktumulai = newtgl + " " + waktmulai + ":00";
+
                 String durasi = edtDurasiKerja.getText().toString();
                 String pekerjaan = edtJudulKerja.getText().toString();
                 String hasil = edtDetailKerja.getText().toString();
@@ -108,11 +126,27 @@ public class FormPekerjaanActivity extends AppCompatActivity {
                 Log.e("NIP",nip);
                 Log.e("Uraian",texturaian);
                 Log.e("Analisis",textanalisis);
-                Log.e("Tanggal",tgl);
-                Log.e("Waktu Mulai",waktmulai);
+                Log.e("Tanggal",newtgl);
+                Log.e("Waktu Mulai", newwaktumulai);
                 Log.e("Durasi",durasi);
                 Log.e("Pekerjaan",pekerjaan);
                 Log.e("Hasil",hasil);
+
+                Call<PekerjaanModel> call = mApiService.insertPekerjaan(nip,texturaian,textanalisis,newtgl,newwaktumulai,durasi,pekerjaan,hasil);
+                call.enqueue(new Callback<PekerjaanModel>() {
+                    @Override
+                    public void onResponse(Call<PekerjaanModel> call, Response<PekerjaanModel> response) {
+                        Toast.makeText(view.getContext(),"Pekerjaan Terkirim",Toast.LENGTH_LONG).show();
+//                        finish();
+                        Intent intent = new Intent(view.getContext(), PekerjaanBaruActivity.class);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onFailure(Call<PekerjaanModel> call, Throwable t) {
+                        Log.e("debug", "onFailure: ERROR > " + t.toString());
+                    }
+                });
             }
         });
 

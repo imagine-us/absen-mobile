@@ -74,6 +74,11 @@ public interface BaseApiService {
     @GET("pekerjaanhiststatus")
     Call<PekerjaanModel> requestPekerjaanHistoryStatus(@Query("nip") String nip,@Query("status") String status);
 
+    @FormUrlEncoded
+    @POST("inputpekerjaan")
+    Call<PekerjaanModel> insertPekerjaan(@Field("nip") String nip, @Field("uraian") String uraian, @Field("analisis") String analisis, @Field("tgl") String tgl,
+                                         @Field("waktumulai") String waktumulai, @Field("durasi") String durasi, @Field("pekerjaan") String pekerjaan,@Field("hasil") String hasil);
+
     @GET("pengaduandetail")
     Call<PengaduanTanggapanModel> requstPengaduanDetail(@Query("aduanid") String id);
 

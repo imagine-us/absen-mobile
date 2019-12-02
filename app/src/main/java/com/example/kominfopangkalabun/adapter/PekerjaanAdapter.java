@@ -40,7 +40,9 @@ public class PekerjaanAdapter extends RecyclerView.Adapter<PekerjaanAdapter.MyVi
         final Pekerjaan pekerjaan = pekerjaanList.get(position);
 
         holder.nama.setText(pekerjaan.getPekerjaanNama());
-        holder.tanggal.setText("Tanggal : " + pekerjaan.getPekerjaanTanggal());
+        String[] tanggal1 = pekerjaan.getPekerjaanTanggal().split(" ");
+        String[] tanggal2 = tanggal1[0].split("-");
+        holder.tanggal.setText("Tanggal : " + tanggal2[2] + "-" + tanggal2[1] + "-" + tanggal2[0]);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
