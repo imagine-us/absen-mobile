@@ -83,5 +83,7 @@ public interface BaseApiService {
     @GET("pengaduandetail")
     Call<PengaduanTanggapanModel> requstPengaduanDetail(@Query("aduanid") String id);
 
+    @GET("bawahan")
+    Call<BawahanModel> requestBawahan(@Query("nip") String nip);
 
 }

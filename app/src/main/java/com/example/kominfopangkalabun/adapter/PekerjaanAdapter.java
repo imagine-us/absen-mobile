@@ -1,6 +1,7 @@
 package com.example.kominfopangkalabun.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kominfopangkalabun.DetailPekerjaanActivity;
 import com.example.kominfopangkalabun.R;
 import com.example.kominfopangkalabun.model.Pekerjaan.Pekerjaan;
 
@@ -46,7 +48,10 @@ public class PekerjaanAdapter extends RecyclerView.Adapter<PekerjaanAdapter.MyVi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(),"Belum Ada",Toast.LENGTH_LONG).show();
+//                Toast.makeText(view.getContext(),pekerjaan.getId(),Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(view.getContext(), DetailPekerjaanActivity.class);
+                intent.putExtra("idpekerjaan",pekerjaan.getId());
+                view.getContext().startActivity(intent);
             }
         });
     }

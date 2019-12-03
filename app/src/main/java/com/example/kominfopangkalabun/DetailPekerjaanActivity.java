@@ -2,27 +2,33 @@ package com.example.kominfopangkalabun;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.kominfopangkalabun.retrofit.BaseApiService;
+import com.example.kominfopangkalabun.retrofit.UtilsApi;
 
 public class DetailPekerjaanActivity extends AppCompatActivity {
 
     TextView uraian,suburaian,tanggal,waktu,durasi,judul,detail;
     Button back;
+    BaseApiService mApiService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_pekerjaan);
 
-        back = findViewById(R.id.btnBackDetailPekerjaan2);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        Intent intent = getIntent();
+        String idpekerjaan = intent.getExtras().getString("idpekerjaan");
+        Toast.makeText(getApplicationContext(),idpekerjaan,Toast.LENGTH_LONG).show();
+        mApiService = UtilsApi.getAPIService();
+
+
 
         uraian = findViewById(R.id.hsilUraianTugas2);
         suburaian = findViewById(R.id.hsilSubUraianTugas2);
