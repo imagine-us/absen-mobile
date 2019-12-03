@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +21,7 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
     ImageView imgpekerjaantambah;
     TextView kanan, kiri, bulan;
     String bulanSekarang;
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
 
 
         final String[] daftarBulan = {"JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"};
+        this.sp = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
 
         btnKembali = findViewById(R.id.btnBackMonitoring);
         btnpekerjaanSemua = findViewById(R.id.daftarPekerjaanAll);

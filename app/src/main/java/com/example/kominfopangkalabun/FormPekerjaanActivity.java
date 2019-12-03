@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -42,6 +44,7 @@ public class FormPekerjaanActivity extends AppCompatActivity {
     private TimePickerDialog timePickerDialog;
     SimpleDateFormat date = new SimpleDateFormat("dd.MM.yyyy");
     SimpleDateFormat time = new SimpleDateFormat("HH:mm");
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,7 @@ public class FormPekerjaanActivity extends AppCompatActivity {
         simpan = findViewById(R.id.btnSubmitKerja);
         back = findViewById(R.id.btnBackPekerjaan);
         mApiService = UtilsApi.getAPIService();
+        this.sp = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, listUraian());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -108,7 +112,7 @@ public class FormPekerjaanActivity extends AppCompatActivity {
         simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                String nip = "123";
+                String nip = sp.getString("key_nip",null);
                 String texturaian = uraian.getSelectedItem().toString();
                 String textanalisis = subUraian.getSelectedItem().toString();
 

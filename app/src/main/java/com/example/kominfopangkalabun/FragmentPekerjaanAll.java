@@ -1,5 +1,7 @@
 package com.example.kominfopangkalabun;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,6 +32,7 @@ public class FragmentPekerjaanAll extends Fragment {
     View v;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
+    private SharedPreferences sp;
 
     @Nullable
     @Override
@@ -39,8 +42,9 @@ public class FragmentPekerjaanAll extends Fragment {
         v = inflater.inflate(R.layout.fragment_pekerjaan_baru,container,false);
 
         mApiService = UtilsApi.getAPIService();
+        this.sp = getContext().getSharedPreferences("sp",Context.MODE_PRIVATE);
 
-        Call<PekerjaanModel> call = mApiService.requestPekerjaanHistory("123");
+        Call<PekerjaanModel> call = mApiService.requestPekerjaanHistory(this.sp.getString("key_nip",null));
         call.enqueue(new Callback<PekerjaanModel>() {
             @Override
             public void onResponse(Call<PekerjaanModel> call, Response<PekerjaanModel> response) {
@@ -53,7 +57,7 @@ public class FragmentPekerjaanAll extends Fragment {
                     recyclerView.setLayoutManager(layoutManager);
                 }
                 else{
-                    Toast.makeText(v.getContext(),"Pekerjaan Masih Kosong",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(),"Riwayat Pekerjaan Masih Kosong",Toast.LENGTH_SHORT).show();
                 }
             }
 
