@@ -46,8 +46,8 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
 
         String nomorstatus = pengaduan.getPengaduanStatus();
 
-        holder.subjek.setText("Subjek");
-
+        holder.subjek.setText(pengaduan.getPengaduanIsi());
+/*
         //kurang warna tiap status
         if(nomorstatus.equals("0")){
             holder.status.setText("Belum Diproses");
@@ -63,22 +63,22 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
         else{
             holder.status.setText("Error");
         }
-
+*/
         holder.tanggal.setText(pengaduan.getPengaduanTanggalPengaduan());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(pengaduan.getPengaduanStatus().equals("1")){
-                    Intent intent = new Intent(view.getContext(), PengaduanTanggapan.class);
-                    intent.putExtra("Id", pengaduan.getPengaduanId());
-                    view.getContext().startActivity(intent);
-                }
-                else if(pengaduan.getPengaduanStatus().equals("2")){
-                    Toast.makeText(view.getContext(),"Pengaduan Masih Diproses",Toast.LENGTH_SHORT).show();
-                }
-                else if(pengaduan.getPengaduanStatus().equals("0")){
-                    Toast.makeText(view.getContext(),"Pengaduan Belum Diproses",Toast.LENGTH_SHORT).show();
-                }
+            //    if(pengaduan.getPengaduanStatus().equals("1")){
+                 //   Intent intent = new Intent(view.getContext(), PengaduanTanggapan.class);
+                  //  intent.putExtra("Id", pengaduan.getPengaduanId());
+                    // view.getContext().startActivity(intent);
+              //  }
+                //else if(pengaduan.getPengaduanStatus().equals("2")){
+                  //  Toast.makeText(view.getContext(),"Pengaduan Masih Diproses",Toast.LENGTH_SHORT).show();
+               // }
+                //else if(pengaduan.getPengaduanStatus().equals("0")){
+                  //  Toast.makeText(view.getContext(),"Pengaduan Belum Diproses",Toast.LENGTH_SHORT).show();
+               // }
 
             }
         });
@@ -95,7 +95,7 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
             super(itemView);
 
             subjek = itemView.findViewById(R.id.pengaduanSubjek);
-            status = itemView.findViewById(R.id.pengaduanStatus);
+           // status = itemView.findViewById(R.id.pengaduanStatus);
             tanggal = itemView.findViewById(R.id.pengaduanTanggal);
         }
     }
