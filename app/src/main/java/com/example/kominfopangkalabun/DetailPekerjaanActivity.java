@@ -28,7 +28,7 @@ public class DetailPekerjaanActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),idpekerjaan,Toast.LENGTH_LONG).show();
         mApiService = UtilsApi.getAPIService();
 
-        
+
 
         uraian = findViewById(R.id.hsilUraianTugas2);
         suburaian = findViewById(R.id.hsilSubUraianTugas2);

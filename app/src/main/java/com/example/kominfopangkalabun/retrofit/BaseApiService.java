@@ -5,6 +5,7 @@ import com.example.kominfopangkalabun.model.Absensi.AbsensiModel;
 import com.example.kominfopangkalabun.model.Absensi.CekAbsensi;
 import com.example.kominfopangkalabun.model.Absensi.CekAbsensiModel;
 import com.example.kominfopangkalabun.model.Login.Login;
+import com.example.kominfopangkalabun.model.Monitoring.BawahanModel;
 import com.example.kominfopangkalabun.model.Pekerjaan.PekerjaanModel;
 import com.example.kominfopangkalabun.model.Pengaduan.PengaduanModel;
 import com.example.kominfopangkalabun.model.Pengaduan.PengaduanTanggapanModel;
@@ -81,5 +82,8 @@ public interface BaseApiService {
 
     @GET("pengaduandetail")
     Call<PengaduanTanggapanModel> requstPengaduanDetail(@Query("aduanid") String id);
+
+    @GET("bawahan")
+    Call<BawahanModel> requestBawahan(@Query("nip") String nip);
 
 }

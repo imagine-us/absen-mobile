@@ -4,23 +4,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class Bawahan {
 
-    @SerializedName("mon_id")
+    @SerializedName("id")
     private String id;
 
-    @SerializedName("mon_nip")
+    @SerializedName("PNS_PNSNIP")
     private String nip;
 
-    @SerializedName("mon_nama")
+    @SerializedName("pns_atasan")
     private String nama;
 
-    @SerializedName("mon_foto")
-    private String foto;
-
-    public Bawahan(String id, String nip, String nama, String foto) {
+    public Bawahan(String id, String nip, String nama) {
         this.id = id;
         this.nip = nip;
         this.nama = nama;
-        this.foto = foto;
     }
 
     public String getId() {
@@ -47,11 +43,4 @@ public class Bawahan {
         this.nama = nama;
     }
 
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
 }
