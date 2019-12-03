@@ -8,7 +8,7 @@
 
 
     <LinearLayout
-        android:id="@+id/nav3"
+        android:id="@+id/nav2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/btnBackDetailPekerjaan"
+            android:id="@+id/btnBackDetailPekerjaan2"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -43,14 +43,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nav3">
+        app:layout_constraintTop_toBottomOf="@+id/nav2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/txtDetUraian"
+                android:id="@+id/txtDetUraian2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -65,7 +65,7 @@
 
 
             <TextView
-                android:id="@+id/hsilUraianTugas"
+                android:id="@+id/hsilUraianTugas2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -77,12 +77,12 @@
                 android:textSize="6sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtDetUraian"
+                app:layout_constraintTop_toBottomOf="@+id/txtDetUraian2"
 
                 />
 
             <TextView
-                android:id="@+id/txtDetSubUraian"
+                android:id="@+id/txtDetSubUraian2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -93,10 +93,10 @@
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hsilUraianTugas" />
+                app:layout_constraintTop_toBottomOf="@+id/hsilUraianTugas2" />
 
             <TextView
-                android:id="@+id/hsilSubUraianTugas"
+                android:id="@+id/hsilSubUraianTugas2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -108,10 +108,10 @@
                 android:textSize="6sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtDetSubUraian" />
+                app:layout_constraintTop_toBottomOf="@+id/txtDetSubUraian2" />
 
             <TextView
-                android:id="@+id/txtDetTanggalKerja"
+                android:id="@+id/txtDetTanggalKerja2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -122,10 +122,10 @@
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hsilSubUraianTugas" />
+                app:layout_constraintTop_toBottomOf="@+id/hsilSubUraianTugas2" />
 
             <TextView
-                android:id="@+id/hsilTanggalKerja"
+                android:id="@+id/hsilTanggalKerja2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -136,10 +136,10 @@
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtDetTanggalKerja" />
+                app:layout_constraintTop_toBottomOf="@id/txtDetTanggalKerja2" />
 
             <TextView
-                android:id="@+id/txtDetJamKerja"
+                android:id="@+id/txtDetJamKerja2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -150,10 +150,10 @@
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hsilTanggalKerja" />
+                app:layout_constraintTop_toBottomOf="@+id/hsilTanggalKerja2" />
 
             <TextView
-                android:id="@+id/hsilJam"
+                android:id="@+id/hsilJam2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -164,10 +164,10 @@
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtDetJamKerja" />
+                app:layout_constraintTop_toBottomOf="@id/txtDetJamKerja2" />
 
             <TextView
-                android:id="@+id/txtDetDurasi"
+                android:id="@+id/txtDetDurasi2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -178,10 +178,10 @@
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hsilJam" />
+                app:layout_constraintTop_toBottomOf="@+id/hsilJam2" />
 
             <TextView
-                android:id="@+id/hsilDurasi"
+                android:id="@+id/hsilDurasi2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -193,10 +193,10 @@
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtDetDurasi" />
+                app:layout_constraintTop_toBottomOf="@id/txtDetDurasi2" />
 
             <TextView
-                android:id="@+id/txtDetNamaPekerjaan"
+                android:id="@+id/txtDetNamaPekerjaan2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -207,10 +207,10 @@
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hsilDurasi" />
+                app:layout_constraintTop_toBottomOf="@+id/hsilDurasi2" />
 
             <TextView
-                android:id="@+id/hsilNamaPekerjaan"
+                android:id="@+id/hsilNamaPekerjaan2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -220,10 +220,10 @@
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtDetNamaPekerjaan" />
+                app:layout_constraintTop_toBottomOf="@id/txtDetNamaPekerjaan2" />
 
             <TextView
-                android:id="@+id/txtDetDetailPekerjaan"
+                android:id="@+id/txtDetDetailPekerjaan2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -234,10 +234,10 @@
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hsilNamaPekerjaan" />
+                app:layout_constraintTop_toBottomOf="@+id/hsilNamaPekerjaan2" />
 
             <TextView
-                android:id="@+id/hsilDetailPekerjaan"
+                android:id="@+id/hsilDetailPekerjaan2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -248,7 +248,7 @@
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtDetDetailPekerjaan" />
+                app:layout_constraintTop_toBottomOf="@id/txtDetDetailPekerjaan2" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
