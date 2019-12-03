@@ -12,6 +12,9 @@ public class DetailMonitoringActivity extends AppCompatActivity {
 
     TextView uraian,suburaian,tanggal,waktu,durasi,judul,detail;
     Button back;
+    Button btnTerima;
+    Button btnTolak;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
