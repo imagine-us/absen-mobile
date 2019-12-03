@@ -4,6 +4,7 @@ import com.example.kominfopangkalabun.PengaduanTanggapan;
 import com.example.kominfopangkalabun.model.Absensi.AbsensiModel;
 import com.example.kominfopangkalabun.model.Absensi.CekAbsensi;
 import com.example.kominfopangkalabun.model.Absensi.CekAbsensiModel;
+import com.example.kominfopangkalabun.model.Agenda.AgendaModel;
 import com.example.kominfopangkalabun.model.Kegiatan.Kegiatan;
 import com.example.kominfopangkalabun.model.Kegiatan.KegiatanModel;
 import com.example.kominfopangkalabun.model.Login.Login;
@@ -90,5 +91,8 @@ public interface BaseApiService {
 
     @GET("bawahan")
     Call<BawahanModel> requestBawahan(@Query("nip") String nip);
+
+    @GET("agenda")
+    Call<AgendaModel> requestAgenda(@Query("pnsid") String id);
 
 }

@@ -4,101 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormPengaduanActivity"
-    android:background="#fff">
+    tools:context=".FormPekerjaanActivity"
+    android:background="@color/putihtulang">
+
 
     <LinearLayout
+        android:id="@+id/nav5"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/kuning"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnFormPengaduanKembali"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/back"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:text="Form Pekerjaan"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:fontFamily="@font/keep"
+
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nav5">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bluebackgroundgradient"
-            android:paddingBottom="10dp"
-            >
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/judulPekerjaan"
+                android:id="@+id/isiaduan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Form Pengaduan"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="Isi Pengaduan : "
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:layout_marginVertical="15dp"
-                android:textColor="@color/abuabu"
-                android:textSize="20sp"
-                android:textStyle="bold"
                 app:layout_constraintRight_toRightOf="parent"
-                tools:layout_editor_absoluteY="20dp" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"/>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Isi Pengaduan : "
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/black"/>
-
-        <EditText
-            android:id="@+id/edtPengaduan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:inputType="textMultiLine"
-            android:lines="5"
-            android:background="@color/black" />
-
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="File yang dapat diupload bertipe '.jpg, jpeg, png'"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:textColor="@color/black"/>-->
-
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="File Pendukung : "-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:textColor="@color/black"/>-->
-
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="&#45;&#45;Kurang file upload&#45;&#45;"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:textColor="@color/black"/>-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/edtPengaduan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:inputType="textMultiLine"
+                android:lines="10"
+                android:textColor="@color/black"
+                android:background="@drawable/example_one"
+                app:layout_constraintTop_toBottomOf="@+id/isiaduan"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
 
             <Button
                 android:id="@+id/btnFormPengaduanKirim"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtPengaduan"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/borderabu"
+                android:textColor="@color/merah"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:text="Kirim" />
 
-            <Button
-                android:id="@+id/btnFormPengaduanKembali"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Kembali" />
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

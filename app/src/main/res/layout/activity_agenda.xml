@@ -17,7 +17,7 @@
             android:background="@color/kuning">
 
             <Button
-                android:id="@+id/btnBackPengaduan"
+                android:id="@+id/btnBackAgenda"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
@@ -27,7 +27,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
-                android:text="Pengaduan"
+                android:text="Agenda"
                 android:textSize="20sp"
                 android:textColor="@color/black"
                 android:gravity="center"
@@ -39,7 +39,7 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvPengaduan"
+            android:id="@+id/rvAgenda"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="7dp"
@@ -51,7 +51,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/iconTambahPengaduan"
+        android:id="@+id/iconTambahAgenda"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:src="@drawable/pluspls"
