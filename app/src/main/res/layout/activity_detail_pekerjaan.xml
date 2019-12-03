@@ -39,7 +39,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -57,11 +57,13 @@
                 android:text="Uraian Tugas"
                 android:fontFamily="@font/keep"
                 android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintHorizontal_bias="0.05"
+                android:textSize="14sp"
+                app:layout_constraintHorizontal_bias="0.01"
+                app:layout_constraintVertical_bias="0.1"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
 
             <TextView
@@ -74,7 +76,7 @@
 
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textSize="6sp"
+                android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtDetUraian"
@@ -89,7 +91,7 @@
                 android:text="Sub Uraian Tugas"
                 android:fontFamily="@font/keep"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -105,7 +107,7 @@
 
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textSize="6sp"
+                android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtDetSubUraian" />
@@ -118,7 +120,7 @@
                 android:text="Tanggal"
                 android:fontFamily="@font/keep"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -133,7 +135,7 @@
                 android:layout_marginRight="15dp"
                 android:hint="dd/mm/yyyy"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtDetTanggalKerja" />
@@ -146,7 +148,7 @@
                 android:text="Waktu Mulai"
                 android:fontFamily="@font/keep"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -161,7 +163,7 @@
                 android:layout_marginRight="15dp"
                 android:hint="hh:mm"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtDetJamKerja" />
@@ -174,7 +176,7 @@
                 android:text="Durasi"
                 android:fontFamily="@font/keep"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -190,7 +192,7 @@
                 android:hint="00"
                 android:inputType="number"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtDetDurasi" />
@@ -203,7 +205,7 @@
                 android:text="Nama Pekerjaan"
                 android:fontFamily="@font/keep"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -217,7 +219,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="15dp"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtDetNamaPekerjaan" />
@@ -230,7 +232,7 @@
                 android:text="Detail Pekerjaan"
                 android:fontFamily="@font/keep"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -245,7 +247,7 @@
                 android:layout_marginRight="15dp"
                 android:inputType="textMultiLine"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtDetDetailPekerjaan" />
