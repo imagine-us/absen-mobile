@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.kominfopangkalabun.adapter.AbsensiAdapter;
@@ -30,6 +31,7 @@ public class PengaduanActivity extends AppCompatActivity {
     BaseApiService mApiService;
     LinearLayoutManager layoutManager;
     ImageView tambahPengaduan;
+    Button back;
 
 
     @Override
@@ -37,6 +39,13 @@ public class PengaduanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pengaduan);
 
+        back = findViewById(R.id.btnBackPengaduan);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PengaduanActivity.this,MainActivity.class));
+            }
+        });
 
         mApiService = UtilsApi.getAPIService();
         tambahPengaduan = findViewById(R.id.iconTambahPengaduan);
@@ -55,7 +64,7 @@ public class PengaduanActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<PengaduanModel> call, Response<PengaduanModel> response) {
                 List<Pengaduan> pengaduanList = response.body().getListPengaduan();
-                recyclerView= findViewById(R.id.rv);
+                recyclerView= findViewById(R.id.rvPengaduan);
                 layoutManager = new LinearLayoutManager(getApplicationContext());
                 PengaduanAdapter menuAdapter = new PengaduanAdapter(pengaduanList);
                 recyclerView.setAdapter(menuAdapter);

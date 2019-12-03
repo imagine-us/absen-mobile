@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         String key=this.sharedPrefs.getString(NAMA_KEY,null);
 
   //  Boolean key =this.sharedPrefs.getString("key_keep_login",null);
-   Toast.makeText(this,""+key,Toast.LENGTH_LONG).show();
+  // Toast.makeText(this,""+key,Toast.LENGTH_LONG).show();
       if(key!=null){
             Intent intent = new Intent(mContext, MainActivity.class);
           startActivity(intent);
