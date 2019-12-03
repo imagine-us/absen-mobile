@@ -80,7 +80,7 @@ public class BawahanAdapter extends RecyclerView.Adapter<BawahanAdapter.MyViewHo
             super(itemView);
             nip = itemView.findViewById(R.id.nipBawahan);
             nama = itemView.findViewById(R.id.namaBawahan);
-            foto = itemView.findViewById(R.id.fotoBawahan);
+//            foto = itemView.findViewById(R.id.fotoBawahan);
         }
     }
 }

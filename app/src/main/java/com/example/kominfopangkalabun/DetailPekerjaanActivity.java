@@ -34,7 +34,7 @@ public class DetailPekerjaanActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String idpekerjaan = intent.getExtras().getString("idpekerjaan");
-        Toast.makeText(getApplicationContext(),idpekerjaan,Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(),idpekerjaan,Toast.LENGTH_LONG).show();
         mApiService = UtilsApi.getAPIService();
 
         uraian = findViewById(R.id.hsilUraianTugas);
@@ -44,6 +44,7 @@ public class DetailPekerjaanActivity extends AppCompatActivity {
         durasi = findViewById(R.id.hsilDurasi);
         judul = findViewById(R.id.hsilNamaPekerjaan);
         detail = findViewById(R.id.hsilDetailPekerjaan);
+        back = findViewById(R.id.btnBackDetailPekerjaan);
 
         Call<KegiatanModel> call = mApiService.requestPekerjaanDetail(idpekerjaan);
         call.enqueue(new Callback<KegiatanModel>() {
@@ -76,6 +77,13 @@ public class DetailPekerjaanActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<KegiatanModel> call, Throwable t) {
                 Log.e("debug", "onFailure: ERROR > " + t.toString());
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 
