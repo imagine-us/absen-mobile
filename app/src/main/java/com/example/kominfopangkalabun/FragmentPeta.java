@@ -181,7 +181,8 @@ public class FragmentPeta extends Fragment {
             imageAbsen=imageBitmap;
 
             if(checkAWS(imageAbsen)){
-                mApiService.insertAbsen(statusid,pnsid,latitude,longitude).enqueue(new Callback<ResponseBody>() {
+                Toast.makeText(getActivity(), ""+statusid+" "+id+" "+lati+" "+longi, Toast.LENGTH_LONG).show();
+                mApiService.insertAbsen(statusid,id,""+lati,""+longi).enqueue(new Callback<ResponseBody>() {
                   @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                        // Toast.makeText(getActivity(), "Absen Sukses:" + tanggal + " - " + longi + " - " + lati, Toast.LENGTH_LONG).show();
