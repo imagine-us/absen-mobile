@@ -36,7 +36,7 @@ public class BawahanActivity extends AppCompatActivity {
 
         List<Bawahan> bawahanList = new ArrayList<>();
 
-        Bawahan bawahan = new Bawahan("1","1","Namaku namamu","");
+        Bawahan bawahan = new Bawahan("1","1","Namaku namamu");
         bawahanList.add(bawahan);
 
         rv = findViewById(R.id.rvBawahan);

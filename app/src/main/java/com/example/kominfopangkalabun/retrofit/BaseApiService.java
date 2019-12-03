@@ -4,6 +4,8 @@ import com.example.kominfopangkalabun.PengaduanTanggapan;
 import com.example.kominfopangkalabun.model.Absensi.AbsensiModel;
 import com.example.kominfopangkalabun.model.Absensi.CekAbsensi;
 import com.example.kominfopangkalabun.model.Absensi.CekAbsensiModel;
+import com.example.kominfopangkalabun.model.Kegiatan.Kegiatan;
+import com.example.kominfopangkalabun.model.Kegiatan.KegiatanModel;
 import com.example.kominfopangkalabun.model.Login.Login;
 import com.example.kominfopangkalabun.model.Monitoring.BawahanModel;
 import com.example.kominfopangkalabun.model.Pekerjaan.PekerjaanModel;
@@ -74,6 +76,9 @@ public interface BaseApiService {
 
     @GET("pekerjaanhiststatus")
     Call<PekerjaanModel> requestPekerjaanHistoryStatus(@Query("nip") String nip,@Query("status") String status, @Query("bulan") String bulan);
+
+    @GET("pekerjaandetail")
+    Call<KegiatanModel> requestPekerjaanDetail(@Query("pid") String pid);
 
     @FormUrlEncoded
     @POST("inputpekerjaan")

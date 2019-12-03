@@ -51,12 +51,12 @@ public class BawahanAdapter extends RecyclerView.Adapter<BawahanAdapter.MyViewHo
         holder.nip.setText(bawahan.getNip());
 //        holder.lokasi.setText(absensi.getLokasi());
        // holder.foto.setImageDrawable(R.drawable.ic_launcher_foreground);
-        if((bawahan.getFoto()!=null)&&(!bawahan.getFoto().isEmpty())) {
-            Picasso.with(context).load(bawahan.getFoto()).placeholder(R.drawable.icon_profile).transform(new PicassoCircleTransformation()).into(holder.foto);
-        }
-        else{
-            holder.foto.setImageResource(R.drawable.icon_profile);
-        }
+//        if((bawahan.getFoto()!=null)&&(!bawahan.getFoto().isEmpty())) {
+//            Picasso.with(context).load(bawahan.getFoto()).placeholder(R.drawable.icon_profile).transform(new PicassoCircleTransformation()).into(holder.foto);
+//        }
+//        else{
+//            holder.foto.setImageResource(R.drawable.icon_profile);
+//        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
