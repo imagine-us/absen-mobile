@@ -25,12 +25,12 @@ public class DetailMonitoringActivity extends AppCompatActivity {
             }
         });
 
-        uraian = findViewById(R.id.hsilUraianTugas);
-        suburaian = findViewById(R.id.hsilSubUraianTugas);
-        tanggal = findViewById(R.id.hsilTanggalKerja);
-        waktu = findViewById(R.id.hsilJam);
-        durasi = findViewById(R.id.hsilDurasi);
-        judul = findViewById(R.id.hsilNamaPekerjaan);
-        detail = findViewById(R.id.hsilDetailPekerjaan);
+        uraian = findViewById(R.id.hsilUraianTugas2);
+        suburaian = findViewById(R.id.hsilSubUraianTugas2);
+        tanggal = findViewById(R.id.hsilTanggalKerja2);
+        waktu = findViewById(R.id.hsilJam2);
+        durasi = findViewById(R.id.hsilDurasi2);
+        judul = findViewById(R.id.hsilNamaPekerjaan2);
+        detail = findViewById(R.id.hsilDetailPekerjaan2);
     }
 }
