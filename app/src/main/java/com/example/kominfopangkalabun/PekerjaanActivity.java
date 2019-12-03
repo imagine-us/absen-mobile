@@ -47,7 +47,7 @@ public class PekerjaanActivity extends AppCompatActivity {
 
         String id  = "123";
 
-        Call<PekerjaanModel> call = mApiService.requestPekerjaanHistory(id);
+        Call<PekerjaanModel> call = mApiService.requestPekerjaanHistory(id, "11");
         call.enqueue(new Callback<PekerjaanModel>() {
             @Override
             public void onResponse(Call<PekerjaanModel> call, Response<PekerjaanModel> response) {

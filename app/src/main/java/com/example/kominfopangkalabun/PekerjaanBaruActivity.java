@@ -9,10 +9,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class PekerjaanBaruActivity extends AppCompatActivity {
 
@@ -22,11 +29,19 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
     TextView kanan, kiri, bulan;
     String bulanSekarang;
     private SharedPreferences sp;
+    Bundle bd;
+    int flag = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pekerjaan_baru);
+
+        bd = new Bundle();
+//        DateFormat dateFormat = new SimpleDateFormat("MM");
+//        Date date = new Date();
+        int month = Calendar.getInstance().get(Calendar.MONTH);
+        bd.putString("bulan",""+(month+1));
 
 
         final String[] daftarBulan = {"JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"};
@@ -46,6 +61,8 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
         bulan = findViewById(R.id.bulanPekerjaan);
         kanan = findViewById(R.id.kananPekerjaan);
         kiri = findViewById(R.id.kiriPekerjaan);
+
+        bulan.setText(daftarBulan[month]);
 
         btnKembali.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,8 +121,26 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
             public void onClick(View v) {
                 bulanSekarang = bulan.getText().toString();
                 int i=indexBulan(bulanSekarang);
-                if(i==11)i=-1;
-                bulan.setText(daftarBulan[i+1]);
+                if(i==11){
+                    i= 0;
+                }
+                else{
+                    i = i+1;
+                }
+                bulan.setText(daftarBulan[i]);
+                bd.putString("bulan",""+(i+1));
+                if(flag==1){
+                    pekerjaanSemuaActive();
+                }
+                else if(flag == 2){
+                    pekerjaanDiterimaActive();
+                }
+                else if(flag == 3){
+                    pekerjaanDitolakActive();
+                }
+                else if(flag == 4){
+                    pekerjaanBelumDikoreksiActive();
+                }
             }
         });
         kiri.setOnClickListener(new View.OnClickListener() {
@@ -113,8 +148,26 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
             public void onClick(View v) {
                 bulanSekarang = bulan.getText().toString();
                 int i=indexBulan(bulanSekarang);
-                if(i==0)i=12;
-                bulan.setText(daftarBulan[i-1]);
+                if(i==0){
+                    i=11;
+                }
+                else{
+                    i = i - 1;
+                }
+                bulan.setText(daftarBulan[i]);
+                bd.putString("bulan",""+(i+1));
+                if(flag==1){
+                    pekerjaanSemuaActive();
+                }
+                else if(flag == 2){
+                    pekerjaanDiterimaActive();
+                }
+                else if(flag == 3){
+                    pekerjaanDitolakActive();
+                }
+                else if(flag == 4){
+                    pekerjaanBelumDikoreksiActive();
+                }
             }
         });
 
@@ -132,6 +185,7 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
     }
 
     private void pekerjaanSemuaActive() {
+        flag=1;
         vwpekerjaanBelumDikoreksi.setVisibility(View.INVISIBLE);
         vwpekerjaanDitolak.setVisibility(View.INVISIBLE);
         vwpekerjaanDiterima.setVisibility(View.INVISIBLE);
@@ -144,11 +198,14 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
         btnpekerjaanBelumDikoreksi.setBackground(getResources().getDrawable(R.drawable.tanya_abu));
         btnpekerjaanDitolak.setBackground(getResources().getDrawable(R.drawable.listtolak_abu));
         btnpekerjaanDiterima.setBackground(getResources().getDrawable(R.drawable.listterima_abu));
-
-        loadFragment(new FragmentPekerjaanAll());
+        FragmentPekerjaanAll fpa = new FragmentPekerjaanAll();
+        fpa.setArguments(bd);
+//        loadFragment(new FragmentPekerjaanAll());
+        loadFragment(fpa);
     }
 
     private void pekerjaanDiterimaActive() {
+        flag=2;
         vwpekerjaanBelumDikoreksi.setVisibility(View.INVISIBLE);
         vwpekerjaanDitolak.setVisibility(View.INVISIBLE);
         vwpekerjaanDiterima.setVisibility(View.VISIBLE);
@@ -161,11 +218,13 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
         btnpekerjaanBelumDikoreksi.setBackground(getResources().getDrawable(R.drawable.tanya_abu));
         btnpekerjaanDitolak.setBackground(getResources().getDrawable(R.drawable.listtolak_abu));
         btnpekerjaanDiterima.setBackground(getResources().getDrawable(R.drawable.listterima));
-
-        loadFragment(new FragmentPekerjaanDiterima());
+        FragmentPekerjaanDiterima fpd = new FragmentPekerjaanDiterima();
+        fpd.setArguments(bd);
+        loadFragment(fpd);
     }
 
     private void pekerjaanDitolakActive() {
+        flag=3;
         vwpekerjaanBelumDikoreksi.setVisibility(View.INVISIBLE);
         vwpekerjaanDitolak.setVisibility(View.VISIBLE);
         vwpekerjaanDiterima.setVisibility(View.INVISIBLE);
@@ -178,11 +237,13 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
         btnpekerjaanBelumDikoreksi.setBackground(getResources().getDrawable(R.drawable.tanya_abu));
         btnpekerjaanDitolak.setBackground(getResources().getDrawable(R.drawable.listtolak));
         btnpekerjaanDiterima.setBackground(getResources().getDrawable(R.drawable.listterima_abu));
-
-        loadFragment(new FragmentPekerjaanDitolak());
+        FragmentPekerjaanDitolak fpd = new FragmentPekerjaanDitolak();
+        fpd.setArguments(bd);
+        loadFragment(fpd);
     }
 
     private void pekerjaanBelumDikoreksiActive() {
+        flag=4;
         vwpekerjaanBelumDikoreksi.setVisibility(View.VISIBLE);
         vwpekerjaanDitolak.setVisibility(View.INVISIBLE);
         vwpekerjaanDiterima.setVisibility(View.INVISIBLE);
@@ -195,9 +256,29 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
         btnpekerjaanBelumDikoreksi.setBackground(getResources().getDrawable(R.drawable.listtanya));
         btnpekerjaanDitolak.setBackground(getResources().getDrawable(R.drawable.listtolak_abu));
         btnpekerjaanDiterima.setBackground(getResources().getDrawable(R.drawable.listterima_abu));
-
-        loadFragment(new FragmentPekerjaanBelumDikoreksi());
+        FragmentPekerjaanBelumDikoreksi fbd = new FragmentPekerjaanBelumDikoreksi();
+        fbd.setArguments(bd);
+        loadFragment(fbd);
     }
+
+
+//    private void lemparFragment(Bundle b,int flag){
+//
+//        if(flag==1){
+//            FragmentPekerjaanAll f = new FragmentPekerjaanAll();
+//            f.setArguments(b);
+//            loadFragment(f);
+//        } else if(flag==2){
+//            FragmentPekerjaanAll f = new FragmentPekerjaanAll();
+//            f.setArguments(b);
+//            loadFragment(f);
+//        } else if(flag==3){
+//            FragmentPekerjaanAll f = new FragmentPekerjaanAll();
+//            f.setArguments(b);
+//            loadFragment(f);
+//        }
+//
+//    }
 
     public int indexBulan(String inputBulan) {
         switch (inputBulan) {

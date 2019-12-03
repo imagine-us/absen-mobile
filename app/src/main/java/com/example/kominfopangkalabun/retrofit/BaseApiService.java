@@ -69,10 +69,10 @@ public interface BaseApiService {
                                    @Field("pengaduan") String pengaduan);
 
     @GET("pekerjaanhist")
-    Call<PekerjaanModel> requestPekerjaanHistory(@Query("nip") String nip);
+    Call<PekerjaanModel> requestPekerjaanHistory(@Query("nip") String nip, @Query("bulan") String bulan);
 
     @GET("pekerjaanhiststatus")
-    Call<PekerjaanModel> requestPekerjaanHistoryStatus(@Query("nip") String nip,@Query("status") String status);
+    Call<PekerjaanModel> requestPekerjaanHistoryStatus(@Query("nip") String nip,@Query("status") String status, @Query("bulan") String bulan);
 
     @FormUrlEncoded
     @POST("inputpekerjaan")

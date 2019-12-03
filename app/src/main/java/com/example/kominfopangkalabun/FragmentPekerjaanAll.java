@@ -33,6 +33,7 @@ public class FragmentPekerjaanAll extends Fragment {
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
     private SharedPreferences sp;
+    String bulan;
 
     @Nullable
     @Override
@@ -44,7 +45,9 @@ public class FragmentPekerjaanAll extends Fragment {
         mApiService = UtilsApi.getAPIService();
         this.sp = getContext().getSharedPreferences("sp",Context.MODE_PRIVATE);
 
-        Call<PekerjaanModel> call = mApiService.requestPekerjaanHistory(this.sp.getString("key_nip",null));
+        bulan = getArguments().getString("bulan");
+
+        Call<PekerjaanModel> call = mApiService.requestPekerjaanHistory(this.sp.getString("key_nip",null), bulan);
         call.enqueue(new Callback<PekerjaanModel>() {
             @Override
             public void onResponse(Call<PekerjaanModel> call, Response<PekerjaanModel> response) {
