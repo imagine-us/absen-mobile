@@ -18,9 +18,15 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnTambahTugas, presensi, pekerjaan, pengaduan, tpp, monitoring, agenda;
     ImageView fotoprofil,profil;
-    TextView txtNip, txtNama;
+    TextView txtNip, txtNama, logout;
     String nip,id,nama, foto;
     private SharedPreferences sp;
+
+    private static final String NIP_KEY = "key_nip";
+    private static final String ID_KEY = "key_id";
+    private static final String NAMA_KEY = "key_nama";
+    private static final String FOTO_KEY = "key_foto";
+    private static final String KEEP_LOGIN_KEY = "key_keep_login";
 
 
     @Override
@@ -31,7 +37,21 @@ public class MainActivity extends AppCompatActivity {
         this.sp = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
         txtNip = findViewById(R.id.nipProfil);
         txtNama = findViewById(R.id.namaProfil);
+        logout = findViewById(R.id.logout);
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = sp.edit();
+                editor.remove(NIP_KEY);
+                editor.remove(ID_KEY);
+                editor.remove(NAMA_KEY);
+                editor.remove(FOTO_KEY);
+                editor.remove(KEEP_LOGIN_KEY);
+                editor.apply();
+                startActivity(new Intent(MainActivity.this, SplashScreen.class));
+            }
+        });
         //nip = getIntent().getExtras().getString("nip");
         //id = getIntent().getExtras().getString("id");
         //nama = getIntent().getExtras().getString("nama");
