@@ -181,7 +181,6 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
         ft.replace(R.id.frameFragmentPekerjaan, fragment);
         ft.addToBackStack(null);
         ft.commit();
-
     }
 
     private void pekerjaanSemuaActive() {
