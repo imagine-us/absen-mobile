@@ -1,6 +1,7 @@
 package com.example.kominfopangkalabun.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kominfopangkalabun.DetailMonitoringActivity;
 import com.example.kominfopangkalabun.R;
 import com.example.kominfopangkalabun.model.Pekerjaan.Pekerjaan;
 
@@ -40,11 +42,16 @@ public class PekerjaanMonitoringAdapter extends RecyclerView.Adapter<PekerjaanMo
         final Pekerjaan pekerjaan = pekerjaanList.get(position);
 
         holder.nama.setText(pekerjaan.getPekerjaanNama());
-        holder.tanggal.setText("Tanggal : " + pekerjaan.getPekerjaanTanggal());
+        String[] tanggal1 = pekerjaan.getPekerjaanTanggal().split(" ");
+        String[] tanggal2 = tanggal1[0].split("-");
+        holder.tanggal.setText("Tanggal : " + tanggal2[2] + "-" + tanggal2[1] + "-" + tanggal2[0]);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(),"Detail Pekerjaan",Toast.LENGTH_LONG).show();
+//                Toast.makeText(view.getContext(),pekerjaan.getId(),Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(view.getContext(), DetailMonitoringActivity.class);
+                intent.putExtra("idpekerjaan",pekerjaan.getId());
+                view.getContext().startActivity(intent);
             }
         });
     }

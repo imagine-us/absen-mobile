@@ -21,6 +21,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface BaseApiService {
@@ -85,6 +86,9 @@ public interface BaseApiService {
     @POST("inputpekerjaan")
     Call<PekerjaanModel> insertPekerjaan(@Field("nip") String nip, @Field("uraian") String uraian, @Field("analisis") String analisis, @Field("tgl") String tgl,
                                          @Field("waktumulai") String waktumulai, @Field("durasi") String durasi, @Field("pekerjaan") String pekerjaan,@Field("hasil") String hasil);
+    @FormUrlEncoded
+    @PUT("updatepekerjaan")
+    Call<KegiatanModel> updateStatusPekerjaan(@Field("id") String id,@Field("status") String status);
 
     @GET("pengaduandetail")
     Call<PengaduanTanggapanModel> requstPengaduanDetail(@Query("aduanid") String id);

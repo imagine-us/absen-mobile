@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kominfopangkalabun.adapter.AbsensiAdapter;
 import com.example.kominfopangkalabun.adapter.PekerjaanAdapter;
+import com.example.kominfopangkalabun.adapter.PekerjaanMonitoringAdapter;
 import com.example.kominfopangkalabun.model.Pekerjaan.Pekerjaan;
 import com.example.kominfopangkalabun.model.Pekerjaan.PekerjaanModel;
 import com.example.kominfopangkalabun.retrofit.BaseApiService;
@@ -53,7 +54,7 @@ public class FragmentMonitoringBelumDikoreksi extends Fragment {
                     List<Pekerjaan> pekerjaanList = response.body().getPekerjaanModelList();
                     recyclerView= v.findViewById(R.id.rvMonitoringBelumDikoreksi);
                     layoutManager = new LinearLayoutManager(getContext());
-                    PekerjaanAdapter menuAdapter = new PekerjaanAdapter(pekerjaanList);
+                    PekerjaanMonitoringAdapter menuAdapter = new PekerjaanMonitoringAdapter(pekerjaanList);
                     recyclerView.setAdapter(menuAdapter);
                     recyclerView.setLayoutManager(layoutManager);
                 }
