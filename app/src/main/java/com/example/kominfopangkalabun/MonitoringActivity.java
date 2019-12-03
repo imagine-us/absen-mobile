@@ -12,17 +12,28 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 public class MonitoringActivity extends AppCompatActivity {
 
     Button back, utang, ditolak, diterima;
     TextView kanan, kiri, bulan;
     View vUtang, vDitolak, vDiterima;
     String bulanSekarang;
+    Bundle bd;
+    int flag = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monitoring);
+
+        Intent intent = getIntent();
+        String nipBawahan = intent.getStringExtra("idBawahan");
+        bd = new Bundle();
+        int month = Calendar.getInstance().get(Calendar.MONTH);
+        bd.putString("bulan",""+(month+1));
+        bd.putString("idbawahan",nipBawahan);
 
 
         final String[] daftarBulan = {"JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"};
@@ -32,7 +43,7 @@ public class MonitoringActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MonitoringActivity.this, BawahanActivity.class));
+                finish();
             }
         });
 
@@ -46,6 +57,8 @@ public class MonitoringActivity extends AppCompatActivity {
         vDiterima = findViewById(R.id.viewMonitoringDiterima);
         vUtang = findViewById(R.id.viewMonitoringBelumDikoreksi);
 
+        bulan.setText(daftarBulan[month]);
+
         belumActive();
 
         kanan.setOnClickListener(new View.OnClickListener() {
@@ -53,8 +66,23 @@ public class MonitoringActivity extends AppCompatActivity {
             public void onClick(View v) {
                 bulanSekarang = bulan.getText().toString();
                 int i=indexBulan(bulanSekarang);
-                if(i==11)i=-1;
-                bulan.setText(daftarBulan[i+1]);
+                if(i==11){
+                    i= 0;
+                }
+                else{
+                    i = i+1;
+                }
+                bulan.setText(daftarBulan[i]);
+                bd.putString("bulan",""+(i+1));
+                if(flag==1){
+                    belumActive();
+                }
+                else if(flag == 2){
+                    ditolakActive();
+                }
+                else if(flag == 3){
+                    diterimaActive();
+                }
             }
         });
         kiri.setOnClickListener(new View.OnClickListener() {
@@ -62,8 +90,23 @@ public class MonitoringActivity extends AppCompatActivity {
             public void onClick(View v) {
                 bulanSekarang = bulan.getText().toString();
                 int i=indexBulan(bulanSekarang);
-                if(i==0)i=12;
-                bulan.setText(daftarBulan[i-1]);
+                if(i==0){
+                    i=11;
+                }
+                else{
+                    i = i - 1;
+                }
+                bulan.setText(daftarBulan[i]);
+                bd.putString("bulan",""+(i+1));
+                if(flag==1){
+                    belumActive();
+                }
+                else if(flag == 2){
+                    ditolakActive();
+                }
+                else if(flag == 3){
+                    diterimaActive();
+                }
             }
         });
 
@@ -123,6 +166,7 @@ public class MonitoringActivity extends AppCompatActivity {
     }
 
     public void belumActive(){
+        flag = 1;
         vUtang.setVisibility(View.VISIBLE);
         vDitolak.setVisibility(View.INVISIBLE);
         vDiterima.setVisibility(View.INVISIBLE);
@@ -132,11 +176,13 @@ public class MonitoringActivity extends AppCompatActivity {
         utang.setTextColor(getResources().getColor(R.color.merah));
         ditolak.setTextColor(getResources().getColor(R.color.black));
         diterima.setTextColor(getResources().getColor(R.color.black));
-
-       loadFragment(new FragmentMonitoringBelumDikoreksi());
+        FragmentMonitoringBelumDikoreksi fmb = new FragmentMonitoringBelumDikoreksi();
+        fmb.setArguments(bd);
+        loadFragment(fmb);
     }
 
     public void ditolakActive(){
+        flag = 2;
         vUtang.setVisibility(View.INVISIBLE);
         vDitolak.setVisibility(View.VISIBLE);
         vDiterima.setVisibility(View.INVISIBLE);
@@ -146,10 +192,13 @@ public class MonitoringActivity extends AppCompatActivity {
         utang.setTextColor(getResources().getColor(R.color.black));
         ditolak.setTextColor(getResources().getColor(R.color.merah));
         diterima.setTextColor(getResources().getColor(R.color.black));
-        loadFragment(new FragmentMonitoringDitolak());
+        FragmentMonitoringDitolak fmd = new FragmentMonitoringDitolak();
+        fmd.setArguments(bd);
+        loadFragment(fmd);
     }
 
     public void diterimaActive(){
+        flag = 3;
         vUtang.setVisibility(View.INVISIBLE);
         vDitolak.setVisibility(View.INVISIBLE);
         vDiterima.setVisibility(View.VISIBLE);
@@ -159,7 +208,9 @@ public class MonitoringActivity extends AppCompatActivity {
         utang.setTextColor(getResources().getColor(R.color.black));
         ditolak.setTextColor(getResources().getColor(R.color.black));
         diterima.setTextColor(getResources().getColor(R.color.merah));
-        loadFragment(new FragmentMonitoringDiterima());
+        FragmentMonitoringDiterima fmdi = new FragmentMonitoringDiterima();
+        fmdi.setArguments(bd);
+        loadFragment(fmdi);
     }
 
     private void loadFragment(Fragment fragment){

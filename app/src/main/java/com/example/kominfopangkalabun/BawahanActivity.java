@@ -66,8 +66,9 @@ public class BawahanActivity extends AppCompatActivity {
                     rv.setAdapter(menuAdapter);
                     rv.setLayoutManager(layoutManager);
                 }
+
                 else{
-                    Toast.makeText(BawahanActivity.this, "Data Kosong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BawahanActivity.this, "Data Bawahan Kosong", Toast.LENGTH_SHORT).show();
                 }
             }
 

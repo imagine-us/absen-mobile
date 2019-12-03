@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -61,8 +62,8 @@ public class BawahanAdapter extends RecyclerView.Adapter<BawahanAdapter.MyViewHo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), MonitoringActivity.class);
-                String[] detailAbsensiString = new String[] {bawahan.getId(),bawahan.getNip()};
-                //intent.putExtra("Detail", detailAbsensiString);
+                String idBawahan = bawahan.getNip();
+                intent.putExtra("idBawahan", idBawahan);
                 view.getContext().startActivity(intent);
             }
         });
