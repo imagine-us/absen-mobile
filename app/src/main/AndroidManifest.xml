@@ -31,7 +31,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".AgendaActivity"></activity>
+        <activity android:name=".FormAgendaActivity"></activity>
+        <activity android:name=".EditProfile" />
+        <activity android:name=".AgendaActivity" />
         <activity android:name=".DetailMonitoringActivity" />
         <activity android:name=".DetailPekerjaanActivity" />
         <activity android:name=".MonitoringActivity" />

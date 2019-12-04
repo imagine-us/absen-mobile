@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/putihtulang"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/kuning">
+
+            <Button
+                android:id="@+id/btnBackAgenda"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:text="Agenda"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:fontFamily="@font/keep"
+
+                />
+        </LinearLayout>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="10dp"
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.234"
+            android:background="@drawable/example_one">
+
+            <TextView
+                android:id="@+id/namaEditProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/keep"
+                android:text="Roy Achmad"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.503"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageEditProfil"
+                android:layout_marginTop="25dp"
+                app:layout_constraintVertical_bias="0.762" />
+
+            <TextView
+                android:id="@+id/nipEditProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/keep"
+                android:text="1641720099"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/namaEditProfil"
+                app:layout_constraintVertical_bias="0.9" />
+
+
+
+            <ImageView
+                android:id="@+id/imageEditProfil"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/profile" />
+            <ImageView
+                android:id="@+id/tombolGantiProfil"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/pluspls"
+                app:layout_constraintTop_toTopOf="@id/imageEditProfil"
+                app:layout_constraintLeft_toLeftOf="@id/imageEditProfil"
+                app:layout_constraintRight_toRightOf="@id/imageEditProfil"
+                app:layout_constraintBottom_toBottomOf="@id/imageEditProfil"
+                app:layout_constraintHorizontal_bias="0.98"
+                app:layout_constraintVertical_bias="0.98"
+
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Ganti Password"
+    android:textColor="@color/black"
+    android:layout_marginLeft="30dp"
+    android:layout_marginTop="10dp"
+    android:textSize="16sp"
+    />
+        <EditText
+            android:id="@+id/edtGantiPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/example_one"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:hint="****************" />
+
+        <Button
+            android:id="@+id/saveGantiPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/example_one"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:textColor="@color/merah"
+            android:text="SIMPAN" />
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
