@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,7 +18,7 @@ import com.squareup.picasso.Picasso;
 public class MainActivity extends AppCompatActivity {
 
     Button btnTambahTugas, presensi, pekerjaan, pengaduan, tpp, monitoring, agenda;
-    ImageView fotoprofil,profil;
+    ImageView fotoprofil,profil, editprofil;
     TextView txtNip, txtNama, logout;
     String nip,id,nama, foto;
     private SharedPreferences sp;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String NIP_KEY = "key_nip";
     private static final String ID_KEY = "key_id";
     private static final String NAMA_KEY = "key_nama";
+    private static final String PASSWORD_KEY = "key_password";
     private static final String FOTO_KEY = "key_foto";
     private static final String KEEP_LOGIN_KEY = "key_keep_login";
 
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.remove(NIP_KEY);
                 editor.remove(ID_KEY);
                 editor.remove(NAMA_KEY);
+                editor.remove(PASSWORD_KEY);
                 editor.remove(FOTO_KEY);
                 editor.remove(KEEP_LOGIN_KEY);
                 editor.apply();
@@ -61,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
         txtNip.setText(nip);
         txtNama.setText(nama);
-
 
         profil = findViewById(R.id.imageProfil);
         Picasso.with(this).load(this.sp.getString("key_foto",null)).placeholder(R.drawable.icon_profile).transform(new PicassoCircleTransformation()).into(profil);
@@ -118,6 +120,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,AgendaActivity.class));
                // Toast.makeText(MainActivity.this,"Fitur belum tersedia", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        editprofil = findViewById(R.id.iconEditProfile);
+        editprofil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,EditProfile.class));
             }
         });
 

@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String ID_KEY = "key_id";
     private static final String NAMA_KEY = "key_nama";
     private static final String FOTO_KEY = "key_foto";
+    private static final String PASSWORD_KEY = "key_password";
     private static final String KEEP_LOGIN_KEY = "key_keep_login";
 
     @Override
@@ -99,9 +100,8 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(mContext, MainActivity.class);
 //                        intent.putExtra("nip", login.getNip());
 //                        intent.putExtra("nama", login.getNama());
-//                        intent.putExtra("id",login.getId());
 
-                        saveUsername(login.getNip(),login.getId(), login.getNama(),login.getFoto(),true);
+                        saveUsername(login.getNip(),login.getId(), login.getNama(),login.getPassword(),login.getFoto(),true);
                         startActivity(intent);
                     }
                     else if(codeResponse == 404){
@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void saveUsername(String key,String id, String nama, String foto, Boolean save)
+    private void saveUsername(String key,String id, String nama, String password, String foto, Boolean save)
     {
 
         SharedPreferences.Editor editor = this.sharedPrefs.edit();
@@ -130,6 +130,7 @@ public class LoginActivity extends AppCompatActivity {
             editor.putString(NIP_KEY, key);
             editor.putString(ID_KEY,id);
             editor.putString(NAMA_KEY, nama);
+            editor.putString(PASSWORD_KEY, password);
             editor.putString(FOTO_KEY, foto);
             editor.putString(KEEP_LOGIN_KEY,"true");
         }
@@ -137,6 +138,7 @@ public class LoginActivity extends AppCompatActivity {
             editor.remove(NIP_KEY);
             editor.remove(ID_KEY);
             editor.remove(NAMA_KEY);
+            editor.remove(PASSWORD_KEY);
             editor.remove(FOTO_KEY);
             editor.remove(KEEP_LOGIN_KEY);
         }

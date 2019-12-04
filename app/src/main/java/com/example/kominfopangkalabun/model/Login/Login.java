@@ -18,16 +18,19 @@ public class Login {
     @SerializedName("nama")
     private String nama;
 
+    @SerializedName("password")
+    private String password;
 
     @SerializedName("foto")
     private String foto;
 
-    public Login(String status, String message, String id, String nip, String nama, String foto) {
+    public Login(String status, String message, String id, String nip, String nama, String password, String foto) {
         this.status = status;
         this.message = message;
         this.id = id;
         this.nip = nip;
         this.nama = nama;
+        this.password = password;
         this.foto = foto;
     }
 
@@ -69,6 +72,14 @@ public class Login {
 
     public void setNama(String nama) {
         this.nama = nama;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFoto() {
