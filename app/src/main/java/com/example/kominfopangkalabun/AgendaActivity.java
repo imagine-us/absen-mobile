@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.kominfopangkalabun.adapter.AgendaAdapter;
@@ -34,6 +35,8 @@ public class AgendaActivity extends AppCompatActivity {
     String nip,id,nama;
     private SharedPreferences sp;
     Button back;
+    ImageView tambah;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,8 +87,14 @@ public class AgendaActivity extends AppCompatActivity {
 
 
 
-
-
+        tambah = findViewById(R.id.iconTambahAgenda);
+        tambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),FormAgendaActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 

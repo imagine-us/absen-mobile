@@ -104,4 +104,8 @@ public interface BaseApiService {
     @FormUrlEncoded
     @PUT("editprofile")
     Call<GantiPass> editprofile(@Field("id") String id, @Field("nip") String nip, @Field("password") String password, @Field("foto") String foto);
+
+    @FormUrlEncoded
+    @POST("inputagenda")
+    Call<AgendaModel> insertagenda(@Field("pnsid") String pnsid,@Field("agenda") String agenda, @Field("tanggal") String Tanggal);
 }
