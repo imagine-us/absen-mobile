@@ -113,40 +113,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Ganti Password"
-    android:textColor="@color/black"
-    android:layout_marginLeft="30dp"
-    android:layout_marginTop="10dp"
-    android:textSize="16sp"
-    />
-        <EditText
-            android:id="@+id/edtGantiPass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/example_one"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="15dp"
-            android:textSize="16sp"
-            android:padding="10dp"
-            android:textColor="@color/black"
-            android:hint="****************" />
 
-        <Button
-            android:id="@+id/saveGantiPass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/example_one"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="15dp"
-            android:textSize="16sp"
-            android:padding="5dp"
-            android:textColor="@color/merah"
-            android:text="SIMPAN" />
 
     </LinearLayout>
 

@@ -157,6 +157,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId()==R.id.editProfileMenu){
             startActivity(new Intent(this, EditProfile.class));
+        } else if (item.getItemId() == R.id.editPasswordMenu) {
+            startActivity(new Intent(this, GantiPasswordActivity.class));
         } else if (item.getItemId() == R.id.logoutMenu) {
             showDialogLogout();
         }

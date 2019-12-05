@@ -31,7 +31,7 @@ public class EditProfile extends AppCompatActivity {
 
         namaprofile = findViewById(R.id.namaEditProfil);
         nipprofile = findViewById(R.id.nipEditProfil);
-        passprofile = findViewById(R.id.edtGantiPass);
+
         fotoprofil = findViewById(R.id.imageEditProfil);
         gantifotoprofil = findViewById(R.id.tombolGantiProfil);
         btngantiprofil = findViewById(R.id.saveGantiPass);

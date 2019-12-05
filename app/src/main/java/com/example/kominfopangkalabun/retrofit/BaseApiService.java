@@ -7,6 +7,7 @@ import com.example.kominfopangkalabun.model.Absensi.CekAbsensiModel;
 import com.example.kominfopangkalabun.model.Agenda.AgendaModel;
 import com.example.kominfopangkalabun.model.Kegiatan.Kegiatan;
 import com.example.kominfopangkalabun.model.Kegiatan.KegiatanModel;
+import com.example.kominfopangkalabun.model.Login.GantiPass;
 import com.example.kominfopangkalabun.model.Login.Login;
 import com.example.kominfopangkalabun.model.Monitoring.BawahanModel;
 import com.example.kominfopangkalabun.model.Pekerjaan.PekerjaanModel;
@@ -99,4 +100,8 @@ public interface BaseApiService {
     @GET("agenda")
     Call<AgendaModel> requestAgenda(@Query("pnsid") String id);
 
+
+    @FormUrlEncoded
+    @PUT("editprofile")
+    Call<GantiPass> editprofile(@Field("id") String id, @Field("nip") String nip, @Field("password") String password, @Field("foto") String foto);
 }

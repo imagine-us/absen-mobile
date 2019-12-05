@@ -5,9 +5,13 @@
     >
     <item
         android:id="@+id/editProfileMenu"
-        android:title="Edit Profile"
+        android:title="Ganti Foto Profile"
         app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/editPasswordMenu"
+        android:title="Ganti Password"
+        app:showAsAction="never" />
     <item
         android:id="@+id/logoutMenu"
         android:title="Logout"
