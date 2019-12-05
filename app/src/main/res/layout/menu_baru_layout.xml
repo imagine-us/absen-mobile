@@ -19,11 +19,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/iconEditProfile"
             android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/editprofile"
+            android:layout_height="30dp"
+
+            android:background="@drawable/menyu"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -85,21 +86,21 @@
             app:layout_constraintTop_toBottomOf="@id/namaProfil"
             app:layout_constraintVertical_bias="0.9" />
 
-        <TextView
-            android:id="@+id/logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LOGOUT"
-            android:textColor="@color/putihtulang"
-            android:background="@color/merah"
-            android:textSize="8sp"
-            android:padding="3dp"
-            app:layout_constraintTop_toBottomOf="@id/nipProfil"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-            />
+<!--        <TextView-->
+<!--            android:id="@+id/logout"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="LOGOUT"-->
+<!--            android:textColor="@color/putihtulang"-->
+<!--            android:background="@color/merah"-->
+<!--            android:textSize="8sp"-->
+<!--            android:padding="3dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/nipProfil"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            />-->
 
         <ImageView
             android:id="@+id/imageProfil"

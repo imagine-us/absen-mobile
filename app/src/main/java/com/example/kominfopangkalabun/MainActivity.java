@@ -1,12 +1,19 @@
 package com.example.kominfopangkalabun;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -39,22 +46,22 @@ public class MainActivity extends AppCompatActivity {
         this.sp = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
         txtNip = findViewById(R.id.nipProfil);
         txtNama = findViewById(R.id.namaProfil);
-        logout = findViewById(R.id.logout);
+       // logout = findViewById(R.id.logout);
 
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences.Editor editor = sp.edit();
-                editor.remove(NIP_KEY);
-                editor.remove(ID_KEY);
-                editor.remove(NAMA_KEY);
-                editor.remove(PASSWORD_KEY);
-                editor.remove(FOTO_KEY);
-                editor.remove(KEEP_LOGIN_KEY);
-                editor.apply();
-                startActivity(new Intent(MainActivity.this, SplashScreen.class));
-            }
-        });
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                SharedPreferences.Editor editor = sp.edit();
+//                editor.remove(NIP_KEY);
+//                editor.remove(ID_KEY);
+//                editor.remove(NAMA_KEY);
+//                editor.remove(PASSWORD_KEY);
+//                editor.remove(FOTO_KEY);
+//                editor.remove(KEEP_LOGIN_KEY);
+//                editor.apply();
+//                startActivity(new Intent(MainActivity.this, SplashScreen.class));
+//            }
+//        });
         //nip = getIntent().getExtras().getString("nip");
         //id = getIntent().getExtras().getString("id");
         //nama = getIntent().getExtras().getString("nama");
@@ -123,16 +130,77 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        editprofil = findViewById(R.id.iconEditProfile);
-        editprofil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,EditProfile.class));
-            }
-        });
+       Toolbar toolbar = (Toolbar) findViewById(R.id.iconEditProfile);
+       setSupportActionBar(toolbar);
+        //editprofil = findViewById(R.id.iconEditProfile);
+//        editprofil.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//               startActivity(new Intent(MainActivity.this,EditProfile.class));
+//               // onCreateOptionsMenu()
+//            }
+//        });
+
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.optionmenu, menu);
+        //getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
 
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()==R.id.editProfileMenu){
+            startActivity(new Intent(this, EditProfile.class));
+        } else if (item.getItemId() == R.id.logoutMenu) {
+            showDialogLogout();
+        }
+        return true;
+    }
+
+
+    private void showDialogLogout(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                MainActivity.this);
+
+        // set title dialog
+        alertDialogBuilder.setTitle("Konfirmasi");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+                .setMessage("Anda yakin untuk logout?")
+                .setIcon(R.drawable.logo)
+                .setCancelable(false)
+                .setPositiveButton("YA",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // jika tombol diklik, maka akan menutup activity ini
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.remove(NIP_KEY);
+                        editor.remove(ID_KEY);
+                        editor.remove(NAMA_KEY);
+                        editor.remove(PASSWORD_KEY);
+                        editor.remove(FOTO_KEY);
+                        editor.remove(KEEP_LOGIN_KEY);
+                        editor.apply();
+                        startActivity(new Intent(MainActivity.this, SplashScreen.class));
+                    }
+                }).setNegativeButton("TIDAK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
+    }
 
 }

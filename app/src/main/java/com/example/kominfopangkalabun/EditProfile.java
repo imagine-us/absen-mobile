@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,7 +18,7 @@ public class EditProfile extends AppCompatActivity {
 
     TextView namaprofile, nipprofile, passprofile;
     ImageView fotoprofil, gantifotoprofil;
-    Button btngantiprofil;
+    Button btngantiprofil, back;
     private SharedPreferences sp;
     String idprofile;
 
@@ -34,7 +35,14 @@ public class EditProfile extends AppCompatActivity {
         fotoprofil = findViewById(R.id.imageEditProfil);
         gantifotoprofil = findViewById(R.id.tombolGantiProfil);
         btngantiprofil = findViewById(R.id.saveGantiPass);
+        back = findViewById(R.id.btnBackEditProfile);
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         idprofile = this.sp.getString("key_id",null);
