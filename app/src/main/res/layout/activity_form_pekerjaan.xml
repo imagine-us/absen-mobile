@@ -68,20 +68,20 @@
             <Spinner
                 android:id="@+id/sprUraianTugas"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="50dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/example_one"
-                android:padding="10dp"
+                android:padding="0dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textColorHint="@color/abuabu"
                 android:spinnerMode="dialog"
+                android:paddingRight="50dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtUraian"
-
                 />
 
             <TextView
@@ -98,21 +98,41 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/sprUraianTugas" />
 
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="15dp"
+                android:src="@drawable/panah_bawah"
+                app:layout_constraintRight_toRightOf="@id/sprUraianTugas"
+                app:layout_constraintTop_toTopOf="@id/sprUraianTugas"
+                />
+
             <Spinner
                 android:id="@+id/sprSubUraianTugas"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="50dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/example_one"
-                android:padding="10dp"
+                android:padding="0dp"
+                android:paddingRight="50dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textColorHint="@color/abuabu"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
+                android:spinnerMode="dialog"
                 app:layout_constraintTop_toBottomOf="@+id/txtSubUraian" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="15dp"
+                android:src="@drawable/panah_bawah"
+                app:layout_constraintRight_toRightOf="@id/sprSubUraianTugas"
+                app:layout_constraintTop_toTopOf="@id/sprSubUraianTugas"
+                />
 
             <TextView
                 android:id="@+id/txtTanggalKerja"

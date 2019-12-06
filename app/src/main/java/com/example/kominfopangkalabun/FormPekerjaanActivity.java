@@ -63,9 +63,15 @@ public class FormPekerjaanActivity extends AppCompatActivity {
         mApiService = UtilsApi.getAPIService();
         this.sp = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, listUraian());
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        uraian.setAdapter(adapter);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, listUraian());
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        uraian.setAdapter(adapter);
+
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+                this,R.layout.spinner_item,listUraian()
+        );
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+        uraian.setAdapter(spinnerArrayAdapter);
 
 //        uraian.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
@@ -78,8 +84,12 @@ public class FormPekerjaanActivity extends AppCompatActivity {
         uraian.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(FormPekerjaanActivity.this, R.layout.spinner_item, listSubUraian(i));
-                subUraian.setAdapter(adapter2);
+//                ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(FormPekerjaanActivity.this, R.layout.spinner_item, listSubUraian(i));
+//                subUraian.setAdapter(adapter2);
+
+                ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<String>(FormPekerjaanActivity.this,R.layout.spinner_item,listSubUraian(i));
+                spinnerArrayAdapter2.setDropDownViewResource(R.layout.spinner_item);
+                subUraian.setAdapter(spinnerArrayAdapter2);
             }
 
             @Override
