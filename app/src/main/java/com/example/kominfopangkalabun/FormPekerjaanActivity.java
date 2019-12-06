@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,7 @@ import com.example.kominfopangkalabun.model.Pekerjaan.PekerjaanModel;
 import com.example.kominfopangkalabun.retrofit.BaseApiService;
 import com.example.kominfopangkalabun.retrofit.UtilsApi;
 
+import java.sql.Array;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -90,6 +92,36 @@ public class FormPekerjaanActivity extends AppCompatActivity {
                 ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<String>(FormPekerjaanActivity.this,R.layout.spinner_item,listSubUraian(i));
                 spinnerArrayAdapter2.setDropDownViewResource(R.layout.spinner_item);
                 subUraian.setAdapter(spinnerArrayAdapter2);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        subUraian.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String textsuburaian = subUraian.getSelectedItem().toString();
+                String maxinput = null;
+//                Log.e("textsuburaianobclcikc",textsuburaian);
+
+                String [] listwaktu = new String[]{"10","15","20","25","30","40","45","50","60"};
+                for (String s: listwaktu) {
+                    if(textsuburaian.toLowerCase().indexOf(s.toLowerCase()) != -1){
+//                        Log.e("Jumlah Max",s);
+                        maxinput = s;
+                        break;
+                    }
+                    else{
+//                        Log.e("Jumlah max :","5");
+                        maxinput = "5";
+                    }
+                }
+
+                edtDurasiKerja.setFilters(new InputFilter[]{new InputFilterMinMax("1",maxinput)});
+                edtDurasiKerja.setHint("Max Durasi : " + maxinput +" menit.");
             }
 
             @Override
@@ -219,7 +251,17 @@ public class FormPekerjaanActivity extends AppCompatActivity {
                 "Memberikan arahan staf Integrasi system & pengelolaan data statistik",
                 "Melaksanakan penyusunan bahan telaahan staf sebagai bahan pertimbangan pengambilan kebijakan",
                 "Melaksanakan pengelolaan data melalui aplikasi perangkat lunak dan sistem informasi yang terintegrasi di bidang data statistik",
-                "Melaksanakan Implementasi teknis integrasi sistem informasi dan perangkat pendukung dengan lembaga /daerah /instansi lain"};
+                "Melaksanakan Implementasi teknis integrasi sistem informasi dan perangkat pendukung dengan lembaga /daerah /instansi lain",
+                "Upacara/Apel",
+                "Melaksanakan tugas lain sesuai perintah atasan",
+                "Mendisposisi surat masuk",
+                "Menandatangani naskah dinas",
+                "Memaraf naskah dinas",
+                "Melaksanakan perjalanan dinas",
+                "Melaksanakan tugas lain",
+                "Olah raga",
+                "Gotong royong"
+        };
        return items;
     }
 
@@ -386,6 +428,8 @@ public class FormPekerjaanActivity extends AppCompatActivity {
             String[] items = new String[]{""};
             return items;
         }
+
     }
+
 
 }
