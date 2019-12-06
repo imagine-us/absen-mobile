@@ -113,7 +113,7 @@ public interface BaseApiService {
     Call<AgendaModel> insertagenda(@Field("pnsid") String pnsid,@Field("agenda") String agenda, @Field("tanggal") String Tanggal);
 
     @Multipart
-    @POST("editprofile")
+    @POST("insertfoto")
     Call<ResponseBody> postImage(@Part MultipartBody.Part image);
 
 }
