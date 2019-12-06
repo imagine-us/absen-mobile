@@ -135,6 +135,11 @@ public class GantiPasswordActivity extends AppCompatActivity {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 GantiPasswordActivity.this);
 
+        SharedPreferences.Editor editor = this.sp.edit();
+
+        editor.remove(sp.getString("key_password",null));
+        editor.putString("key_password",passBaru.getText().toString());
+
         // set title dialog
         alertDialogBuilder.setTitle("Konfirmasi");
 
@@ -157,5 +162,7 @@ public class GantiPasswordActivity extends AppCompatActivity {
         confirmPass.setText("");
         // menampilkan alert dialog
         alertDialog.show();
+
+
     }
 }
