@@ -45,7 +45,7 @@ public class FragmentMonitoringDitolak extends Fragment {
         bulan = getArguments().getString("bulan");
         idbawahan = getArguments().getString("idbawahan");
 
-        Call<PekerjaanModel> call = mApiService.requestPekerjaanHistoryStatus(idbawahan,"2",bulan);
+        Call<PekerjaanModel> call = mApiService.requestPekerjaanHistoryStatus(idbawahan,"4",bulan);
         call.enqueue(new Callback<PekerjaanModel>() {
             @Override
             public void onResponse(Call<PekerjaanModel> call, Response<PekerjaanModel> response) {

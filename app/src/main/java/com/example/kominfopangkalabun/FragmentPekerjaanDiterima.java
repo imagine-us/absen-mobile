@@ -47,7 +47,7 @@ public class FragmentPekerjaanDiterima extends Fragment {
 
         bulan = getArguments().getString("bulan");
 
-        Call<PekerjaanModel> call = mApiService.requestPekerjaanHistoryStatus(this.sp.getString("key_nip",null),"2", bulan);
+        Call<PekerjaanModel> call = mApiService.requestPekerjaanHistoryStatus(this.sp.getString("key_nip",null),"1", bulan);
         call.enqueue(new Callback<PekerjaanModel>() {
             @Override
             public void onResponse(Call<PekerjaanModel> call, Response<PekerjaanModel> response) {
