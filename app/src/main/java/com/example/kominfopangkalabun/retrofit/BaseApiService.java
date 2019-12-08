@@ -5,6 +5,7 @@ import com.example.kominfopangkalabun.model.Absensi.AbsensiModel;
 import com.example.kominfopangkalabun.model.Absensi.CekAbsensi;
 import com.example.kominfopangkalabun.model.Absensi.CekAbsensiModel;
 import com.example.kominfopangkalabun.model.Agenda.AgendaModel;
+import com.example.kominfopangkalabun.model.BasicResponseRetrofit;
 import com.example.kominfopangkalabun.model.Kegiatan.Kegiatan;
 import com.example.kominfopangkalabun.model.Kegiatan.KegiatanModel;
 import com.example.kominfopangkalabun.model.Login.GantiPass;
@@ -115,5 +116,9 @@ public interface BaseApiService {
     @Multipart
     @POST("insertfoto")
     Call<ResponseBody> postImage(@Part MultipartBody.Part image);
+
+    @FormUrlEncoded
+    @PUT("updatenamapns")
+    Call<BasicResponseRetrofit> updatenamapns(@Field("nip")String nip, @Field("nama") String nama);
 
 }

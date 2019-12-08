@@ -6,6 +6,10 @@
     <item
         android:id="@+id/editProfileMenu"
         android:title="Ganti Foto Profile"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/editNamaMenu"
+        android:title="Ganti Nama Profil"
         app:showAsAction="never"/>
 
     <item

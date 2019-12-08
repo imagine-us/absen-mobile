@@ -159,7 +159,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, EditProfile.class));
         } else if (item.getItemId() == R.id.editPasswordMenu) {
             startActivity(new Intent(this, GantiPasswordActivity.class));
-        } else if (item.getItemId() == R.id.logoutMenu) {
+        } else if(item.getItemId() == R.id.editNamaMenu){
+            startActivity(new Intent(this, GantiNamaActivity.class));
+        }else if (item.getItemId() == R.id.logoutMenu) {
             showDialogLogout();
         }
         return true;
