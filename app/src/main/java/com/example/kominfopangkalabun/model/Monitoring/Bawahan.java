@@ -10,7 +10,7 @@ public class Bawahan {
     @SerializedName("PNS_PNSNIP")
     private String nip;
 
-    @SerializedName("pns_atasan")
+    @SerializedName("PNS_PNSNAM")
     private String nama;
 
     public Bawahan(String id, String nip, String nama) {
