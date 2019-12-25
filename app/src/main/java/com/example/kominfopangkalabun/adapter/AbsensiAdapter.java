@@ -45,11 +45,20 @@ public class AbsensiAdapter extends RecyclerView.Adapter<AbsensiAdapter.MyViewHo
         holder.dateTime.setText(absensi.getTanggal()+"  "+absensi.getJam());
 //        holder.lokasi.setText(absensi.getLokasi());
         holder.longLat.setText("Long:"+absensi.getLongitude()+" Lat:"+absensi.getLatitude());
+
+        String keterangan = "";
+        if(absensi.getKeterangan().equals("D")){
+            keterangan = "Datang";
+        }
+        if(absensi.getKeterangan().equals("P")){
+            keterangan = "Pulang";
+        }
+        holder.keterangan.setText(keterangan);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), DetailAbsenActivity.class);
-                String[] detailAbsensiString = new String[] {absensi.getTanggal(), absensi.getJam(),absensi.getLongitude(),absensi.getLatitude()};
+                String[] detailAbsensiString = new String[] {absensi.getTanggal(), absensi.getJam(),absensi.getLongitude(),absensi.getLatitude(), absensi.getKeterangan()};
                 intent.putExtra("Detail", detailAbsensiString);
                 view.getContext().startActivity(intent);
             }
@@ -62,11 +71,12 @@ public class AbsensiAdapter extends RecyclerView.Adapter<AbsensiAdapter.MyViewHo
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView dateTime, lokasi, longLat;
+        TextView dateTime, lokasi, longLat, keterangan;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             dateTime = itemView.findViewById(R.id.dateTimePresensi);
+            keterangan = itemView.findViewById(R.id.keteranganPresensi);
             //lokasi = itemView.findViewById(R.id.lokasiPresensi);
             longLat = itemView.findViewById(R.id.longlatPresensi);
         }

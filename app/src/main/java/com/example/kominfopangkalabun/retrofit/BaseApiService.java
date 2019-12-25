@@ -1,12 +1,10 @@
 package com.example.kominfopangkalabun.retrofit;
 
-import com.example.kominfopangkalabun.PengaduanTanggapan;
 import com.example.kominfopangkalabun.model.Absensi.AbsensiModel;
 import com.example.kominfopangkalabun.model.Absensi.CekAbsensi;
-import com.example.kominfopangkalabun.model.Absensi.CekAbsensiModel;
+import com.example.kominfopangkalabun.model.Absensi.DoAbsensiModel;
 import com.example.kominfopangkalabun.model.Agenda.AgendaModel;
 import com.example.kominfopangkalabun.model.BasicResponseRetrofit;
-import com.example.kominfopangkalabun.model.Kegiatan.Kegiatan;
 import com.example.kominfopangkalabun.model.Kegiatan.KegiatanModel;
 import com.example.kominfopangkalabun.model.Login.GantiPass;
 import com.example.kominfopangkalabun.model.Login.Login;
@@ -14,8 +12,6 @@ import com.example.kominfopangkalabun.model.Monitoring.BawahanModel;
 import com.example.kominfopangkalabun.model.Pekerjaan.PekerjaanModel;
 import com.example.kominfopangkalabun.model.Pengaduan.PengaduanModel;
 import com.example.kominfopangkalabun.model.Pengaduan.PengaduanTanggapanModel;
-
-import java.util.List;
 
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
@@ -54,8 +50,8 @@ public interface BaseApiService {
     Call<ResponseBody> insertAbsen(@Field("statusid") String statusid,
                                    @Field("pnsid") String pnsid,
                                    @Field("latitude") String latitude,
-                                   @Field("longitude") String longitude);
-
+                                   @Field("longitude") String longitude,
+                                   @Field("keterangan") String keterangan);
 
     // Fungsi login
     @GET("login")
@@ -67,7 +63,10 @@ public interface BaseApiService {
      Call<AbsensiModel> requestAbsensiHistori(@Query("id") String id);
 
     @GET("cekabsen")
-    Call<CekAbsensiModel> requestCekAbsensi(@Query("id") String id);
+    Call<CekAbsensi> requestCekAbsensi(@Query("id") String id);
+
+    @GET("cekstatusabsen")
+    Call<DoAbsensiModel> requestCekStatusAbsensi(@Query("id") String id);
 
      //Fungsi ambil data pengaduan untuk recycle view
      @GET("pengaduan")

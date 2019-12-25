@@ -1,6 +1,5 @@
 package com.example.kominfopangkalabun;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,38 +7,32 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
 import com.example.kominfopangkalabun.model.Absensi.CekAbsensi;
-import com.example.kominfopangkalabun.model.Absensi.CekAbsensiModel;
+import com.example.kominfopangkalabun.model.Absensi.DoAbsensi;
+import com.example.kominfopangkalabun.model.Absensi.DoAbsensiModel;
 import com.example.kominfopangkalabun.retrofit.BaseApiService;
 import com.example.kominfopangkalabun.retrofit.UtilsApi;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.Calendar;
 import java.util.List;
@@ -58,7 +51,7 @@ public class FragmentPeta extends Fragment {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     Bitmap imageAbsen;
-    String statusid,tanggal, longitude, latitude, pnsid;
+    String statusid,tanggal, longitude, latitude, pnsid, keterangan;
     Calendar currentTime;
     String nip,id,nama;
     double longi, lati;
@@ -67,7 +60,7 @@ public class FragmentPeta extends Fragment {
     LocationManager locationManager;
     String provider;
     Location location;
-
+    Button datang, pulang;
 
     View v;
 
@@ -123,41 +116,84 @@ public class FragmentPeta extends Fragment {
         getChildFragmentManager().beginTransaction().replace(R.id.mapFrame, mapFragment).commit();
 
         mApiService = UtilsApi.getAPIService();
-       Button b = v.findViewById(R.id.buttonAbsensiCamera);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-           public void onClick(View v) {
+       datang = v.findViewById(R.id.buttonAbsensiCameraDatang);
+       pulang = v.findViewById(R.id.buttonAbsensiCameraPulang);
+
+       datang.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               mApiService.requestCekStatusAbsensi(id).enqueue(new Callback<DoAbsensiModel>() {
+                   @Override
+                   public void onResponse(Call<DoAbsensiModel> call, Response<DoAbsensiModel> response) {
+                       List<DoAbsensi> doAbsensiList = response.body().getDoAbsensiList();
+                       statusid = doAbsensiList.get(0).getSt_id();
+                       keterangan = "D";
+                       dispatchTakePictureIntent();
+                   }
+
+                   @Override
+                   public void onFailure(Call<DoAbsensiModel> call, Throwable t) {
+                       Toast.makeText(getContext(),"Gagal",Toast.LENGTH_SHORT).show();
+                   }
+               });
+           }
+       });
+
+       pulang.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               mApiService.requestCekStatusAbsensi(id).enqueue(new Callback<DoAbsensiModel>() {
+                   @Override
+                   public void onResponse(Call<DoAbsensiModel> call, Response<DoAbsensiModel> response) {
+                       List<DoAbsensi> doAbsensiList = response.body().getDoAbsensiList();
+                       statusid = doAbsensiList.get(0).getSt_id();
+                       keterangan = "P";
+                       dispatchTakePictureIntent();
+                   }
+
+                   @Override
+                   public void onFailure(Call<DoAbsensiModel> call, Throwable t) {
+                       Toast.makeText(getContext(),"Gagal",Toast.LENGTH_SHORT).show();
+                   }
+               });
+           }
+       });
+
+
+//        b.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//           public void onClick(View v) {
+////
+//                mApiService.requestCekAbsensi(id).enqueue(new Callback<CekAbsensiModel>() {
+//                    @Override
+//                    public void onResponse(Call<CekAbsensiModel> call, Response<CekAbsensiModel> response) {
+////
+//                        if (response.isSuccessful()) {
+//                            List<CekAbsensi> listcekabsensi = response.body().getListCekAbsensi();
+//                            String status = response.body().getStatusCekAbsensi();
 //
-                mApiService.requestCekAbsensi(id).enqueue(new Callback<CekAbsensiModel>() {
-                    @Override
-                    public void onResponse(Call<CekAbsensiModel> call, Response<CekAbsensiModel> response) {
+//                            if (status.equals("true")) {
 //
-                        if (response.isSuccessful()) {
-                            List<CekAbsensi> listcekabsensi = response.body().getListCekAbsensi();
-                            String status = response.body().getStatusCekAbsensi();
-
-                            if (status.equals("true")) {
-
-                                statusid = listcekabsensi.get(0).getStatusId();
-                                dispatchTakePictureIntent();
-                          } else{
-                                //Toast.makeText(getActivity(), "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
-                                showDialogCannot();
-                            }
-                        }
-                        else{
-                            showDialogCannot();
-                            //Toast.makeText(getActivity(), "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<CekAbsensiModel> call, Throwable t) {
-                        Toast.makeText(getActivity(),t.getMessage(),Toast.LENGTH_LONG).show();
-                    }
-                });
-            }
-        });
+//                                statusid = listcekabsensi.get(0).getStatusId();
+//                                dispatchTakePictureIntent();
+//                          } else{
+//                                //Toast.makeText(getActivity(), "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
+//                                showDialogCannot();
+//                            }
+//                        }
+//                        else{
+//                            showDialogCannot();
+//                            //Toast.makeText(getActivity(), "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<CekAbsensiModel> call, Throwable t) {
+//                        Toast.makeText(getActivity(),t.getMessage(),Toast.LENGTH_LONG).show();
+//                    }
+//                });
+//            }
+//        });
 
         return v;
     }
@@ -182,7 +218,7 @@ public class FragmentPeta extends Fragment {
 
             if(checkAWS(imageAbsen)){
                 Toast.makeText(getActivity(), ""+statusid+" "+id+" "+lati+" "+longi, Toast.LENGTH_LONG).show();
-                mApiService.insertAbsen(statusid,id,""+lati,""+longi).enqueue(new Callback<ResponseBody>() {
+                mApiService.insertAbsen(statusid,id,""+lati,""+longi,keterangan).enqueue(new Callback<ResponseBody>() {
                   @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                        // Toast.makeText(getActivity(), "Absen Sukses:" + tanggal + " - " + longi + " - " + lati, Toast.LENGTH_LONG).show();
@@ -243,7 +279,7 @@ public class FragmentPeta extends Fragment {
 
         // set pesan dari dialog
         alertDialogBuilder
-                .setMessage("Anda berhasil melakukan absensi pada hari ini.")
+                .setMessage("Anda berhasil melakukan absensi.")
                 .setIcon(R.drawable.logo)
                 .setCancelable(false)
                 .setPositiveButton("OK",new DialogInterface.OnClickListener() {
@@ -260,5 +296,58 @@ public class FragmentPeta extends Fragment {
         alertDialog.show();
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
 
+        this.sp = getActivity().getSharedPreferences("sp", Context.MODE_PRIVATE);
+        nip = this.sp.getString("key_nip",null);
+        id = this.sp.getString("key_id",null);
+        nama = this.sp.getString("key_nama",null);
+
+//        Toast.makeText(getContext(),"Pegawai id" + id,Toast.LENGTH_SHORT).show();
+
+        mApiService.requestCekAbsensi(id).enqueue(new Callback<CekAbsensi>() {
+            @Override
+            public void onResponse(Call<CekAbsensi> call, Response<CekAbsensi> response) {
+
+                if(response.body().getStatusId().equals("true")){
+                   if(response.body().getDatang().equals("0")){
+                       datang.setText("Absen Datang");
+                   }
+                   else if(response.body().getDatang().equals("1")){
+                       datang.setText("Anda Sudah Absen Datang");
+                       datang.setEnabled(false);
+                   }
+                   else if(response.body().getDatang().equals("2")){
+                       datang.setText("Tidak Ada Absen Pulang");
+                       datang.setEnabled(false);
+                   }
+
+                    if(response.body().getPulang().equals("0")){
+                        pulang.setText("Absen Pulang");
+                    }
+                    else if(response.body().getPulang().equals("1")){
+                        pulang.setText("Anda Sudah Absen Pulang");
+                        pulang.setEnabled(false);
+                    }
+                    else if(response.body().getPulang().equals("2")){
+                        pulang.setText("Tidak Ada Absen Pulang");
+                        pulang.setEnabled(false);
+                    }
+                }
+                else{
+                    datang.setText("Tidak Ada Absen Datang");
+                    pulang.setText("Tidak Ada Absen Pulang");
+                    datang.setEnabled(false);
+                    pulang.setEnabled(false);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CekAbsensi> call, Throwable t) {
+                Toast.makeText(getContext(),"Gagal",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

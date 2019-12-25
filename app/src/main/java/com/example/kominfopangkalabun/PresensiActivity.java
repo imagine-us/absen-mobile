@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,8 +17,6 @@ import com.example.kominfopangkalabun.adapter.AbsensiAdapter;
 //import com.example.kominfopangkalabun.model.Absensi;
 import com.example.kominfopangkalabun.model.Absensi.Absensi;
 import com.example.kominfopangkalabun.model.Absensi.AbsensiModel;
-import com.example.kominfopangkalabun.model.Absensi.CekAbsensi;
-import com.example.kominfopangkalabun.model.Absensi.CekAbsensiModel;
 import com.example.kominfopangkalabun.retrofit.BaseApiService;
 import com.example.kominfopangkalabun.retrofit.UtilsApi;
 import com.squareup.picasso.Picasso;
@@ -62,33 +59,34 @@ public class PresensiActivity extends AppCompatActivity {
         tambahPresensi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mApiService2.requestCekAbsensi(id).enqueue(new Callback<CekAbsensiModel>() {
-                    @Override
-                    public void onResponse(Call<CekAbsensiModel> call, Response<CekAbsensiModel> response) {
+//                mApiService2.requestCekAbsensi(id).enqueue(new Callback<CekAbsensiModel>() {
+//                    @Override
+//                    public void onResponse(Call<CekAbsensiModel> call, Response<CekAbsensiModel> response) {
+////
+//                        if (response.isSuccessful()) {
+//                            List<CekAbsensi> listcekabsensi = response.body().getListCekAbsensi();
+////                            String status = response.body().getStatusCekAbsensi();
+//                            Boolean status = true;
 //
-                        if (response.isSuccessful()) {
-                            List<CekAbsensi> listcekabsensi = response.body().getListCekAbsensi();
-                            String status = response.body().getStatusCekAbsensi();
-
-                            if (status.equals("true")) {
-                                Intent i = new Intent(PresensiActivity.this, FormAbsensiActivity.class);
-                                String statusid = listcekabsensi.get(0).getStatusId();
-                                i.putExtra("st_id", statusid);
-                                startActivity(i);
-                            } else{
-                                Toast.makeText(PresensiActivity.this, "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                        else{
-                            Toast.makeText(PresensiActivity.this, "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<CekAbsensiModel> call, Throwable t) {
-                        Toast.makeText(PresensiActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
-                    }
-                });
+//                            if (status.equals("true")) {
+//                                Intent i = new Intent(PresensiActivity.this, FormAbsensiActivity.class);
+//                                String statusid = listcekabsensi.get(0).getStatusId();
+//                                i.putExtra("st_id", statusid);
+//                                startActivity(i);
+//                            } else{
+//                                Toast.makeText(PresensiActivity.this, "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
+//                            }
+//                        }
+//                        else{
+//                            Toast.makeText(PresensiActivity.this, "Anda tidak dapat absen untuk hari ini", Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<CekAbsensiModel> call, Throwable t) {
+//                        Toast.makeText(PresensiActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
+//                    }
+//                });
 
 
             }

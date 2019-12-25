@@ -25,13 +25,17 @@ public class Absensi {
     @SerializedName("pns_id")
     private String pns_id;
 
-    public Absensi(String absenid,String tanggal, String jam, String longitude, String latitude, String pns_id) {
+    @SerializedName("ket")
+    private String keterangan;
+
+    public Absensi(String absenid,String tanggal, String jam, String longitude, String latitude, String pns_id, String keterangan) {
         this.absenid = absenid;
         this.tanggal = tanggal;
         this.jam = jam;
         this.longitude = longitude;
         this.latitude = latitude;
         this.pns_id = pns_id;
+        this.keterangan = keterangan;
     }
 
     public String getAbsenid() {
@@ -80,5 +84,13 @@ public class Absensi {
 
     public void setPns_id(String pns_id) {
         this.pns_id = pns_id;
+    }
+
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
     }
 }

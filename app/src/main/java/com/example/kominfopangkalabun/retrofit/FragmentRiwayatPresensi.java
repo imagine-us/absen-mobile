@@ -1,15 +1,12 @@
 package com.example.kominfopangkalabun.retrofit;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,16 +15,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.kominfopangkalabun.FormAbsensiActivity;
-import com.example.kominfopangkalabun.PicassoCircleTransformation;
-import com.example.kominfopangkalabun.PresensiActivity;
 import com.example.kominfopangkalabun.R;
 import com.example.kominfopangkalabun.adapter.AbsensiAdapter;
 import com.example.kominfopangkalabun.model.Absensi.Absensi;
 import com.example.kominfopangkalabun.model.Absensi.AbsensiModel;
-import com.example.kominfopangkalabun.model.Absensi.CekAbsensi;
-import com.example.kominfopangkalabun.model.Absensi.CekAbsensiModel;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 

@@ -20,7 +20,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class DetailAbsenActivity extends AppCompatActivity {
 
-    TextView waktu;
+    TextView waktu, keterangan;
     Button back;
 
     private SupportMapFragment mapFragment;
@@ -42,6 +42,17 @@ public class DetailAbsenActivity extends AppCompatActivity {
 
         waktu= findViewById(R.id.waktuDetailPresensi);
         waktu.setText(detailAbsensi[0]+"  "+detailAbsensi[1]);
+
+        keterangan = findViewById(R.id.keteranganDetailPresensi);
+
+
+        if(detailAbsensi[4].equals("D")){
+           keterangan.setText("Presensi Datang");
+        }
+        if(detailAbsensi[4].equals("P")){
+            keterangan.setText("Presensi Pulang");
+        }
+
 
         back= findViewById(R.id.btnBackDetailPresensi);
         back.setOnClickListener(new View.OnClickListener() {
