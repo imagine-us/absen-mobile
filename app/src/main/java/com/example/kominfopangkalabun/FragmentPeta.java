@@ -11,6 +11,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -128,7 +129,14 @@ public class FragmentPeta extends Fragment {
                        List<DoAbsensi> doAbsensiList = response.body().getDoAbsensiList();
                        statusid = doAbsensiList.get(0).getSt_id();
                        keterangan = "D";
-                       dispatchTakePictureIntent();
+
+                       Boolean cekRadius = checkJarak(Double.parseDouble(doAbsensiList.get(0).getSt_lang()),Double.parseDouble(doAbsensiList.get(0).getSt_long()),lati,longi);
+                       if(cekRadius){
+                           dispatchTakePictureIntent();
+                       }
+                       else{
+                           showDialogLuarJangkuan();
+                       }
                    }
 
                    @Override
@@ -148,7 +156,13 @@ public class FragmentPeta extends Fragment {
                        List<DoAbsensi> doAbsensiList = response.body().getDoAbsensiList();
                        statusid = doAbsensiList.get(0).getSt_id();
                        keterangan = "P";
-                       dispatchTakePictureIntent();
+                       Boolean cekRadius = checkJarak(Double.parseDouble(doAbsensiList.get(0).getSt_lang()),Double.parseDouble(doAbsensiList.get(0).getSt_long()),lati,longi);
+                       if(cekRadius){
+                           dispatchTakePictureIntent();
+                       }
+                       else{
+                           showDialogLuarJangkuan();
+                       }
                    }
 
                    @Override
@@ -244,16 +258,16 @@ public class FragmentPeta extends Fragment {
         return false;
     }
 
-    private void showDialogCannot(){
+    private void showDialogLuarJangkuan(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 getContext());
 
         // set title dialog
-        alertDialogBuilder.setTitle("Konfirmasi");
+        alertDialogBuilder.setTitle("Peringatan");
 
         // set pesan dari dialog
         alertDialogBuilder
-                .setMessage("Anda tidak dapat melakukan absensi pada saat ini.")
+                .setMessage("Anda berada diluar jangkauan.")
                 .setIcon(R.drawable.logo)
                 .setCancelable(false)
                 .setPositiveButton("OK",new DialogInterface.OnClickListener() {
@@ -363,8 +377,6 @@ public class FragmentPeta extends Fragment {
 
         if(distance<=150){ return true;}
         else {return false;}
-
-
     }
 
     private static Double toRad(Double value) {

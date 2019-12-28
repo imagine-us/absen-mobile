@@ -45,6 +45,12 @@ public class FragmentRiwayatPresensi extends Fragment {
         id = this.sp.getString("key_id",null);
         nama = this.sp.getString("key_nama",null);
 
+        return v;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
         mApiService = UtilsApi.getAPIService();
 
         Call<AbsensiModel> call = mApiService.requestAbsensiHistori(id);
@@ -69,9 +75,5 @@ public class FragmentRiwayatPresensi extends Fragment {
                 Log.e("debug", "onFailure: ERROR > " + t.toString());
             }
         });
-
-
-
-        return v;
     }
 }

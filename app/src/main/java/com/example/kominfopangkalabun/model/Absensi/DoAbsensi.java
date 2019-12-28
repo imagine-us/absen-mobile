@@ -13,7 +13,7 @@ public class DoAbsensi {
     @SerializedName("st_tgl")
     private String st_tgl;
 
-    @SerializedName("st_lang")
+    @SerializedName("st_lat")
     private String st_lang;
 
     @SerializedName("st_long")
