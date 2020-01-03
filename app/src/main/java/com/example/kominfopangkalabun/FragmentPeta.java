@@ -324,36 +324,43 @@ public class FragmentPeta extends Fragment {
         mApiService.requestCekAbsensi(id).enqueue(new Callback<CekAbsensi>() {
             @Override
             public void onResponse(Call<CekAbsensi> call, Response<CekAbsensi> response) {
+                if(response.isSuccessful()) {
+                    if(response.body().getStatusId().equals("true")){
+                        if(response.body().getDatang().equals("0")){
+                            datang.setText("Absen Datang");
+                        }
+                        else if(response.body().getDatang().equals("1")){
+                            datang.setText("Anda Sudah Absen Datang");
+                            datang.setEnabled(false);
+                        }
+                        else if(response.body().getDatang().equals("2")){
+                            datang.setText("Tidak Ada Absen Pulang");
+                            datang.setEnabled(false);
+                        }
 
-                if(response.body().getStatusId().equals("true")){
-                   if(response.body().getDatang().equals("0")){
-                       datang.setText("Absen Datang");
-                   }
-                   else if(response.body().getDatang().equals("1")){
-                       datang.setText("Anda Sudah Absen Datang");
-                       datang.setEnabled(false);
-                   }
-                   else if(response.body().getDatang().equals("2")){
-                       datang.setText("Tidak Ada Absen Pulang");
-                       datang.setEnabled(false);
-                   }
-
-                    if(response.body().getPulang().equals("0")){
-                        pulang.setText("Absen Pulang");
+                        if(response.body().getPulang().equals("0")){
+                            pulang.setText("Absen Pulang");
+                        }
+                        else if(response.body().getPulang().equals("1")){
+                            pulang.setText("Anda Sudah Absen Pulang");
+                            pulang.setEnabled(false);
+                        }
+                        else if(response.body().getPulang().equals("2")){
+                            pulang.setText("Tidak Ada Absen Pulang");
+                            pulang.setEnabled(false);
+                        }
                     }
-                    else if(response.body().getPulang().equals("1")){
-                        pulang.setText("Anda Sudah Absen Pulang");
-                        pulang.setEnabled(false);
-                    }
-                    else if(response.body().getPulang().equals("2")){
+                    else{
+                        datang.setText("Tidak Ada Absen Datang");
                         pulang.setText("Tidak Ada Absen Pulang");
+                        datang.setEnabled(false);
                         pulang.setEnabled(false);
                     }
                 }
                 else{
-                    datang.setText("Tidak Ada Absen Datang");
-                    pulang.setText("Tidak Ada Absen Pulang");
+                    datang.setText("Tidak Ada Absen Pulang");
                     datang.setEnabled(false);
+                    pulang.setText("Tidak Ada Absen Pulang");
                     pulang.setEnabled(false);
                 }
             }
