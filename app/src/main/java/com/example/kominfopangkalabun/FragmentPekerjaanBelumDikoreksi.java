@@ -47,6 +47,12 @@ public class FragmentPekerjaanBelumDikoreksi extends Fragment {
 
         bulan = getArguments().getString("bulan");
 
+        return v;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
         Call<PekerjaanModel> call = mApiService.requestPekerjaanHistoryStatus(this.sp.getString("key_nip",null),"0", bulan);
         call.enqueue(new Callback<PekerjaanModel>() {
             @Override
@@ -69,7 +75,5 @@ public class FragmentPekerjaanBelumDikoreksi extends Fragment {
                 Log.e("debug", "onFailure: ERROR > " + t.toString());
             }
         });
-
-        return v;
     }
 }

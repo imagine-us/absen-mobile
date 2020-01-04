@@ -50,6 +50,29 @@ public class AgendaActivity extends AppCompatActivity {
 
         mApiService = UtilsApi.getAPIService();
 
+        back=findViewById(R.id.btnBackAgenda);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AgendaActivity.this, MainActivity.class));
+            }
+        });
+
+
+
+        tambah = findViewById(R.id.iconTambahAgenda);
+        tambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),FormAgendaActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         Call<AgendaModel> call = mApiService.requestAgenda(id);
         call.enqueue(new Callback<AgendaModel>() {
             @Override
@@ -72,31 +95,5 @@ public class AgendaActivity extends AppCompatActivity {
                 Log.e("debug", "onFailure: ERROR > " + t.toString());
             }
         });
-
-
-
-
-
-        back=findViewById(R.id.btnBackAgenda);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AgendaActivity.this, MainActivity.class));
-            }
-        });
-
-
-
-        tambah = findViewById(R.id.iconTambahAgenda);
-        tambah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),FormAgendaActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-
     }
 }

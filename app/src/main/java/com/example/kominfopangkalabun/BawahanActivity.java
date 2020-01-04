@@ -53,7 +53,11 @@ public class BawahanActivity extends AppCompatActivity {
         this.sp = getSharedPreferences("sp", Context.MODE_PRIVATE);
         nip = this.sp.getString("key_nip",null);
         id = this.sp.getString("key_id",null);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
         Call<BawahanModel> call = mApiService.requestBawahan(nip);
         call.enqueue(new Callback<BawahanModel>() {
             @Override
@@ -77,8 +81,5 @@ public class BawahanActivity extends AppCompatActivity {
                 Log.e("debug", "onFailure: ERROR > " + t.toString());
             }
         });
-
-
-
     }
 }
