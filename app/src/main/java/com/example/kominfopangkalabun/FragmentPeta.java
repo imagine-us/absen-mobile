@@ -362,7 +362,7 @@ public class FragmentPeta extends Fragment {
                     }
                 }
                 else{
-                    datang.setText("Tidak Ada Absen Pulang");
+                    datang.setText("Tidak Ada Absen Datang");
                     datang.setEnabled(false);
                     pulang.setText("Tidak Ada Absen Pulang");
                     pulang.setEnabled(false);
