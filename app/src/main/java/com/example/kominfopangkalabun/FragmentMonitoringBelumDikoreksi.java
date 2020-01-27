@@ -46,6 +46,12 @@ public class FragmentMonitoringBelumDikoreksi extends Fragment {
         bulan = getArguments().getString("bulan");
         idbawahan = getArguments().getString("idbawahan");
 
+        return v;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
         Call<PekerjaanModel> call = mApiService.requestPekerjaanHistoryStatus(idbawahan,"0",bulan);
         call.enqueue(new Callback<PekerjaanModel>() {
             @Override
@@ -68,7 +74,5 @@ public class FragmentMonitoringBelumDikoreksi extends Fragment {
                 Log.e("debug", "onFailure: ERROR > " + t.toString());
             }
         });
-
-        return v;
     }
 }

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.kominfopangkalabun.adapter.AbsensiAdapter;
 import com.example.kominfopangkalabun.adapter.PengaduanAdapter;
@@ -57,18 +58,26 @@ public class PengaduanActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
-
+    @Override
+    protected void onStart() {
+        super.onStart();
         Call<PengaduanModel> call = mApiService.requestPengaduan("2");
         call.enqueue(new Callback<PengaduanModel>() {
             @Override
             public void onResponse(Call<PengaduanModel> call, Response<PengaduanModel> response) {
-                List<Pengaduan> pengaduanList = response.body().getListPengaduan();
-                recyclerView= findViewById(R.id.rvPengaduan);
-                layoutManager = new LinearLayoutManager(getApplicationContext());
-                PengaduanAdapter menuAdapter = new PengaduanAdapter(pengaduanList);
-                recyclerView.setAdapter(menuAdapter);
-                recyclerView.setLayoutManager(layoutManager);
+                if(response.isSuccessful()){
+                    List<Pengaduan> pengaduanList = response.body().getListPengaduan();
+                    recyclerView= findViewById(R.id.rvPengaduan);
+                    layoutManager = new LinearLayoutManager(getApplicationContext());
+                    PengaduanAdapter menuAdapter = new PengaduanAdapter(pengaduanList);
+                    recyclerView.setAdapter(menuAdapter);
+                    recyclerView.setLayoutManager(layoutManager);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Pengaduan Masih Kosong",Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -76,7 +85,5 @@ public class PengaduanActivity extends AppCompatActivity {
                 Log.e("debug", "onFailure: ERROR > " + t.toString());
             }
         });
-
-
     }
 }
