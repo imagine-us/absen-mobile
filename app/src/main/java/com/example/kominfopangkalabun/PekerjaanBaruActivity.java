@@ -99,11 +99,11 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
                                 startActivity(intent);
                             }
                             else{
-
+                                showDialogTidakAdaPekerjaan();
                             }
                         }
                         else{
-
+                            showDialogTidakAdaPekerjaan();
                         }
                     }
 
