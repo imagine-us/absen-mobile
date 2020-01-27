@@ -334,6 +334,7 @@ public class FragmentPeta extends Fragment {
                         else if(response.body().getDatang().equals("1")){
                             datang.setText("Anda Sudah Absen Datang");
                             datang.setEnabled(false);
+                           if(response.body().getPulang().equals("0")) pulang.setEnabled(true);
                         }
                         else if(response.body().getDatang().equals("2")){
                             datang.setText("Tidak Ada Absen Pulang");
@@ -342,6 +343,7 @@ public class FragmentPeta extends Fragment {
 
                         if(response.body().getPulang().equals("0")){
                             pulang.setText("Absen Pulang");
+                            if(response.body().getDatang().equals("0")) pulang.setEnabled(false);
                         }
                         else if(response.body().getPulang().equals("1")){
                             pulang.setText("Anda Sudah Absen Pulang");
