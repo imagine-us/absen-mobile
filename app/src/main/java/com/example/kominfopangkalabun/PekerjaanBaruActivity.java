@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -348,5 +350,31 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    private void showDialogTidakAdaPekerjaan(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                PekerjaanBaruActivity.this);
+
+        // set title dialog
+        alertDialogBuilder.setTitle("Peringatan");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+                .setMessage("Anda tidak dapat memasukkan data pekerjaan untuk hari ini.")
+                .setIcon(R.drawable.logo)
+                .setCancelable(false)
+                .setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // jika tombol diklik, maka akan menutup activity ini
+                        dialog.cancel();
+                    }
+                });
+
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
     }
 }
