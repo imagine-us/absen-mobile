@@ -26,6 +26,7 @@ public class DetailPekerjaanActivity extends AppCompatActivity {
     TextView uraian,suburaian,tanggal,waktu,durasi,judul,detail;
     Button back;
     BaseApiService mApiService;
+    String idpekerjaan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class DetailPekerjaanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_pekerjaan);
 
         Intent intent = getIntent();
-        String idpekerjaan = intent.getExtras().getString("idpekerjaan");
+        idpekerjaan = intent.getExtras().getString("idpekerjaan");
 //        Toast.makeText(getApplicationContext(),idpekerjaan,Toast.LENGTH_LONG).show();
         mApiService = UtilsApi.getAPIService();
 

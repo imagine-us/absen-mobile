@@ -50,7 +50,7 @@ public class PekerjaanAdapter extends RecyclerView.Adapter<PekerjaanAdapter.MyVi
             public void onClick(View view) {
 //                Toast.makeText(view.getContext(),pekerjaan.getId(),Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(view.getContext(), DetailPekerjaanActivity.class);
-                intent.putExtra("idpekerjaan",pekerjaan.getId());
+                intent.putExtra("idpekerjaan",pekerjaan.getPekerjaanId());
                 view.getContext().startActivity(intent);
             }
         });
