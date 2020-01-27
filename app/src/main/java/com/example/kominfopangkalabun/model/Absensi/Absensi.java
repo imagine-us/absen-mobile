@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Absensi {
 
+    //inisiasi variabel
     @SerializedName("al_id")
     private String absenid;
 
@@ -19,8 +20,6 @@ public class Absensi {
     @SerializedName("al_lat")
     private String latitude;
 
-    //yang dimaksud lokasi ini data yang mana
-    private String lokasi;
 
     @SerializedName("pns_id")
     private String pns_id;
@@ -28,6 +27,7 @@ public class Absensi {
     @SerializedName("ket")
     private String keterangan;
 
+    //constructor kelas absensi
     public Absensi(String absenid,String tanggal, String jam, String longitude, String latitude, String pns_id, String keterangan) {
         this.absenid = absenid;
         this.tanggal = tanggal;
@@ -38,6 +38,7 @@ public class Absensi {
         this.keterangan = keterangan;
     }
 
+    //method setter getter absensi
     public String getAbsenid() {
         return absenid;
     }

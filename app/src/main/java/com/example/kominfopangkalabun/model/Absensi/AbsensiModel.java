@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+//kelas untuk menerima pengembalian dari server.
+
 public class AbsensiModel {
     @SerializedName("status")
     private String status;

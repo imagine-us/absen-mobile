@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         txtNama.setText(nama);
 
         profil = findViewById(R.id.imageProfil);
-        Picasso.with(this).load(this.sp.getString("key_foto",null)).placeholder(R.drawable.icon_profile).transform(new PicassoCircleTransformation()).into(profil);
+        Picasso.with(this).load("http://tahutekno.com/ekinerja-admin/assets/img/profile/"+this.sp.getString("key_foto",null)).placeholder(R.drawable.icon_profile).transform(new PicassoCircleTransformation()).into(profil);
 
         presensi = findViewById(R.id.iconPresensi);
         presensi.setOnClickListener(new View.OnClickListener() {

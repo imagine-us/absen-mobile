@@ -2,6 +2,8 @@ package com.example.kominfopangkalabun.model.Absensi;
 
 import com.google.gson.annotations.SerializedName;
 
+//kelas untuk menerima pengembalian dari server dalam melakukan cek
+
 public class CekAbsensi {
 
     @SerializedName("status")
