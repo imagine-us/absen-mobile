@@ -16,10 +16,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kominfopangkalabun.model.Absensi.CekAbsensi;
+import com.example.kominfopangkalabun.retrofit.BaseApiService;
+import com.example.kominfopangkalabun.retrofit.UtilsApi;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PekerjaanBaruActivity extends AppCompatActivity {
 
@@ -31,12 +39,14 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
     private SharedPreferences sp;
     Bundle bd;
     int flag = 1;
+    String id;
+    BaseApiService mApiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pekerjaan_baru);
-
+        mApiService = UtilsApi.getAPIService();
         bd = new Bundle();
 //        DateFormat dateFormat = new SimpleDateFormat("MM");
 //        Date date = new Date();
@@ -70,12 +80,39 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        id = this.sp.getString("key_id",null);
         imgpekerjaantambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),FormPekerjaanActivity.class);
-                startActivity(intent);
+
+
+
+                mApiService.requestCekAbsensi(id).enqueue(new Callback<CekAbsensi>() {
+                    @Override
+                    public void onResponse(Call<CekAbsensi> call, Response<CekAbsensi> response) {
+                        if(response.isSuccessful()) {
+                            if(response.body().getStatusId().equals("true")){
+
+                                Intent intent = new Intent(getApplicationContext(),FormPekerjaanActivity.class);
+                                startActivity(intent);
+                            }
+                            else{
+
+                            }
+                        }
+                        else{
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<CekAbsensi> call, Throwable t) {
+                        Toast.makeText(PekerjaanBaruActivity.this,"Gagal",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
             }
         });
 
