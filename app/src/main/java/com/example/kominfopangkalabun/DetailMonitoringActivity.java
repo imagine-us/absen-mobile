@@ -35,6 +35,9 @@ public class DetailMonitoringActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String idpekerjaan = intent.getExtras().getString("idpekerjaan");
+        final String id = intent.getExtras().getString("id");
+        final String tipe = intent.getExtras().getString("tipepekerjaan");
+
         mApiService = UtilsApi.getAPIService();
 
         uraian = findViewById(R.id.hsilUraianTugas2);
@@ -89,10 +92,21 @@ public class DetailMonitoringActivity extends AppCompatActivity {
             }
         });
 
+        if(tipe.equals("0")){
+            terima.setVisibility(View.VISIBLE);
+            tolak.setVisibility(View.VISIBLE);
+        }
+        else{
+            terima.setVisibility(View.GONE);
+            tolak.setVisibility(View.GONE);
+        }
+
+
+
         terima.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Call<KegiatanModel> call = mApiService.updateStatusPekerjaan(idpekerjaan,"2");
+                Call<KegiatanModel> call = mApiService.updateStatusPekerjaan(id,"1");
                 call.enqueue(new Callback<KegiatanModel>() {
                     @Override
                     public void onResponse(Call<KegiatanModel> call, Response<KegiatanModel> response) {
@@ -105,13 +119,15 @@ public class DetailMonitoringActivity extends AppCompatActivity {
                         Log.e("debug", "onFailure: ERROR > " + t.toString());
                     }
                 });
+
+//                Log.e("debug", id);
             }
         });
 
         tolak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Call<KegiatanModel> call = mApiService.updateStatusPekerjaan(idpekerjaan,"1");
+                Call<KegiatanModel> call = mApiService.updateStatusPekerjaan(id,"4");
                 call.enqueue(new Callback<KegiatanModel>() {
                     @Override
                     public void onResponse(Call<KegiatanModel> call, Response<KegiatanModel> response) {

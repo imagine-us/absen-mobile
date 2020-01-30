@@ -80,6 +80,8 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
             }
         });
         id = this.sp.getString("key_id",null);
@@ -96,6 +98,7 @@ public class PekerjaanBaruActivity extends AppCompatActivity {
                             if(response.body().getStatusId().equals("true")){
 
                                 Intent intent = new Intent(getApplicationContext(),FormPekerjaanActivity.class);
+                                finish();
                                 startActivity(intent);
                             }
                             else{

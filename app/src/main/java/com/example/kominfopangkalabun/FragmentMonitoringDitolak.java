@@ -57,7 +57,7 @@ public class FragmentMonitoringDitolak extends Fragment {
             public void onResponse(Call<PekerjaanModel> call, Response<PekerjaanModel> response) {
                 if(response.isSuccessful()){
                     List<Pekerjaan> pekerjaanList = response.body().getPekerjaanModelList();
-                    recyclerView= v.findViewById(R.id.rvMonitoringDiterima);
+                    recyclerView= v.findViewById(R.id.rvMonitoringDitolak);
                     layoutManager = new LinearLayoutManager(getContext());
                     PekerjaanMonitoringAdapter menuAdapter = new PekerjaanMonitoringAdapter(pekerjaanList);
                     recyclerView.setAdapter(menuAdapter);

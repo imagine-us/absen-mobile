@@ -200,6 +200,8 @@ public class FormPekerjaanActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+                Intent intent = new Intent(getApplicationContext(),PekerjaanBaruActivity.class);
+                startActivity(intent);
             }
         });
 

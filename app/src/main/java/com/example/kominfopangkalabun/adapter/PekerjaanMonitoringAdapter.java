@@ -50,7 +50,9 @@ public class PekerjaanMonitoringAdapter extends RecyclerView.Adapter<PekerjaanMo
             public void onClick(View view) {
 //                Toast.makeText(view.getContext(),pekerjaan.getId(),Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(view.getContext(), DetailMonitoringActivity.class);
-                intent.putExtra("idpekerjaan",pekerjaan.getId());
+                intent.putExtra("tipepekerjaan", pekerjaan.getPekerjaanStatus());
+                intent.putExtra("idpekerjaan",pekerjaan.getPekerjaanId());
+                intent.putExtra("id", pekerjaan.getId());
                 view.getContext().startActivity(intent);
             }
         });
