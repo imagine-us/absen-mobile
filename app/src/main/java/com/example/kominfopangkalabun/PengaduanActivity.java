@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,12 +35,16 @@ public class PengaduanActivity extends AppCompatActivity {
     LinearLayoutManager layoutManager;
     ImageView tambahPengaduan;
     Button back;
+    String id;
+    private SharedPreferences sp;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pengaduan);
+        this.sp = this.getSharedPreferences("sp", Context.MODE_PRIVATE);
+        id = this.sp.getString("key_id",null);
 
         back = findViewById(R.id.btnBackPengaduan);
         back.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +61,7 @@ public class PengaduanActivity extends AppCompatActivity {
             public void onClick(View view) {
                 finish();
                 Intent intent = new Intent(getApplicationContext(), FormPengaduanActivity.class);
+                intent.putExtra("id",id);
                 startActivity(intent);
             }
         });
@@ -63,7 +70,7 @@ public class PengaduanActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Call<PengaduanModel> call = mApiService.requestPengaduan("2");
+        Call<PengaduanModel> call = mApiService.requestPengaduan(id);
         call.enqueue(new Callback<PengaduanModel>() {
             @Override
             public void onResponse(Call<PengaduanModel> call, Response<PengaduanModel> response) {

@@ -68,18 +68,17 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            //    if(pengaduan.getPengaduanStatus().equals("1")){
-                 //   Intent intent = new Intent(view.getContext(), PengaduanTanggapan.class);
-                  //  intent.putExtra("Id", pengaduan.getPengaduanId());
-                    // view.getContext().startActivity(intent);
-              //  }
-                //else if(pengaduan.getPengaduanStatus().equals("2")){
-                  //  Toast.makeText(view.getContext(),"Pengaduan Masih Diproses",Toast.LENGTH_SHORT).show();
-               // }
-                //else if(pengaduan.getPengaduanStatus().equals("0")){
-                  //  Toast.makeText(view.getContext(),"Pengaduan Belum Diproses",Toast.LENGTH_SHORT).show();
-               // }
-
+                if(pengaduan.getPengaduanStatus().equals("1")){
+                    Intent intent = new Intent(view.getContext(), PengaduanTanggapan.class);
+                    intent.putExtra("Id", pengaduan.getPengaduanId());
+                     view.getContext().startActivity(intent);
+                }
+                else if(pengaduan.getPengaduanStatus().equals("2")){
+                    Toast.makeText(view.getContext(),"Pengaduan Masih Diproses",Toast.LENGTH_SHORT).show();
+                }
+                else if(pengaduan.getPengaduanStatus().equals("0")){
+                    Toast.makeText(view.getContext(),"Pengaduan Belum Diproses",Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

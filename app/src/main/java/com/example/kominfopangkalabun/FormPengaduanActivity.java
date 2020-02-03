@@ -48,8 +48,10 @@ public class FormPengaduanActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String isiPengaduan = edtIsiPengaduan.getText().toString();
+
                 //seharusnya id pns
-                String noPns = "2";
+                Intent intent = getIntent();
+                final String noPns = intent.getExtras().getString("id");
 
                 Call<PengaduanModel> call = mApiService.insertPengaduan(noPns,isiPengaduan);
                 call.enqueue(new Callback<PengaduanModel>() {
