@@ -52,6 +52,34 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/tanggalagenda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal Agenda : "
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                />
+
+            <EditText
+                android:id="@+id/edtTanggalAgenda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/black"
+                android:background="@drawable/example_one"
+                app:layout_constraintTop_toBottomOf="@+id/tanggalagenda"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:focusableInTouchMode="false" />
+
+            <TextView
                 android:id="@+id/isiagenda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,9 +87,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@+id/edtTanggalAgenda"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"/>
 
             <EditText

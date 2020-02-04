@@ -103,6 +103,9 @@ public interface BaseApiService {
     @GET("agenda")
     Call<AgendaModel> requestAgenda(@Query("pnsid") String id);
 
+    @GET("agendadetail")
+    Call<AgendaModel> requestAgendaDetail(@Query("id") String id);
+
 
     @FormUrlEncoded
     @PUT("editprofile")

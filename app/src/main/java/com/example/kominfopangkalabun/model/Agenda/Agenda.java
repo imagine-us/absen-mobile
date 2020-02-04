@@ -10,7 +10,7 @@ public class Agenda {
     @SerializedName("tanggal")
     private String tanggal;
 
-    @SerializedName("isiagenda")
+    @SerializedName("agenda")
     private String isiagenda;
 
     public Agenda(String id, String tanggal, String isiagenda) {

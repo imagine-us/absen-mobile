@@ -32,7 +32,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".PengaduanActivityBaru"></activity>
+        <activity android:name=".DetailAgendaActivity"></activity>
+        <activity android:name=".PengaduanActivityBaru" />
         <activity android:name=".GantiNamaActivity" />
         <activity android:name=".GantiPasswordActivity" />
         <activity android:name=".FormAgendaActivity" />

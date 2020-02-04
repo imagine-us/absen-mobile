@@ -10,15 +10,15 @@
 
 
     <TextView
-        android:id="@+id/agendaTanggal"
+        android:id="@+id/agendaIsi"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         android:text="Subjek Pengaduan"
-        android:textSize="8sp"
+        android:textSize="10sp"
         android:textColor="@color/black"
         />
 
@@ -37,15 +37,15 @@
     <!--        />-->
 
     <TextView
-        android:id="@+id/agendaIsi"
+        android:id="@+id/agendaTanggal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/agendaTanggal"
+        app:layout_constraintTop_toBottomOf="@id/agendaIsi"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         android:text="Tanggal Pengaduan"
-        android:textSize="10sp"
+        android:textSize="8sp"
         android:textColor="@color/black"
         />
 
