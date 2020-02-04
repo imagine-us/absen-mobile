@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/putihtulang"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/kuning">
+
+            <Button
+                android:id="@+id/btnBackPengaduanBaru"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:text="Pengaduan"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:fontFamily="@font/keep"
+
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/kiriPengaduanBaru"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/kiri"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/keep"
+                android:textSize="20sp"
+                android:background="@color/putihtulang"
+                />
+            <TextView
+                android:id="@+id/bulanPengaduanBaru"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="JANUARI"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/keep"
+                android:background="@color/putihtulang"
+                />
+            <TextView
+                android:id="@+id/kananPengaduanBaru"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/kanan"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/keep"
+                android:textSize="20sp"
+                android:background="@color/putihtulang"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/daftarPengaduanBaruAll"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:background="@drawable/all_abu"
+                android:text="semua"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="8sp"
+
+
+                />
+            <Button
+                android:id="@+id/daftarPengaduanBaruSudah"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:background="@drawable/listterima_abu"
+                android:text="dibalas"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="8sp"
+                />
+            <Button
+                android:id="@+id/daftarPengaduanBaruDiproses"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:background="@drawable/tanya_abu"
+                android:text="diproses"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="8sp"
+                />
+            <Button
+                android:id="@+id/daftarPengaduanBaruBelum"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:text="belum dikoreksi"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="8sp"
+                android:background="@drawable/listtolak_abu"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/viewPengaduanBaruAll"
+                android:layout_width="0dp"
+                android:layout_height="6dp"
+                android:layout_weight="1"
+                android:background="@color/merah"
+                android:visibility="visible"
+                ></View>
+            <View
+                android:id="@+id/viewPengaduanBaruSudah"
+                android:layout_width="0dp"
+                android:layout_height="6dp"
+                android:layout_weight="1"
+                android:background="@color/merah"
+                android:visibility="invisible"
+                ></View>
+            <View
+                android:id="@+id/viewPengaduanBaruDiproses"
+                android:layout_width="0dp"
+                android:layout_height="6dp"
+                android:layout_weight="1"
+                android:background="@color/merah"
+                android:visibility="invisible"
+                ></View>
+            <View
+                android:id="@+id/viewPengaduanBaruBelum"
+                android:layout_width="0dp"
+                android:layout_height="6dp"
+                android:layout_weight="1"
+                android:background="@color/merah"
+                android:visibility="invisible"
+                ></View>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frameFragmentPengaduanBaru"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/TambahPengaduanBaru"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/pluspls"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintVertical_bias="0.98"
+        android:padding="20dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

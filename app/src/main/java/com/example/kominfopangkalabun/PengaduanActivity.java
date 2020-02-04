@@ -70,27 +70,27 @@ public class PengaduanActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Call<PengaduanModel> call = mApiService.requestPengaduan(id);
-        call.enqueue(new Callback<PengaduanModel>() {
-            @Override
-            public void onResponse(Call<PengaduanModel> call, Response<PengaduanModel> response) {
-                if(response.isSuccessful()){
-                    List<Pengaduan> pengaduanList = response.body().getListPengaduan();
-                    recyclerView= findViewById(R.id.rvPengaduan);
-                    layoutManager = new LinearLayoutManager(getApplicationContext());
-                    PengaduanAdapter menuAdapter = new PengaduanAdapter(pengaduanList);
-                    recyclerView.setAdapter(menuAdapter);
-                    recyclerView.setLayoutManager(layoutManager);
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"Pengaduan Masih Kosong",Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<PengaduanModel> call, Throwable t) {
-                Log.e("debug", "onFailure: ERROR > " + t.toString());
-            }
-        });
+//        Call<PengaduanModel> call = mApiService.requestPengaduan(id);
+//        call.enqueue(new Callback<PengaduanModel>() {
+//            @Override
+//            public void onResponse(Call<PengaduanModel> call, Response<PengaduanModel> response) {
+//                if(response.isSuccessful()){
+//                    List<Pengaduan> pengaduanList = response.body().getListPengaduan();
+//                    recyclerView= findViewById(R.id.rvPengaduan);
+//                    layoutManager = new LinearLayoutManager(getApplicationContext());
+//                    PengaduanAdapter menuAdapter = new PengaduanAdapter(pengaduanList);
+//                    recyclerView.setAdapter(menuAdapter);
+//                    recyclerView.setLayoutManager(layoutManager);
+//                }
+//                else{
+//                    Toast.makeText(getApplicationContext(),"Pengaduan Masih Kosong",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<PengaduanModel> call, Throwable t) {
+//                Log.e("debug", "onFailure: ERROR > " + t.toString());
+//            }
+//        });
     }
 }

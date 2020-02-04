@@ -70,7 +70,7 @@ public interface BaseApiService {
 
      //Fungsi ambil data pengaduan untuk recycle view
      @GET("pengaduan")
-     Call<PengaduanModel> requestPengaduan(@Query("pnsid") String id);
+     Call<PengaduanModel> requestPengaduan(@Query("pnsid") String id, @Query("bulan") String bulan);
 
     @FormUrlEncoded
     @POST("inputpengaduan")
