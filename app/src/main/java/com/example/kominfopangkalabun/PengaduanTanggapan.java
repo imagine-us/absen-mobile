@@ -25,7 +25,7 @@ import retrofit2.Response;
 public class PengaduanTanggapan extends AppCompatActivity {
 
     BaseApiService mApiService;
-    TextView tvTanggalPengaduan,tvTanggalTanggapan, tvIsiPengaduan, tvIsiTanggapan;
+    TextView tvTanggalPengaduan,tvTanggalTanggapan, tvIsiPengaduan, tvIsiTanggapan, tvSubjekTanggapan;
     Button kembaliTanggapan;
 
     @Override
@@ -38,6 +38,7 @@ public class PengaduanTanggapan extends AppCompatActivity {
         Intent intent = getIntent();
         final String idpengaduaan = intent.getStringExtra("Id");
 
+        tvSubjekTanggapan = findViewById(R.id.txtSubjekPengaduanDetailTanggapan);
         tvTanggalPengaduan = findViewById(R.id.txtTanggalPengaduanDetailTanggapan);
         tvTanggalTanggapan = findViewById(R.id.txtTanggalTanggapanDetailTanggapan);
         tvIsiPengaduan = findViewById(R.id.txtIsiPengaduanDetailTanggapan);
@@ -61,6 +62,7 @@ public class PengaduanTanggapan extends AppCompatActivity {
                   tvTanggalTanggapan.setText("Tanggal Tanggapan : " + pengaduanTanggapanClasses.get(0).getTanggalTanggapan());
                   tvIsiPengaduan.setText(pengaduanTanggapanClasses.get(0).getIsiPengaduan());
                   tvIsiTanggapan.setText(pengaduanTanggapanClasses.get(0).getIsiTanggapan());
+                  tvSubjekTanggapan.setText("Subjek : " + pengaduanTanggapanClasses.get(0).getSubjekPengaduan());
               }
               else{
                   Toast.makeText(getApplicationContext(),"Tanggapan Error",Toast.LENGTH_SHORT).show();

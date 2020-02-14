@@ -70,12 +70,12 @@ public interface BaseApiService {
 
      //Fungsi ambil data pengaduan untuk recycle view
      @GET("pengaduan")
-     Call<PengaduanModel> requestPengaduan(@Query("pnsid") String id, @Query("bulan") String bulan);
+     Call<PengaduanModel> requestPengaduan(@Query("pnsid") String id, @Query("bulan") String bulan, @Query("status") String status);
 
     @FormUrlEncoded
     @POST("inputpengaduan")
     Call<PengaduanModel> insertPengaduan(@Field("pnsid") String pnsid,
-                                   @Field("pengaduan") String pengaduan);
+                                   @Field("pengaduan") String pengaduan, @Field("subjek") String subjek);
 
     @GET("pekerjaanhist")
     Call<PekerjaanModel> requestPekerjaanHistory(@Query("nip") String nip, @Query("bulan") String bulan);
@@ -101,7 +101,7 @@ public interface BaseApiService {
     Call<BawahanModel> requestBawahan(@Query("nip") String nip);
 
     @GET("agenda")
-    Call<AgendaModel> requestAgenda(@Query("pnsid") String id);
+    Call<AgendaModel> requestAgenda(@Query("pnsid") String id, @Query("bulan") String bulan);
 
     @GET("agendadetail")
     Call<AgendaModel> requestAgendaDetail(@Query("id") String id);

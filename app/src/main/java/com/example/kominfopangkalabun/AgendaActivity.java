@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kominfopangkalabun.adapter.AgendaAdapter;
@@ -21,6 +22,7 @@ import com.example.kominfopangkalabun.model.Agenda.AgendaModel;
 import com.example.kominfopangkalabun.retrofit.BaseApiService;
 import com.example.kominfopangkalabun.retrofit.UtilsApi;
 
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,12 +38,18 @@ public class AgendaActivity extends AppCompatActivity {
     private SharedPreferences sp;
     Button back;
     ImageView tambah;
+    TextView kanan, kiri, bulan;
+    String bulanSekarang;
+    int month;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda);
 
+        month = Calendar.getInstance().get(Calendar.MONTH);
+
+        final String[] daftarBulan = {"JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"};
 
         this.sp = getSharedPreferences("sp", Context.MODE_PRIVATE);
         nip = this.sp.getString("key_nip",null);
@@ -49,6 +57,10 @@ public class AgendaActivity extends AppCompatActivity {
         nama = this.sp.getString("key_nama",null);
 
         mApiService = UtilsApi.getAPIService();
+
+        bulan = findViewById(R.id.bulanAgenda);
+        kanan = findViewById(R.id.kananAgenda);
+        kiri = findViewById(R.id.kiriAgenda);
 
         back=findViewById(R.id.btnBackAgenda);
         back.setOnClickListener(new View.OnClickListener() {
@@ -58,8 +70,6 @@ public class AgendaActivity extends AppCompatActivity {
             }
         });
 
-
-
         tambah = findViewById(R.id.iconTambahAgenda);
         tambah.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,12 +78,84 @@ public class AgendaActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        bulan.setText(daftarBulan[month]);
+
+        kanan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bulanSekarang = bulan.getText().toString();
+                int i=indexBulan(bulanSekarang);
+                if(i==11){
+                    i= 0;
+                }
+                else{
+                    i = i+1;
+                }
+                bulan.setText(daftarBulan[i]);
+                getData(String.valueOf(i+1));
+                Toast.makeText(getApplicationContext(),"Bulan"+(i+1),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        kiri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bulanSekarang = bulan.getText().toString();
+                int i=indexBulan(bulanSekarang);
+                if(i==0){
+                    i=11;
+                }
+                else{
+                    i = i - 1;
+                }
+                bulan.setText(daftarBulan[i]);
+                getData(String.valueOf(i+1));
+                Toast.makeText(getApplicationContext(),"Bulan"+ (i+1),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Call<AgendaModel> call = mApiService.requestAgenda(id);
+        getData(String.valueOf(month));
+    }
+
+    public int indexBulan(String inputBulan) {
+        switch (inputBulan) {
+            case "JANUARI":
+                return 0;
+            case "FEBRUARI":
+                return 1;
+            case "MARET":
+                return 2;
+            case "APRIL":
+                return 3;
+            case "MEI":
+                return 4;
+            case "JUNI":
+                return 5;
+            case "JULI":
+                return 6;
+            case "AGUSTUS":
+                return 7;
+            case "SEPTEMBER":
+                return 8;
+            case "OKTOBER":
+                return 9;
+            case "NOVEMBER":
+                return 10;
+            case "DESEMBER":
+                return 11;
+            default:
+                return 0;
+
+        }
+    }
+
+    public void getData(String month){
+        Call<AgendaModel> call = mApiService.requestAgenda(id, String.valueOf(month));
         call.enqueue(new Callback<AgendaModel>() {
             @Override
             public void onResponse(Call<AgendaModel> call, Response<AgendaModel> response) {
@@ -84,9 +166,10 @@ public class AgendaActivity extends AppCompatActivity {
                     AgendaAdapter menuAdapter = new AgendaAdapter(agendaList);
                     recyclerView.setAdapter(menuAdapter);
                     recyclerView.setLayoutManager(layoutManager);
+                    menuAdapter.notifyDataSetChanged();
                 }
                 else{
-                    Toast.makeText(AgendaActivity.this, "Data Kosong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AgendaActivity.this, "Tidak Ada Agenda Bulan Ini", Toast.LENGTH_SHORT).show();
                 }
             }
 

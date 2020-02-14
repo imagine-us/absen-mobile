@@ -22,7 +22,7 @@ import retrofit2.Response;
 public class FormPengaduanActivity extends AppCompatActivity {
 
     Button btnPengaduanKembali, btnPengaduanKirim;
-    EditText edtIsiPengaduan;
+    EditText edtIsiPengaduan, edtJudulPengaduan;
     BaseApiService mApiService;
     Context context;
 
@@ -32,6 +32,7 @@ public class FormPengaduanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_form_pengaduan);
 
         edtIsiPengaduan = findViewById(R.id.edtPengaduan);
+        edtJudulPengaduan =findViewById(R.id.edtSubjekPengaduan);
         btnPengaduanKembali = findViewById(R.id.btnFormPengaduanKembali);
         btnPengaduanKirim = findViewById(R.id.btnFormPengaduanKirim);
         mApiService = UtilsApi.getAPIService();
@@ -48,17 +49,18 @@ public class FormPengaduanActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String isiPengaduan = edtIsiPengaduan.getText().toString();
+                String judulPengaduan = edtJudulPengaduan.getText().toString();
 
                 //seharusnya id pns
                 Intent intent = getIntent();
                 final String noPns = intent.getExtras().getString("id");
 
-                Call<PengaduanModel> call = mApiService.insertPengaduan(noPns,isiPengaduan);
+                Call<PengaduanModel> call = mApiService.insertPengaduan(noPns,isiPengaduan, judulPengaduan);
                 call.enqueue(new Callback<PengaduanModel>() {
                     @Override
                     public void onResponse(Call<PengaduanModel> call, Response<PengaduanModel> response) {
                         Toast.makeText(context,"Pengaduan Terkirim",Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(context,PengaduanActivity.class);
+                        Intent intent = new Intent(context,PengaduanActivityBaru.class);
                         startActivity(intent);
                     }
 

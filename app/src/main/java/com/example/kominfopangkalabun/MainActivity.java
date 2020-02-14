@@ -208,4 +208,10 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+//        Toast.makeText(this,"Back ditekan",Toast.LENGTH_SHORT).show();
+        moveTaskToBack(true);
+    }
 }

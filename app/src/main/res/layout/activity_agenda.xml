@@ -36,6 +36,50 @@
                 />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/kiriAgenda"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/kiri"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/keep"
+                android:textSize="20sp"
+                android:background="@color/putihtulang"
+                />
+            <TextView
+                android:id="@+id/bulanAgenda"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="JANUARI"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/keep"
+                android:background="@color/putihtulang"
+                />
+            <TextView
+                android:id="@+id/kananAgenda"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/kanan"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="@font/keep"
+                android:textSize="20sp"
+                android:background="@color/putihtulang"
+                />
+
+        </LinearLayout>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

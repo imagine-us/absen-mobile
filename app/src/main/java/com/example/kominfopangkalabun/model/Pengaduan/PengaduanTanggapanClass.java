@@ -7,6 +7,17 @@ public class PengaduanTanggapanClass {
     @SerializedName("pengaduan")
     private String isiPengaduan;
 
+    @SerializedName("subjek")
+    private String subjekPengaduan;
+
+    public String getSubjekPengaduan() {
+        return subjekPengaduan;
+    }
+
+    public void setSubjekPengaduan(String subjekPengaduan) {
+        this.subjekPengaduan = subjekPengaduan;
+    }
+
     @SerializedName("tanggal_pengaduan")
     private String tanggalPengaduan;
 

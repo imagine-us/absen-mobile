@@ -213,6 +213,7 @@ public class PengaduanActivityBaru extends AppCompatActivity {
 
     private void pengaduanSemuaActive(){
         flag=1;
+        vwpengaduanSemua.setVisibility(View.VISIBLE);
         vwpengaduanBelum.setVisibility(View.INVISIBLE);
         vwpengaduanDiproses.setVisibility(View.INVISIBLE);
         vwpengaduanDiterima.setVisibility(View.INVISIBLE);
@@ -220,9 +221,9 @@ public class PengaduanActivityBaru extends AppCompatActivity {
         btnpengaduanDiterima.setTextColor(getResources().getColor(R.color.black));
         btnpengaduanProses.setTextColor(getResources().getColor(R.color.black));
         btnpengaduanBelum.setTextColor(getResources().getColor(R.color.black));
-        btnpengaduanSemua.setBackground(getResources().getDrawable(R.drawable.all_abu));
+        btnpengaduanSemua.setBackground(getResources().getDrawable(R.drawable.all));
         btnpengaduanDiterima.setBackground(getResources().getDrawable(R.drawable.listterima_abu));
-        btnpengaduanProses.setBackground(getResources().getDrawable(R.drawable.listtanya));
+        btnpengaduanProses.setBackground(getResources().getDrawable(R.drawable.tanya_abu));
         btnpengaduanBelum.setBackground(getResources().getDrawable(R.drawable.listtolak_abu));
         FragmentPengaduanBaruSemua fragmentPengaduanBaruSemua = new FragmentPengaduanBaruSemua();
         fragmentPengaduanBaruSemua.setArguments(bd);
@@ -231,16 +232,17 @@ public class PengaduanActivityBaru extends AppCompatActivity {
 
     private void pengaduanDiterimaActive(){
         flag=2;
+        vwpengaduanSemua.setVisibility(View.INVISIBLE);
         vwpengaduanBelum.setVisibility(View.INVISIBLE);
         vwpengaduanDiproses.setVisibility(View.INVISIBLE);
-        vwpengaduanSemua.setVisibility(View.INVISIBLE);
-        btnpengaduanSemua.setTextColor(getResources().getColor(R.color.merah));
-        btnpengaduanDiterima.setTextColor(getResources().getColor(R.color.black));
+        vwpengaduanDiterima.setVisibility(View.VISIBLE);
+        btnpengaduanSemua.setTextColor(getResources().getColor(R.color.black));
+        btnpengaduanDiterima.setTextColor(getResources().getColor(R.color.merah));
         btnpengaduanProses.setTextColor(getResources().getColor(R.color.black));
         btnpengaduanBelum.setTextColor(getResources().getColor(R.color.black));
         btnpengaduanSemua.setBackground(getResources().getDrawable(R.drawable.all_abu));
-        btnpengaduanDiterima.setBackground(getResources().getDrawable(R.drawable.listterima_abu));
-        btnpengaduanProses.setBackground(getResources().getDrawable(R.drawable.listtanya));
+        btnpengaduanDiterima.setBackground(getResources().getDrawable(R.drawable.listterima));
+        btnpengaduanProses.setBackground(getResources().getDrawable(R.drawable.tanya_abu));
         btnpengaduanBelum.setBackground(getResources().getDrawable(R.drawable.listtolak_abu));
         FragmentPengaduanBaruDiterima fpa = new FragmentPengaduanBaruDiterima();
         fpa.setArguments(bd);
@@ -249,12 +251,13 @@ public class PengaduanActivityBaru extends AppCompatActivity {
 
     private void pengaduanProsesActive(){
         flag=3;
-        vwpengaduanBelum.setVisibility(View.INVISIBLE);
-        vwpengaduanDiterima.setVisibility(View.INVISIBLE);
         vwpengaduanSemua.setVisibility(View.INVISIBLE);
-        btnpengaduanSemua.setTextColor(getResources().getColor(R.color.merah));
+        vwpengaduanBelum.setVisibility(View.INVISIBLE);
+        vwpengaduanDiproses.setVisibility(View.VISIBLE);
+        vwpengaduanDiterima.setVisibility(View.INVISIBLE);
+        btnpengaduanSemua.setTextColor(getResources().getColor(R.color.black));
         btnpengaduanDiterima.setTextColor(getResources().getColor(R.color.black));
-        btnpengaduanProses.setTextColor(getResources().getColor(R.color.black));
+        btnpengaduanProses.setTextColor(getResources().getColor(R.color.merah));
         btnpengaduanBelum.setTextColor(getResources().getColor(R.color.black));
         btnpengaduanSemua.setBackground(getResources().getDrawable(R.drawable.all_abu));
         btnpengaduanDiterima.setBackground(getResources().getDrawable(R.drawable.listterima_abu));
@@ -267,17 +270,18 @@ public class PengaduanActivityBaru extends AppCompatActivity {
 
     private void pengaduanBelumActive(){
         flag=4;
+        vwpengaduanSemua.setVisibility(View.INVISIBLE);
+        vwpengaduanBelum.setVisibility(View.VISIBLE);
         vwpengaduanDiproses.setVisibility(View.INVISIBLE);
         vwpengaduanDiterima.setVisibility(View.INVISIBLE);
-        vwpengaduanSemua.setVisibility(View.INVISIBLE);
-        btnpengaduanSemua.setTextColor(getResources().getColor(R.color.merah));
+        btnpengaduanSemua.setTextColor(getResources().getColor(R.color.black));
         btnpengaduanDiterima.setTextColor(getResources().getColor(R.color.black));
         btnpengaduanProses.setTextColor(getResources().getColor(R.color.black));
-        btnpengaduanBelum.setTextColor(getResources().getColor(R.color.black));
+        btnpengaduanBelum.setTextColor(getResources().getColor(R.color.merah));
         btnpengaduanSemua.setBackground(getResources().getDrawable(R.drawable.all_abu));
         btnpengaduanDiterima.setBackground(getResources().getDrawable(R.drawable.listterima_abu));
-        btnpengaduanProses.setBackground(getResources().getDrawable(R.drawable.listtanya));
-        btnpengaduanBelum.setBackground(getResources().getDrawable(R.drawable.listtolak_abu));
+        btnpengaduanProses.setBackground(getResources().getDrawable(R.drawable.tanya_abu));
+        btnpengaduanBelum.setBackground(getResources().getDrawable(R.drawable.listtolak));
         FragmentPengaduanBaruBelum fpa = new FragmentPengaduanBaruBelum();
         fpa.setArguments(bd);
         loadFragment(fpa);

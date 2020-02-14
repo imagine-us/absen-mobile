@@ -58,6 +58,21 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/txtSubjekPengaduanDetailTanggapan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/keep"
+                android:text="Judul :"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtTanggalPengaduanDetailTanggapan" />
+
+            <TextView
                 android:id="@+id/txtTitleIsiPengaduanDetailTanggapan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -70,7 +85,7 @@
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/txtTanggalPengaduanDetailTanggapan" />
+                app:layout_constraintTop_toTopOf="@id/txtSubjekPengaduanDetailTanggapan" />
 
             <TextView
                 android:id="@+id/txtIsiPengaduanDetailTanggapan"

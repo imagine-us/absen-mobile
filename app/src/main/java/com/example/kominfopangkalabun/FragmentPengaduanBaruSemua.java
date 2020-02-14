@@ -52,7 +52,7 @@ public class FragmentPengaduanBaruSemua extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        Call<PengaduanModel> call = mApiService.requestPengaduan(this.sp.getString("key_id",null), bulan);
+        Call<PengaduanModel> call = mApiService.requestPengaduan(this.sp.getString("key_id",null), bulan, "");
         call.enqueue(new Callback<PengaduanModel>() {
             @Override
             public void onResponse(Call<PengaduanModel> call, Response<PengaduanModel> response) {

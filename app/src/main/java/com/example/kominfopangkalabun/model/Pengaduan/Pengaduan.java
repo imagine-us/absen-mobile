@@ -10,6 +10,9 @@ public class Pengaduan {
     @SerializedName("id_user")
     private String pengaduanPnsId;
 
+    @SerializedName("subjek")
+    private String pengaduanSubjek;
+
 //    @SerializedName("unor")
 //    private String pengaduanUnor;
 
@@ -41,6 +44,14 @@ public class Pengaduan {
     public Pengaduan(String pengaduanStatus, String pengaduanTanggalPengaduan) {
         this.pengaduanStatus = pengaduanStatus;
         this.pengaduanTanggalPengaduan = pengaduanTanggalPengaduan;
+    }
+
+    public String getPengaduanSubjek() {
+        return pengaduanSubjek;
+    }
+
+    public void setPengaduanSubjek(String pengaduanSubjek) {
+        this.pengaduanSubjek = pengaduanSubjek;
     }
 
     public String getPengaduanId() {

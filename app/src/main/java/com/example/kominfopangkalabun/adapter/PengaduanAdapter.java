@@ -46,7 +46,8 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
 
         String nomorstatus = pengaduan.getPengaduanStatus();
 
-        holder.subjek.setText(pengaduan.getPengaduanIsi());
+//        holder.subjek.setText(pengaduan.getPengaduanIsi());
+        holder.subjek.setText(pengaduan.getPengaduanSubjek());
 /*
         //kurang warna tiap status
         if(nomorstatus.equals("0")){
