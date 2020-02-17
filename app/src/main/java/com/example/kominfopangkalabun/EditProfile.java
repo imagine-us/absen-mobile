@@ -87,7 +87,8 @@ public class EditProfile extends AppCompatActivity {
         idprofile = this.sp.getString("key_id", null);
         namaprofile.setText(this.sp.getString("key_nama", null));
         nipprofile.setText(this.sp.getString("key_nip", null));
-        Picasso.with(this).load(this.sp.getString("key_foto", null)).placeholder(R.drawable.icon_profile).transform(new PicassoCircleTransformation()).into(fotoprofil);
+
+        Picasso.with(this).load("http://tahutekno.com/ekinrest/foto/"+this.sp.getString("key_foto",null)).placeholder(R.drawable.icon_profile).transform(new PicassoCircleTransformation()).into(fotoprofil);
 
         gantifotoprofil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -236,13 +237,19 @@ public class EditProfile extends AppCompatActivity {
         }
         //-------------------------------
         RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), f);
-        MultipartBody.Part body = MultipartBody.Part.createFormData("upload", f.getName(), reqFile);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("proposal", f.getName(), reqFile);
 
-        Call<ResponseBody> req = mApiService.postImage(body);
+        Call<ResponseBody> req = mApiService.editfoto(body,this.sp.getString("key_id", null));
         req.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 // Do Something with response
+                if(response.isSuccessful()){
+                    Toast.makeText(getApplicationContext(), "Yup", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Nah", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override

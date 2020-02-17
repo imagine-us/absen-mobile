@@ -123,4 +123,8 @@ public interface BaseApiService {
     @PUT("updatenamapns")
     Call<BasicResponseRetrofit> updatenamapns(@Field("nip")String nip, @Field("nama") String nama);
 
+    @Multipart
+    @POST("editfoto")
+    Call<ResponseBody> editfoto(@Part MultipartBody.Part image, @Field("pnsid") String pnsid);
+
 }
