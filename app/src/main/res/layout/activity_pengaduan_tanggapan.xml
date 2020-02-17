@@ -40,7 +40,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/putihtulang">
 
             <TextView
                 android:id="@+id/txtTanggalPengaduanDetailTanggapan"
@@ -49,7 +50,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/keep"
-                android:text="Tanggal Pengaduan :"
+                android:text="Tanggal Pengaduan     :"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintHorizontal_bias="0.05"
@@ -64,7 +65,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/keep"
-                android:text="Judul :"
+                android:text="Judul                         :"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintHorizontal_bias="0.05"

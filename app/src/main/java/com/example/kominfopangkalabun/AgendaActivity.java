@@ -94,7 +94,7 @@ public class AgendaActivity extends AppCompatActivity {
                 }
                 bulan.setText(daftarBulan[i]);
                 getData(String.valueOf(i+1));
-                Toast.makeText(getApplicationContext(),"Bulan"+(i+1),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),"Bulan"+(i+1),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -111,7 +111,7 @@ public class AgendaActivity extends AppCompatActivity {
                 }
                 bulan.setText(daftarBulan[i]);
                 getData(String.valueOf(i+1));
-                Toast.makeText(getApplicationContext(),"Bulan"+ (i+1),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),"Bulan"+ (i+1),Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -119,7 +119,7 @@ public class AgendaActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        getData(String.valueOf(month));
+        getData(String.valueOf(month+1));
     }
 
     public int indexBulan(String inputBulan) {
