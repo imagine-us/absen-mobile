@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kominfopangkalabun.model.Profil.FotoModel;
 import com.example.kominfopangkalabun.retrofit.BaseApiService;
 import com.example.kominfopangkalabun.retrofit.UtilsApi;
 import com.squareup.picasso.Picasso;
@@ -80,6 +81,8 @@ public class EditProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -115,13 +118,14 @@ public class EditProfile extends AppCompatActivity {
                 final Bitmap imageBitmap = (Bitmap) extras.get("data");
                 imageAbsen = imageBitmap;
                 fotoprofil.setImageBitmap(imageAbsen);
-                try {
-                    sendImage();
-                    Toast.makeText(EditProfile.this, "Upload Foto Profile berhasil", Toast.LENGTH_SHORT).show();
-
-                } catch (Exception e) {
-                    Toast.makeText(EditProfile.this, "Upload Foto Profile Gagal, Periksa Koneksi anda.", Toast.LENGTH_SHORT).show();
-                }
+                sendImage();
+//                try {
+//                    sendImage();
+//                    Toast.makeText(EditProfile.this, "Upload Foto Profile berhasil", Toast.LENGTH_SHORT).show();
+//
+//                } catch (Exception e) {
+//                    Toast.makeText(EditProfile.this, "Upload Foto Profile Gagal, Periksa Koneksi anda.", Toast.LENGTH_SHORT).show();
+//                }
             }
         } else if (flag == 2) {
             Log.e("onActivityResult", "requestCode " + requestCode + ", resultCode " + resultCode);
@@ -165,14 +169,13 @@ public class EditProfile extends AppCompatActivity {
         //menampilkan gambar yang dipilih dari camera/gallery ke ImageView
         imageAbsen = decoded;
         fotoprofil.setImageBitmap(decoded);
-        try {
-            sendImage();
-            Toast.makeText(EditProfile.this, "Upload Foto Profile berhasil", Toast.LENGTH_SHORT).show();
-
-        } catch (Exception e) {
-            Toast.makeText(EditProfile.this, "Upload Foto Profile Gagal, Periksa Koneksi anda.", Toast.LENGTH_SHORT).show();
-        }
-
+        sendImage();
+//        try {
+//            Toast.makeText(EditProfile.this, "Upload Foto Profile berhasil", Toast.LENGTH_SHORT).show();
+//
+//        } catch (Exception e) {
+//            Toast.makeText(EditProfile.this, "Upload Foto Profile Gagal, Periksa Koneksi anda.", Toast.LENGTH_SHORT).show();
+//        }
     }
 
     private void selectImage() {
@@ -239,27 +242,36 @@ public class EditProfile extends AppCompatActivity {
         RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), f);
         MultipartBody.Part body = MultipartBody.Part.createFormData("proposal", f.getName(), reqFile);
 
-        Call<ResponseBody> req = mApiService.editfoto(body,this.sp.getString("key_id", null));
-        req.enqueue(new Callback<ResponseBody>() {
+//        Toast.makeText(getApplicationContext(), body.toString(),Toast.LENGTH_SHORT).show();
+//        Toast.makeText(EditProfile.this, f.getName(), Toast.LENGTH_SHORT).show();
+
+        RequestBody requestPnsId = RequestBody.create(MediaType.parse("multipart/form-data"), this.sp.getString("key_id", null));
+
+
+        Call<FotoModel> req = mApiService.editfoto(body, requestPnsId);
+        req.enqueue(new Callback<FotoModel>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<FotoModel> call, Response<FotoModel> response) {
                 // Do Something with response
                 if(response.isSuccessful()){
-                    Toast.makeText(getApplicationContext(), "Yup", Toast.LENGTH_SHORT).show();
+                    FotoModel fotoModel = response.body();
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.remove("key_foto");
+                    editor.putString("key_foto", fotoModel.getNama_file());
+                    editor.apply();
+                    Toast.makeText(EditProfile.this, sp.getString("Update Foto Sukses.", null), Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "Nah", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProfile.this, "Update Foto Profile Gagal, Periksa Koneksi anda.", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<FotoModel> call, Throwable t) {
                 //failure message
                 t.printStackTrace();
             }
         });
-
-
     }
 
 

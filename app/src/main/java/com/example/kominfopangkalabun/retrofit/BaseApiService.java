@@ -12,8 +12,10 @@ import com.example.kominfopangkalabun.model.Monitoring.BawahanModel;
 import com.example.kominfopangkalabun.model.Pekerjaan.PekerjaanModel;
 import com.example.kominfopangkalabun.model.Pengaduan.PengaduanModel;
 import com.example.kominfopangkalabun.model.Pengaduan.PengaduanTanggapanModel;
+import com.example.kominfopangkalabun.model.Profil.FotoModel;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -125,6 +127,6 @@ public interface BaseApiService {
 
     @Multipart
     @POST("editfoto")
-    Call<ResponseBody> editfoto(@Part MultipartBody.Part image, @Field("pnsid") String pnsid);
+    Call<FotoModel> editfoto(@Part MultipartBody.Part image, @Part("pnsid") RequestBody pnsid);
 
 }

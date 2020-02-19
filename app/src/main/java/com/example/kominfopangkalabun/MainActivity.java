@@ -162,6 +162,8 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId()==R.id.editProfileMenu){
+             //tes karena ganti foto
+            finish();
             startActivity(new Intent(this, EditProfile.class));
         } else if (item.getItemId() == R.id.editPasswordMenu) {
             startActivity(new Intent(this, GantiPasswordActivity.class));
@@ -215,8 +217,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-//        Toast.makeText(this,"Back ditekan",Toast.LENGTH_SHORT).show();
         moveTaskToBack(true);
     }
 }
