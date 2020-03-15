@@ -145,4 +145,9 @@ public class LoginActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    public void onBackPressed() {
+        finish();
+        System.exit(0);
+    }
+
 }

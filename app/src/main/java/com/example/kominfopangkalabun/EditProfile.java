@@ -221,7 +221,7 @@ public class EditProfile extends AppCompatActivity {
 //Convert bitmap to byte array
         Bitmap bitmap = imageAbsen;
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 0 /*ignored for PNG*/, bos);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50 /*ignored for PNG*/, bos);
         byte[] bitmapdata = bos.toByteArray();
 
 //write the bytes in file
@@ -259,7 +259,7 @@ public class EditProfile extends AppCompatActivity {
                     editor.remove("key_foto");
                     editor.putString("key_foto", fotoModel.getNama_file());
                     editor.apply();
-                    Toast.makeText(EditProfile.this, sp.getString("Update Foto Sukses.", null), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProfile.this,"Update Foto Berhasil.", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(EditProfile.this, "Update Foto Profile Gagal, Periksa Koneksi anda.", Toast.LENGTH_SHORT).show();

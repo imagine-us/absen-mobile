@@ -35,9 +35,17 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -232,21 +240,69 @@ public class FragmentPeta extends Fragment {
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             imageAbsen=imageBitmap;
 
+            //saya tambahin mulai sini
+            String filename = "imgPresensi"+this.sp.getString("key_nip",null)+tanggal+".JPG";
+            File f = new File(getActivity().getCacheDir(), filename);
+            try {
+                f.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            mApiService = UtilsApi.getAPIService();
+            //Convert bitmap to byte array
+            Bitmap bitmap = imageAbsen;
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 50 /*ignored for PNG*/, bos);
+            byte[] bitmapdata = bos.toByteArray();
+
+            //write the bytes in file
+            FileOutputStream fos = null;
+            try {
+                fos = new FileOutputStream(f);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            try {
+                fos.write(bitmapdata);
+                fos.flush();
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), f);
+            MultipartBody.Part body = MultipartBody.Part.createFormData("proposal", f.getName(), reqFile);
+
+            RequestBody requestPnsId = RequestBody.create(MediaType.parse("multipart/form-data"), this.sp.getString("key_id", null));
+
             if(checkAWS(imageAbsen)){
-                Toast.makeText(getActivity(), ""+statusid+" "+id+" "+lati+" "+longi, Toast.LENGTH_LONG).show();
-                mApiService.insertAbsen(statusid,id,""+lati,""+longi,keterangan).enqueue(new Callback<ResponseBody>() {
-                  @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                       // Toast.makeText(getActivity(), "Absen Sukses:" + tanggal + " - " + longi + " - " + lati, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(), ""+statusid+" "+id+" "+lati+" "+longi, Toast.LENGTH_LONG).show();
+//                mApiService.insertAbsen(statusid,id,""+lati,""+longi,keterangan).enqueue(new Callback<ResponseBody>() {
+//                  @Override
+//                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                       // Toast.makeText(getActivity(), "Absen Sukses:" + tanggal + " - " + longi + " - " + lati, Toast.LENGTH_LONG).show();
+//                        showDialogSuccsess();
+//              }
+//
+//              @Override
+//              public void onFailure(Call<ResponseBody> call, Throwable t) {
+//                        Toast.makeText(getActivity(), "Absen Gagal", Toast.LENGTH_LONG).show();
+//
+//             }
+//              });
+
+                mApiService.insertabsenwithphoto(RequestBody.create(MediaType.parse("text/plain"),statusid),RequestBody.create(MediaType.parse("text/plain"), id),RequestBody.create(MediaType.parse("text/plain"), String.valueOf(lati)),RequestBody.create(MediaType.parse("text/plain"), String.valueOf(longi)),RequestBody.create(MediaType.parse("text/plain"), keterangan),body).enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         showDialogSuccsess();
-              }
+                    }
 
-              @Override
-              public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
                         Toast.makeText(getActivity(), "Absen Gagal", Toast.LENGTH_LONG).show();
-
-             }
-              });
+                    }
+                });
             }
 
         }

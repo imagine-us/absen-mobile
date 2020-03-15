@@ -129,4 +129,12 @@ public interface BaseApiService {
     @POST("editfoto")
     Call<FotoModel> editfoto(@Part MultipartBody.Part image, @Part("pnsid") RequestBody pnsid);
 
+    @Multipart
+    @POST("insertabsenwithphoto")
+    Call<ResponseBody> insertabsenwithphoto(@Part("statusid") RequestBody statusid,
+                                         @Part("pnsid") RequestBody pnsid,
+                                         @Part("latitude") RequestBody latitude,
+                                         @Part("longitude") RequestBody longitude,
+                                         @Part("keterangan") RequestBody keterangan,
+                                         @Part MultipartBody.Part image);
 }
